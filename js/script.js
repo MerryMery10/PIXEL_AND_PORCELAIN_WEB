@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .toLowerCase();
 
 
-            // Limpiamos cualquier estado anterior
+            // Eliminamos cualquier estado anterior
 
             link.classList.remove("active");
             link.removeAttribute("aria-current");
@@ -59,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     }
+
 
 
     /* ======================================
@@ -87,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
 
-            // Abrimos o cerramos el menú
+            // Abrimos o cerramos la navegación
 
             navigation.classList.toggle("is-open", !isOpen);
 
@@ -134,26 +135,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ======================================
-    3. MODO CLARO / OSCURO
+       3. MODO CLARO / OSCURO
     ====================================== */
 
     const themeToggle = document.getElementById("themeToggle");
 
-    // Recuperar el tema guardado
+
+    // Recuperamos el tema guardado
 
     const savedTheme = localStorage.getItem("pixelTheme");
 
+
     if (savedTheme === "light") {
+
         document.body.classList.add("light-mode");
+
     }
 
-    // Actualizar el botón según el tema actual
+
+    // Actualizamos el botón
 
     function updateThemeIcon() {
 
         if (!themeToggle) return;
 
-        const isLight = document.body.classList.contains("light-mode");
+        const isLight =
+            document.body.classList.contains("light-mode");
+
 
         themeToggle.setAttribute(
             "aria-label",
@@ -162,11 +170,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-    // Inicializar icono
 
     updateThemeIcon();
 
-    // Cambiar tema al pulsar
+
+    // Cambiamos el tema al pulsar
 
     if (themeToggle) {
 
@@ -174,12 +182,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
             document.body.classList.toggle("light-mode");
 
-            const isLight = document.body.classList.contains("light-mode");
+
+            const isLight =
+                document.body.classList.contains("light-mode");
+
+
+            // Guardamos la preferencia
 
             localStorage.setItem(
                 "pixelTheme",
                 isLight ? "light" : "dark"
             );
+
 
             updateThemeIcon();
 
@@ -209,6 +223,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         categoryFilter.addEventListener("change", function () {
 
+            // Obtenemos la categoría seleccionada
+
             const selectedCategory = categoryFilter.value;
 
 
@@ -227,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
 
-            // Volvemos al inicio del carrusel
+            // Volvemos al principio del carrusel
 
             if (productsCarousel) {
 
@@ -266,6 +282,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!productsCarousel) return;
 
 
+        // Buscamos el primer producto visible
+
         const firstProduct =
             productsCarousel.querySelector(
                 ".product-card:not([hidden])"
@@ -274,6 +292,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!firstProduct) return;
 
+
+        // Calculamos el desplazamiento
 
         const productWidth =
             firstProduct.getBoundingClientRect().width;
@@ -319,7 +339,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    // Navegación con teclado
+    // Navegación mediante teclado
 
     if (productsCarousel) {
 
@@ -359,8 +379,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         newsletterForm.addEventListener("submit", function (event) {
 
+            // Evitamos que la página se recargue
+
             event.preventDefault();
 
+
+            // Mostramos el mensaje de confirmación
 
             if (formFeedback) {
 
@@ -369,6 +393,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
 
+
+            // Limpiamos el formulario
 
             newsletterForm.reset();
 
