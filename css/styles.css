@@ -398,33 +398,6 @@ button {
     display: flex;
 
     flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 20px;
-
-    border: 1px solid var(--green);
-
-    color: var(--green);
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255, 0, 161, 0.25),
-            rgba(0, 0, 0, 0.8)
-        );
-
-    box-shadow:
-        18px 18px 0 rgba(255, 0, 161, 0.3),
-        -12px -12px 0 rgba(112, 255, 13, 0.12);
-
-    font-family: var(--font-title);
-
-    text-align: center;
-
-    animation: float 5s ease-in-out infinite;
-
 }
 
 .figure-placeholder span {
@@ -473,8 +446,6 @@ button {
     transform: rotate(22deg);
 
 }
-
-
 
 
 /* ==========================================
