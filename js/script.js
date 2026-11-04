@@ -1,33 +1,79 @@
-
 /* ==========================================
    PIXEL AND PORCELAIN
    JAVASCRIPT PRINCIPAL
 ========================================== */
 
-
 document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ======================================
-       1. MENÚ HAMBURGUESA
+       1. NAVEGACIÓN Y APARTADO ACTIVO
     ====================================== */
 
     const menuToggle = document.getElementById("menuToggle");
-
     const navigation = document.getElementById("navigation");
 
+
+    if (navigation) {
+
+        // Detectamos la página actual
+
+        const currentPage = window.location.pathname
+            .split("/")
+            .pop()
+            .toLowerCase();
+
+
+        // Buscamos todos los enlaces del menú
+
+        const menuLinks = navigation.querySelectorAll("a");
+
+
+        menuLinks.forEach(function (link) {
+
+            const linkPage = link.getAttribute("href")
+                .split("/")
+                .pop()
+                .toLowerCase();
+
+
+            // Limpiamos cualquier estado anterior
+
+            link.classList.remove("active");
+            link.removeAttribute("aria-current");
+
+
+            // Marcamos únicamente la página actual
+
+            if (
+                currentPage !== "index.html" &&
+                currentPage === linkPage
+            ) {
+
+                link.classList.add("active");
+
+                link.setAttribute("aria-current", "page");
+
+            }
+
+        });
+
+    }
+
+
+    /* ======================================
+       2. MENÚ HAMBURGUESA
+    ====================================== */
 
     if (menuToggle && navigation) {
 
         menuToggle.addEventListener("click", function () {
 
-            // Comprobamos si el menú está abierto
-
             const isOpen =
                 menuToggle.getAttribute("aria-expanded") === "true";
 
 
-            // Cambiamos su estado
+            // Cambiamos el estado
 
             menuToggle.setAttribute(
                 "aria-expanded",
@@ -35,22 +81,20 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
 
-            // Actualizamos el texto accesible
-
             menuToggle.setAttribute(
                 "aria-label",
                 isOpen ? "Abrir menú" : "Cerrar menú"
             );
 
 
-            // Mostramos u ocultamos la navegación
+            // Abrimos o cerramos el menú
 
             navigation.classList.toggle("is-open", !isOpen);
 
         });
 
 
-        // Cerramos el menú al seleccionar una sección
+        // Cerramos el menú al seleccionar una página
 
         const menuLinks = navigation.querySelectorAll("a");
 
@@ -69,13 +113,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 
-        // Cerramos el menú si volvemos a escritorio
+        // Cerramos el menú al volver a escritorio
 
         window.addEventListener("resize", function () {
 
-            if (window.innerWidth > 800) {
+            if (window.innerWidth > 900) {
 
                 menuToggle.setAttribute("aria-expanded", "false");
+
+                menuToggle.setAttribute("aria-label", "Abrir menú");
 
                 navigation.classList.remove("is-open");
 
@@ -88,32 +134,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ======================================
-       2. MODO CLARO / OSCURO
+    3. MODO CLARO / OSCURO
     ====================================== */
 
     const themeToggle = document.getElementById("themeToggle");
 
+    // Recuperar el tema guardado
+
+    const savedTheme = localStorage.getItem("pixelTheme");
+
+    if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+    }
+
+    // Actualizar el botón según el tema actual
+
+    function updateThemeIcon() {
+
+        if (!themeToggle) return;
+
+        const isLight = document.body.classList.contains("light-mode");
+
+        themeToggle.setAttribute(
+            "aria-label",
+            isLight ? "Cambiar a modo oscuro" : "Cambiar a modo claro"
+        );
+
+    }
+
+    // Inicializar icono
+
+    updateThemeIcon();
+
+    // Cambiar tema al pulsar
 
     if (themeToggle) {
 
         themeToggle.addEventListener("click", function () {
 
-            // Activamos o desactivamos la clase del modo claro
-
             document.body.classList.toggle("light-mode");
 
+            const isLight = document.body.classList.contains("light-mode");
 
-            // Comprobamos el modo actual
+            localStorage.setItem(
+                "pixelTheme",
+                isLight ? "light" : "dark"
+            );
 
-            const isLight =
-                document.body.classList.contains("light-mode");
-
-
-            // Actualizamos el botón
-
-            themeToggle.textContent = isLight
-                ? "☀ MODO CLARO"
-                : "◐ MODO OSCURO";
+            updateThemeIcon();
 
         });
 
@@ -122,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ======================================
-       3. FILTRO DE PRODUCTOS
+       4. FILTRO DE PRODUCTOS
     ====================================== */
 
     const categoryFilter =
@@ -133,49 +201,45 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".product-card");
 
 
+    const productsCarousel =
+        document.getElementById("productsCarousel");
+
+
     if (categoryFilter) {
 
         categoryFilter.addEventListener("change", function () {
 
-            // Obtenemos la categoría seleccionada
-
             const selectedCategory = categoryFilter.value;
 
 
-            // Recorremos todos los productos
+            // Filtramos los productos
 
             productCards.forEach(function (card) {
 
                 const productCategory = card.dataset.category;
 
 
-                // Mostramos todos si se selecciona "all"
-
-                if (
+                card.hidden = !(
                     selectedCategory === "all" ||
                     productCategory === selectedCategory
-                ) {
-
-                    card.hidden = false;
-
-                } else {
-
-                    card.hidden = true;
-
-                }
+                );
 
             });
 
 
-            // Volvemos al principio del carrusel
+            // Volvemos al inicio del carrusel
 
-            productsCarousel.scrollTo({
+            if (productsCarousel) {
 
-                left: 0,
+                productsCarousel.scrollTo({
 
-                behavior: "smooth"
+                    left: 0,
 
-            });
+                    behavior: "smooth"
+
+                });
+
+            }
 
         });
 
@@ -184,12 +248,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ======================================
-       4. CARRUSEL DE PRODUCTOS
+       5. CARRUSEL DE PRODUCTOS
     ====================================== */
-
-    const productsCarousel =
-        document.getElementById("productsCarousel");
-
 
     const previousButton =
         document.getElementById("productsPrev");
@@ -199,14 +259,12 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("productsNext");
 
 
-    // Función para desplazar el carrusel
+    // Función para mover el carrusel
 
     function moveCarousel(direction) {
 
         if (!productsCarousel) return;
 
-
-        // Buscamos el primer producto visible
 
         const firstProduct =
             productsCarousel.querySelector(
@@ -216,8 +274,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!firstProduct) return;
 
-
-        // Calculamos cuánto debemos desplazarnos
 
         const productWidth =
             firstProduct.getBoundingClientRect().width;
@@ -263,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    // También permitimos utilizar las flechas del teclado
+    // Navegación con teclado
 
     if (productsCarousel) {
 
@@ -288,7 +344,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ======================================
-       5. FORMULARIO NEWSLETTER
+       6. FORMULARIO NEWSLETTER
     ====================================== */
 
     const newsletterForm =
@@ -303,18 +359,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
         newsletterForm.addEventListener("submit", function (event) {
 
-            // Evitamos que la página se recargue
-
             event.preventDefault();
 
 
-            // Mostramos un mensaje de confirmación
+            if (formFeedback) {
 
-            formFeedback.textContent =
-                "¡Gracias por suscribirte!";
+                formFeedback.textContent =
+                    "¡Gracias por suscribirte!";
 
+            }
 
-            // Limpiamos el formulario
 
             newsletterForm.reset();
 
@@ -325,7 +379,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ======================================
-       6. ANIMACIONES DE ENTRADA AOS
+       7. ANIMACIONES AOS
     ====================================== */
 
     if (typeof AOS !== "undefined") {
