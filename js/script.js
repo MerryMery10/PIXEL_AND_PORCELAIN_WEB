@@ -9,25 +9,52 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ======================================
-       1. MENÚ HAMBURGUESA
+       1. REFERENCIAS HTML
     ====================================== */
 
     const menuToggle = document.getElementById("menuToggle");
 
     const navigation = document.getElementById("navigation");
 
+    const themeToggle = document.getElementById("themeToggle");
+
+    const categoryFilter = document.getElementById("categoryFilter");
+
+    const productsCarousel = document.getElementById("productsCarousel");
+
+    const previousButton = document.getElementById("productsPrev");
+
+    const nextButton = document.getElementById("productsNext");
+
+    const productCards = document.querySelectorAll(".product-card");
+
+    const newsletterForm = document.getElementById("newsletterForm");
+
+    const formFeedback = document.getElementById("formFeedback");
+
+
+    /* ======================================
+       2. MENÚ HAMBURGUESA
+    ====================================== */
 
     if (menuToggle && navigation) {
 
-        menuToggle.addEventListener("click", function () {
+        function closeMenu() {
 
-            // Comprobamos si el menú está abierto
+            menuToggle.setAttribute("aria-expanded", "false");
+
+            menuToggle.setAttribute("aria-label", "Abrir menú");
+
+            navigation.classList.remove("is-open");
+
+        }
+
+
+        menuToggle.addEventListener("click", function () {
 
             const isOpen =
                 menuToggle.getAttribute("aria-expanded") === "true";
 
-
-            // Cambiamos su estado
 
             menuToggle.setAttribute(
                 "aria-expanded",
@@ -35,49 +62,35 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
 
-            // Actualizamos el texto accesible
-
             menuToggle.setAttribute(
                 "aria-label",
                 isOpen ? "Abrir menú" : "Cerrar menú"
             );
 
 
-            // Mostramos u ocultamos la navegación
-
             navigation.classList.toggle("is-open", !isOpen);
 
         });
 
 
-        // Cerramos el menú al seleccionar una sección
+        // Cerrar al seleccionar una sección
 
         const menuLinks = navigation.querySelectorAll("a");
 
         menuLinks.forEach(function (link) {
 
-            link.addEventListener("click", function () {
-
-                menuToggle.setAttribute("aria-expanded", "false");
-
-                menuToggle.setAttribute("aria-label", "Abrir menú");
-
-                navigation.classList.remove("is-open");
-
-            });
+            link.addEventListener("click", closeMenu);
 
         });
 
 
-        // Cerramos el menú si volvemos a escritorio
+        // Cerrar al cambiar a escritorio
 
         window.addEventListener("resize", function () {
 
-            if (window.innerWidth > 800) {
+            if (window.innerWidth >= 768) {
 
-                menuToggle.setAttribute("aria-expanded", "false");
-
-                navigation.classList.remove("is-open");
+                closeMenu();
 
             }
 
@@ -88,28 +101,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ======================================
-       2. MODO CLARO / OSCURO
+       3. MODO CLARO / OSCURO
     ====================================== */
-
-    const themeToggle = document.getElementById("themeToggle");
-
 
     if (themeToggle) {
 
         themeToggle.addEventListener("click", function () {
 
-            // Activamos o desactivamos la clase del modo claro
-
             document.body.classList.toggle("light-mode");
 
-
-            // Comprobamos el modo actual
 
             const isLight =
                 document.body.classList.contains("light-mode");
 
-
-            // Actualizamos el botón
 
             themeToggle.textContent = isLight
                 ? "☀ MODO CLARO"
@@ -122,52 +126,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ======================================
-       3. FILTRO DE PRODUCTOS
+       4. FILTRO DE PRODUCTOS
     ====================================== */
 
-    const categoryFilter =
-        document.getElementById("categoryFilter");
-
-
-    const productCards =
-        document.querySelectorAll(".product-card");
-
-
-    if (categoryFilter) {
+    if (categoryFilter && productsCarousel) {
 
         categoryFilter.addEventListener("change", function () {
 
-            // Obtenemos la categoría seleccionada
-
             const selectedCategory = categoryFilter.value;
 
-
-            // Recorremos todos los productos
 
             productCards.forEach(function (card) {
 
                 const productCategory = card.dataset.category;
 
 
-                // Mostramos todos si se selecciona "all"
-
-                if (
+                const isVisible =
                     selectedCategory === "all" ||
-                    productCategory === selectedCategory
-                ) {
+                    productCategory === selectedCategory;
 
-                    card.hidden = false;
 
-                } else {
-
-                    card.hidden = true;
-
-                }
+                card.hidden = !isVisible;
 
             });
 
 
-            // Volvemos al principio del carrusel
+            // Volver al principio del carrusel
 
             productsCarousel.scrollTo({
 
@@ -184,98 +168,98 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ======================================
-       4. CARRUSEL DE PRODUCTOS
+       5. CARRUSEL DE PRODUCTOS
     ====================================== */
 
-    const productsCarousel =
-        document.getElementById("productsCarousel");
-
-
-    const previousButton =
-        document.getElementById("productsPrev");
-
-
-    const nextButton =
-        document.getElementById("productsNext");
-
-
-    // Función para desplazar el carrusel
-
-    function moveCarousel(direction) {
-
-        if (!productsCarousel) return;
-
-
-        // Buscamos el primer producto visible
-
-        const firstProduct =
-            productsCarousel.querySelector(
-                ".product-card:not([hidden])"
-            );
-
-
-        if (!firstProduct) return;
-
-
-        // Calculamos cuánto debemos desplazarnos
-
-        const productWidth =
-            firstProduct.getBoundingClientRect().width;
-
-
-        const gap = 16;
-
-
-        productsCarousel.scrollBy({
-
-            left: direction * (productWidth + gap),
-
-            behavior: "smooth"
-
-        });
-
-    }
-
-
-    // Botón anterior
-
-    if (previousButton) {
-
-        previousButton.addEventListener("click", function () {
-
-            moveCarousel(-1);
-
-        });
-
-    }
-
-
-    // Botón siguiente
-
-    if (nextButton) {
-
-        nextButton.addEventListener("click", function () {
-
-            moveCarousel(1);
-
-        });
-
-    }
-
-
-    // También permitimos utilizar las flechas del teclado
-
     if (productsCarousel) {
+
+        // Permitimos el acceso mediante teclado
+
+        productsCarousel.setAttribute("tabindex", "0");
+
+
+        function moveCarousel(direction) {
+
+            const firstProduct =
+                productsCarousel.querySelector(
+                    ".product-card:not([hidden])"
+                );
+
+
+            if (!firstProduct) return;
+
+
+            // Ancho real de la tarjeta
+
+            const productWidth =
+                firstProduct.getBoundingClientRect().width;
+
+
+            // Espacio real entre tarjetas
+
+            const carouselStyles =
+                window.getComputedStyle(productsCarousel);
+
+
+            const gap =
+                parseFloat(carouselStyles.columnGap) || 0;
+
+
+            // Desplazamiento
+
+            productsCarousel.scrollBy({
+
+                left: direction * (productWidth + gap),
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+
+        // BOTÓN ANTERIOR
+
+        if (previousButton) {
+
+            previousButton.addEventListener("click", function () {
+
+                moveCarousel(-1);
+
+            });
+
+        }
+
+
+        // BOTÓN SIGUIENTE
+
+        if (nextButton) {
+
+            nextButton.addEventListener("click", function () {
+
+                moveCarousel(1);
+
+            });
+
+        }
+
+
+        // NAVEGACIÓN CON TECLADO
 
         productsCarousel.addEventListener("keydown", function (event) {
 
             if (event.key === "ArrowRight") {
 
+                event.preventDefault();
+
                 moveCarousel(1);
 
             }
 
+
             if (event.key === "ArrowLeft") {
+
+                event.preventDefault();
 
                 moveCarousel(-1);
 
@@ -288,27 +272,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ======================================
-       5. FORMULARIO NEWSLETTER
+       6. FORMULARIO NEWSLETTER
     ====================================== */
 
-    const newsletterForm =
-        document.getElementById("newsletterForm");
-
-
-    const formFeedback =
-        document.getElementById("formFeedback");
-
-
-    if (newsletterForm) {
+    if (newsletterForm && formFeedback) {
 
         newsletterForm.addEventListener("submit", function (event) {
 
-            // Evitamos que la página se recargue
+            // Evitamos recargar la página
 
             event.preventDefault();
 
 
-            // Mostramos un mensaje de confirmación
+            // Validamos el formulario
+
+            if (!newsletterForm.checkValidity()) {
+
+                newsletterForm.reportValidity();
+
+                return;
+
+            }
+
+
+            // Mensaje de confirmación visual
 
             formFeedback.textContent =
                 "¡Gracias por suscribirte!";
@@ -325,10 +312,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ======================================
-       6. ANIMACIONES DE ENTRADA AOS
+       7. ANIMACIONES AOS
     ====================================== */
 
     if (typeof AOS !== "undefined") {
+
+        const prefersReducedMotion = window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
 
         AOS.init({
 
@@ -338,9 +330,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             offset: 70,
 
-            disable: window.matchMedia(
-                "(prefers-reduced-motion: reduce)"
-            ).matches
+            disable: prefersReducedMotion
 
         });
 

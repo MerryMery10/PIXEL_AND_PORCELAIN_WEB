@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,33 +15,35 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Dela+Gothic+One&display=swap" rel="stylesheet">
 
-    <!-- TAILWIND CSS -->
+    <!-- TAILWIND CSS 4 -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- CSS PROPIO -->
     <link rel="stylesheet" href="css/styles.css">
 
-    <!-- AOS: ANIMACIONES AL HACER SCROLL -->
+    <!-- AOS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
 </head>
 
-<body>
+<body class="min-h-screen overflow-x-hidden">
 
     <!-- ================= HEADER ================= -->
 
-    <header class="header" id="inicio">
+    <header class="header sticky top-0 z-[1000] w-full" id="inicio">
 
-        <div class="header-container">
+        <div class="header-container mx-auto flex w-[92%] max-w-[1440px] min-h-[76px] items-center justify-between">
 
             <a href="#inicio" class="logo">
                 PIXEL AND
                 <span>PORCELAIN</span>
             </a>
 
-            <!-- BOTÓN MENÚ MÓVIL -->
+            <!-- MENÚ MÓVIL -->
 
-            <button class="menu-toggle" id="menuToggle"
+            <button
+                class="menu-toggle md:hidden flex flex-col items-center justify-center gap-[5px] w-11 h-11 p-2.5"
+                id="menuToggle"
                 aria-label="Abrir menú"
                 aria-expanded="false"
                 aria-controls="navigation">
@@ -53,15 +56,17 @@
 
             <!-- NAVEGACIÓN -->
 
-            <nav class="navigation" id="navigation">
+            <nav
+                class="navigation absolute md:static top-full left-0 right-0 flex flex-col md:flex-row items-stretch md:items-center gap-0 md:gap-[35px] px-[5%] md:px-0"
+                id="navigation">
 
                 <a href="#novedades">Novedades</a>
                 <a href="#eventos">Eventos</a>
                 <a href="#productos">Productos</a>
                 <a href="#footer">Contacto</a>
 
-                <button class="theme-toggle" id="themeToggle">
-                    ◐ MODO
+                <button class="theme-toggle self-start md:self-auto mt-4 md:mt-0" id="themeToggle">
+                    ◐ MODO OSCURO
                 </button>
 
             </nav>
@@ -75,15 +80,17 @@
 
         <!-- ================= HOME / HERO ================= -->
 
-        <section class="hero" id="home">
+        <section
+            class="hero relative flex min-h-[calc(100svh-76px)] flex-col justify-center overflow-hidden"
+            id="home">
 
-            <div class="hero-background"></div>
+            <div class="hero-background absolute inset-0 pointer-events-none"></div>
 
-            <div class="hero-container">
+            <div class="hero-container relative z-10 mx-auto grid w-[92%] max-w-[1440px] grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] items-center gap-5 lg:gap-10 py-12 lg:py-[60px]">
 
-                <!-- TEXTO: PRINCIPAL -->
+                <!-- TEXTO -->
 
-                <div class="hero-content" data-aos="fade-right">
+                <div class="hero-content text-center lg:text-left" data-aos="fade-right">
 
                     <p class="eyebrow">
                         TU NUEVO PUNTO DE ENCUENTRO FRIKI
@@ -95,12 +102,12 @@
                         PORCELAIN
                     </h1>
 
-                    <p class="hero-description">
+                    <p class="hero-description mx-auto lg:mx-0">
                         Manga, cómics, figuras y objetos para quienes
                         viven entre universos. Encuentra tu próxima obsesión.
                     </p>
 
-                    <div class="hero-buttons">
+                    <div class="hero-buttons flex flex-wrap justify-center lg:justify-start gap-[15px]">
 
                         <a href="#productos" class="button button-green">
                             VER PRODUCTOS
@@ -115,9 +122,9 @@
                 </div>
 
 
-                <!-- ESPACIO PARA LA FIGURA 3D -->
+                <!-- FIGURA 3D -->
 
-                <div class="hero-3d" data-aos="zoom-in">
+                <div class="hero-3d relative flex min-h-[280px] lg:min-h-[450px] items-center justify-center" data-aos="zoom-in">
 
                     <div class="orbit orbit-one"></div>
                     <div class="orbit orbit-two"></div>
@@ -127,6 +134,7 @@
                     <div class="figure-placeholder">
 
                         <span>✳</span>
+
                         FIGURA 3D
 
                         <small>
@@ -135,12 +143,9 @@
 
                     </div>
 
+                    <!-- MODEL VIEWER -->
+
                     <!--
-                    CUANDO TENGÁIS EL MODELO 3D:
-
-                    Descomentad el siguiente componente
-                    y eliminad el placeholder anterior.
-
                     <model-viewer
                         src="assets/models/personaje.glb"
                         alt="Figura coleccionable 3D"
@@ -152,7 +157,6 @@
                         interaction-prompt="auto"
                         touch-action="pan-y">
                     </model-viewer>
-
                     -->
 
                 </div>
@@ -162,7 +166,7 @@
 
             <!-- CINTA INFERIOR -->
 
-            <div class="hero-marquee">
+            <div class="hero-marquee relative z-10 flex flex-wrap justify-around items-center gap-3 p-[15px]">
 
                 <span>MANGA</span>
                 <span>✳</span>
@@ -184,9 +188,9 @@
 
         <!-- ================= ÚLTIMAS NOVEDADES ================= -->
 
-        <section class="section news-section" id="novedades">
+        <section class="section news-section px-[4%] md:px-[5%] lg:px-[max(5%,calc((100vw-1440px)/2))] py-[70px] lg:py-[100px]" id="novedades">
 
-            <div class="section-title" data-aos="fade-up">
+            <div class="section-title mb-10 lg:mb-[45px]" data-aos="fade-up">
 
                 <p class="eyebrow">NO TE QUEDES FUERA</p>
 
@@ -200,9 +204,9 @@
 
             <!-- PASARELA DE NOTICIAS -->
 
-            <div class="news-track">
+            <div class="news-track flex min-h-[390px] gap-[10px] overflow-x-auto snap-x snap-mandatory md:overflow-visible md:snap-none">
 
-                <article class="news-card">
+                <article class="news-card relative flex-1 min-w-[82%] md:min-w-0 snap-center">
 
                     <div class="news-image">
                         <span>IMAGEN NOTICIA 01</span>
@@ -226,7 +230,7 @@
                 </article>
 
 
-                <article class="news-card">
+                <article class="news-card relative flex-1 min-w-[82%] md:min-w-0 snap-center">
 
                     <div class="news-image">
                         <span>IMAGEN NOTICIA 02</span>
@@ -250,7 +254,7 @@
                 </article>
 
 
-                <article class="news-card">
+                <article class="news-card relative flex-1 min-w-[82%] md:min-w-0 snap-center">
 
                     <div class="news-image">
                         <span>IMAGEN NOTICIA 03</span>
@@ -274,7 +278,7 @@
                 </article>
 
 
-                <article class="news-card">
+                <article class="news-card relative flex-1 min-w-[82%] md:min-w-0 snap-center">
 
                     <div class="news-image">
                         <span>IMAGEN NOTICIA 04</span>
@@ -304,9 +308,9 @@
 
         <!-- ================= EVENTOS Y ANUNCIOS ================= -->
 
-        <section class="section events-section" id="eventos">
+        <section class="section events-section px-[4%] md:px-[5%] lg:px-[max(5%,calc((100vw-1440px)/2))] py-[70px] lg:py-[100px]" id="eventos">
 
-            <div class="section-title" data-aos="fade-up">
+            <div class="section-title mb-10 lg:mb-[45px]" data-aos="fade-up">
 
                 <p class="eyebrow">
                     ENCUENTROS · ACTIVIDADES · COMUNIDAD
@@ -320,14 +324,13 @@
             </div>
 
 
-            <div class="events-container">
-
+            <div class="events-container border-t">
 
                 <!-- EVENTO 1 -->
 
-                <article class="event-row" data-aos="fade-up">
+                <article class="event-row grid grid-cols-1 md:grid-cols-[0.75fr_1.25fr] items-stretch gap-4 md:gap-[5%] py-5" data-aos="fade-up">
 
-                    <div class="event-content">
+                    <div class="event-content self-center">
 
                         <small>EVENTO 01 / COMUNIDAD</small>
 
@@ -342,7 +345,7 @@
 
                     </div>
 
-                    <div class="event-image">
+                    <div class="event-image min-h-[220px] md:min-h-[240px] grid place-items-center">
                         <span>IMAGEN EVENTO 01</span>
                     </div>
 
@@ -351,9 +354,9 @@
 
                 <!-- EVENTO 2 -->
 
-                <article class="event-row reverse" data-aos="fade-up">
+                <article class="event-row reverse grid grid-cols-1 md:grid-cols-[1.25fr_0.75fr] items-stretch gap-4 md:gap-[5%] py-5" data-aos="fade-up">
 
-                    <div class="event-content">
+                    <div class="event-content self-center md:order-2">
 
                         <small>EVENTO 02 / ACTIVIDAD</small>
 
@@ -368,7 +371,7 @@
 
                     </div>
 
-                    <div class="event-image">
+                    <div class="event-image min-h-[220px] md:min-h-[240px] grid place-items-center md:order-1">
                         <span>IMAGEN EVENTO 02</span>
                     </div>
 
@@ -377,9 +380,9 @@
 
                 <!-- ANUNCIO 3 -->
 
-                <article class="event-row" data-aos="fade-up">
+                <article class="event-row grid grid-cols-1 md:grid-cols-[0.75fr_1.25fr] items-stretch gap-4 md:gap-[5%] py-5" data-aos="fade-up">
 
-                    <div class="event-content">
+                    <div class="event-content self-center">
 
                         <small>ANUNCIO 03 / LANZAMIENTO</small>
 
@@ -394,7 +397,7 @@
 
                     </div>
 
-                    <div class="event-image">
+                    <div class="event-image min-h-[220px] md:min-h-[240px] grid place-items-center">
                         <span>IMAGEN ANUNCIO 03</span>
                     </div>
 
@@ -407,9 +410,9 @@
 
         <!-- ================= PRODUCTOS ================= -->
 
-        <section class="section products-section" id="productos">
+        <section class="section products-section px-[4%] md:px-[5%] lg:px-[max(5%,calc((100vw-1440px)/2))] py-[70px] lg:py-[100px]" id="productos">
 
-            <div class="section-title" data-aos="fade-up">
+            <div class="section-title mb-10 lg:mb-[45px]" data-aos="fade-up">
 
                 <p class="eyebrow">
                     ENCUENTRA TU PRÓXIMA PIEZA
@@ -426,9 +429,9 @@
 
             <!-- FILTROS Y FLECHAS -->
 
-            <div class="products-toolbar">
+            <div class="products-toolbar flex flex-col min-[421px]:flex-row justify-between items-stretch min-[421px]:items-center gap-5 mb-[25px]">
 
-                <div class="category-selector">
+                <div class="category-selector relative w-full min-[421px]:max-w-[430px]">
 
                     <label for="categoryFilter" class="sr-only">
                         Seleccionar categoría
@@ -436,28 +439,17 @@
 
                     <select id="categoryFilter">
 
-                        <option value="all">
-                            TODAS LAS CATEGORÍAS
-                        </option>
-
-                        <option value="figuras">
-                            FIGURAS DE ACCIÓN
-                        </option>
-
-                        <option value="laminas">
-                            LÁMINAS Y POSTERS
-                        </option>
-
-                        <option value="merch">
-                            MERCHANDISING
-                        </option>
+                        <option value="all">TODAS LAS CATEGORÍAS</option>
+                        <option value="figuras">FIGURAS DE ACCIÓN</option>
+                        <option value="laminas">LÁMINAS Y POSTERS</option>
+                        <option value="merch">MERCHANDISING</option>
 
                     </select>
 
                 </div>
 
 
-                <div class="carousel-controls">
+                <div class="carousel-controls flex gap-[10px] justify-end">
 
                     <button id="productsPrev" aria-label="Productos anteriores">
                         ←
@@ -474,14 +466,14 @@
 
             <!-- CARRUSEL -->
 
-            <div class="products-carousel" id="productsCarousel">
+            <div class="products-carousel grid grid-flow-col auto-cols-[78%] sm:auto-cols-[45%] lg:auto-cols-[27%] gap-4 overflow-x-auto snap-x snap-mandatory overscroll-x-contain" id="productsCarousel">
 
 
                 <!-- PRODUCTO 1 -->
 
-                <article class="product-card" data-category="figuras">
+                <article class="product-card min-w-0 snap-start" data-category="figuras">
 
-                    <div class="product-image">
+                    <div class="product-image relative grid place-items-center">
                         <span>IMAGEN PRODUCTO 01</span>
                         <b>FIGURA</b>
                     </div>
@@ -503,9 +495,9 @@
 
                 <!-- PRODUCTO 2 -->
 
-                <article class="product-card" data-category="laminas">
+                <article class="product-card min-w-0 snap-start" data-category="laminas">
 
-                    <div class="product-image">
+                    <div class="product-image relative grid place-items-center">
                         <span>IMAGEN PRODUCTO 02</span>
                         <b>POSTER</b>
                     </div>
@@ -527,9 +519,9 @@
 
                 <!-- PRODUCTO 3 -->
 
-                <article class="product-card" data-category="merch">
+                <article class="product-card min-w-0 snap-start" data-category="merch">
 
-                    <div class="product-image">
+                    <div class="product-image relative grid place-items-center">
                         <span>IMAGEN PRODUCTO 03</span>
                         <b>MERCH</b>
                     </div>
@@ -551,9 +543,9 @@
 
                 <!-- PRODUCTO 4 -->
 
-                <article class="product-card" data-category="figuras">
+                <article class="product-card min-w-0 snap-start" data-category="figuras">
 
-                    <div class="product-image">
+                    <div class="product-image relative grid place-items-center">
                         <span>IMAGEN PRODUCTO 04</span>
                         <b>FIGURA</b>
                     </div>
@@ -575,9 +567,9 @@
 
                 <!-- PRODUCTO 5 -->
 
-                <article class="product-card" data-category="laminas">
+                <article class="product-card min-w-0 snap-start" data-category="laminas">
 
-                    <div class="product-image">
+                    <div class="product-image relative grid place-items-center">
                         <span>IMAGEN PRODUCTO 05</span>
                         <b>POSTER</b>
                     </div>
@@ -599,9 +591,9 @@
 
                 <!-- PRODUCTO 6 -->
 
-                <article class="product-card" data-category="merch">
+                <article class="product-card min-w-0 snap-start" data-category="merch">
 
-                    <div class="product-image">
+                    <div class="product-image relative grid place-items-center">
                         <span>IMAGEN PRODUCTO 06</span>
                         <b>MERCH</b>
                     </div>
@@ -622,7 +614,7 @@
 
             </div>
 
-            <p class="carousel-hint">
+            <p class="carousel-hint mt-5 text-right">
                 DESLIZA PARA EXPLORAR →
             </p>
 
@@ -633,10 +625,9 @@
 
     <!-- ================= FOOTER ================= -->
 
-    <footer class="footer" id="footer">
+    <footer class="footer relative px-[5%] pt-[60px] pb-5" id="footer">
 
-        <div class="footer-container">
-
+        <div class="footer-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[0.8fr_0.8fr_1.4fr] gap-[30px] pb-[50px]">
 
             <a href="#inicio" class="logo footer-logo">
                 PIXEL AND
@@ -644,7 +635,9 @@
             </a>
 
 
-            <div class="footer-links">
+            <!-- ENLACES -->
+
+            <div class="footer-links flex flex-col gap-[15px]">
 
                 <a href="#">Política de privacidad</a>
                 <a href="#">Términos de uso</a>
@@ -655,19 +648,20 @@
 
             <!-- NEWSLETTER -->
 
-            <form class="newsletter" id="newsletterForm">
+            <form class="newsletter flex flex-col gap-3 md:col-span-2 lg:col-span-1" id="newsletterForm">
 
                 <label for="newsletterEmail">
                     SUSCRÍBETE PARA NO PERDERTE NADA
                 </label>
 
-                <div class="newsletter-input">
+                <div class="newsletter-input flex flex-col sm:flex-row gap-2">
 
                     <input
                         type="email"
                         id="newsletterEmail"
                         placeholder="Tu correo electrónico"
                         required
+                        class="min-w-0 flex-1"
                     >
 
                     <button type="submit" class="button button-green">
@@ -683,7 +677,9 @@
         </div>
 
 
-        <div class="footer-bottom">
+        <!-- PIE INFERIOR -->
+
+        <div class="footer-bottom flex flex-col sm:flex-row justify-between gap-4 pt-5">
 
             <span>© 2026 PIXEL AND PORCELAIN</span>
 
@@ -700,7 +696,7 @@
     </footer>
 
 
-    <!-- LIBRERÍA MODEL VIEWER PARA LOS MODELOS 3D -->
+    <!-- MODEL VIEWER -->
 
     <script type="module"
         src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js">
