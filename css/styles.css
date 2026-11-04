@@ -378,45 +378,6 @@ button {
 }
 
 
-/* FIGURA 3D */
-
-.hero-3d {
-
-    perspective: 900px;
-
-}
-
-
-/* PLACEHOLDER TEMPORAL */
-
-.figure-placeholder {
-
-    width: min(300px, 75%);
-
-    aspect-ratio: 0.78;
-
-    display: flex;
-
-    flex-direction: column;
-}
-
-.figure-placeholder span {
-
-    font-size: 4rem;
-
-    color: var(--magenta);
-
-}
-
-.figure-placeholder small {
-
-    font-size: 0.5rem;
-
-    color: white;
-
-}
-
-
 /* ELEMENTOS ORBITALES */
 
 .orbit {
@@ -446,17 +407,15 @@ button {
     transform: rotate(22deg);
 
 }
-
-
-/* ==========================================
-   FIGURA 3D - SKETCHFAB
-========================================== */
-
+.hero-3d {
+    perspective: 900px;
+}
 
 .sketchfab-container {
     position: relative;
     width: 100%;
-    aspect-ratio: 4 / 5;
+    height: 100%;
+    min-height: inherit;
     overflow: hidden;
     background: transparent;
     border: none;
@@ -471,16 +430,14 @@ button {
     height: 100%;
     border: none;
     background: transparent;
-    filter: none;
 }
-
 
 /* INDICADOR INFERIOR */
 
 .hero-3d-label {
     color: var(--green);
     font-family: var(--font-title);
-    font-size: 0.45rem;
+    font-size: 1rem;
     letter-spacing: 2px;
     white-space: nowrap;
 
@@ -488,30 +445,6 @@ button {
 
     pointer-events: none;
 }
-
-/* RESPONSIVE */
-
-@media (max-width: 800px) {
-    .sketchfab-container {
-        max-width: 420px;
-    }
-
-    .hero-3d-label {
-        font-size: 0.4rem;
-    }
-}
-
-@media (max-width: 420px) {
-    .sketchfab-container {
-        max-width: 310px;
-    }
-
-    .hero-3d-label {
-        font-size: 0.35rem;
-        letter-spacing: 1px;
-    }
-}
-
 
 
 /* CINTA INFERIOR */
@@ -525,24 +458,6 @@ button {
     font-family: var(--font-title);
 
     font-size: 0.7rem;
-
-}
-
-
-/* INDICADOR SCROLL */
-
-.scroll-indicator {
-
-    position: absolute;
-
-    bottom: 75px;
-    right: 30px;
-
-    color: var(--green);
-
-    font-size: 0.6rem;
-
-    writing-mode: vertical-rl;
 
 }
 
