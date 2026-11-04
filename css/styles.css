@@ -67,6 +67,49 @@ button {
    2. HEADER Y NAVEGACIÓN
 ========================================== */
 
+@layer components {
+
+  /* Cabecera fija arriba en todas las páginas */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  /* Contenedor del logo */
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;            /* que no se encoja al lado del menú */
+  }
+
+  /* Tamaño del logo */
+  .logo-img {
+    display: block;
+    height: 48px;              /* ajusta a tu gusto */
+    width: auto;               /* mantiene la proporción */
+    transition: transform 0.2s ease;
+  }
+
+  /* Pequeño efecto al pasar el ratón o con el teclado */
+  .logo:hover .logo-img,
+  .logo:focus-visible .logo-img {
+    transform: scale(1.06) rotate(-2deg);
+  }
+
+  /* En móvil, un poco más pequeño */
+  @media (max-width: 640px) {
+    .logo-img {
+      height: 36px;
+    }
+  }
+
+  /* Logo del footer más grande */
+  .footer-logo .logo-img {
+    height: 80px;
+  }
+}
+
 .header {
 
     position: sticky;

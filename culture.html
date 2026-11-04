@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pixel and Porcelain: manga, cómics, figuras y coleccionismo.">
+
+    <title>Comic</title>
+
+    <!-- TIPOGRAFÍAS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Dela+Gothic+One&display=swap" rel="stylesheet">
+
+    <!-- TAILWIND CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- CSS PROPIO -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- AOS: ANIMACIONES AL HACER SCROLL -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header" id="inicio">
+
+        <div class="header-container">
+
+            <a href="index.html" class="logo" aria-label="Pixel and Porcelain, volver a la página principal">
+                <img src="media/img/logo pixel and porcelain blanco.png" alt="Pixel and Porcelain" class="logo-img">
+            </a>
+
+            <!-- BOTÓN MENÚ MÓVIL -->
+
+            <button class="menu-toggle" id="menuToggle"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                aria-controls="navigation">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+            <!-- NAVEGACIÓN -->
+
+            <nav class="navigation" id="navigation">
+
+                <a href="index.html">home</a>
+                <a href="superheroes.html">superheroes</a>
+                <a href="comic.html">comic</a>
+                <a href="manga.html">manga</a>
+                <a href="culture.html">culture</a>
+                <a href="blog.html">blog</a>
+
+                <button class="theme-toggle" id="themeToggle" type="button">
+                    ◐ MODO
+                </button>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer" id="footer">
+
+        <div class="footer-container">
+
+
+            <a href="index.html" class="logo footer-logo" aria-label="Pixel and Porcelain, volver a la página principal">
+                <img src="media/img/logo pixel and porcelain blanco.png" alt="Pixel and Porcelain" class="logo-img">
+            </a>
+
+
+            <div class="footer-links">
+
+                <a href="#">Política de privacidad</a>
+                <a href="#">Términos de uso</a>
+                <a href="#">Cookies</a>
+
+            </div>
+
+
+            <!-- NEWSLETTER -->
+
+            <form class="newsletter" id="newsletterForm">
+
+                <label for="newsletterEmail">
+                    SUSCRÍBETE PARA NO PERDERTE NADA
+                </label>
+
+                <div class="newsletter-input">
+
+                    <input
+                        type="email"
+                        id="newsletterEmail"
+                        placeholder="Tu correo electrónico"
+                        required
+                    >
+
+                    <button type="submit" class="button button-green">
+                        UNIRME
+                    </button>
+
+                </div>
+
+                <small id="formFeedback" aria-live="polite"></small>
+
+            </form>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>© 2026 PIXEL AND PORCELAIN</span>
+
+            <a href="mailto:hola@pixelandporcelain.com">
+                CONTACTO
+            </a>
+
+            <a href="#inicio">
+                VOLVER ARRIBA ↑
+            </a>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- LIBRERÍA MODEL VIEWER PARA LOS MODELOS 3D -->
+
+    <script type="module"
+        src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js">
+    </script>
+
+
+    <!-- AOS -->
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+
+    <!-- JAVASCRIPT PROPIO -->
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
