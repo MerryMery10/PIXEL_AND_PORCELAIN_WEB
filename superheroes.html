@@ -38,7 +38,7 @@
 
     </head>
 
-    <body class="min-h-screen overflow-x-hidden bg-tinta font-sans text-papel antialiased">
+    <body id="inicio" clas="min-h-screen overflow-x-hidden bg-tinta font-sans text-papel antialiased">
 
     <!-- ================= HEADER ================= -->
 
@@ -47,8 +47,11 @@
             <div class="header-container mx-auto flex w-[92%] max-w-[1440px] min-h-[76px] items-center justify-between">
 
                 <a href="index.html" class="logo">
-                    PIXEL AND
-                    <span>PORCELAIN</span>
+                    <!-- Logo modo oscuro (normal) -->
+                    <img src="media/img/logo pixel and porcelain blanco.png" alt="Pixel and Porcelain" class="logo-dark">
+
+                    <!-- Logo modo claro -->
+                    <img src="media/img/logo pixel and porcelain negro.png" alt="Pixel and Porcelain" class="logo-light">
                 </a>
 
                 <!-- MENÚ MÓVIL -->
@@ -72,10 +75,10 @@
                     class="navigation absolute md:static top-full left-0 right-0 flex flex-col md:flex-row items-stretch md:items-center gap-0 md:gap-[35px] px-[5%] md:px-0"
                     id="navigation">
 
-                    <a href="superheroes.html">SUPERHEROES</a>
-                    <a href="comic.html">COMIC</a>
+                    <a href="superheroes.html">SUPERHÉROES</a>
+                    <a href="comic.html">CÓMIC</a>
                     <a href="manga.html">MANGA</a>
-                    <a href="culture.html">CULTURE</a>
+                    <a href="culture.html">CULTURA</a>
                     <a href="blog.html">BLOG</a>
 
                     <button class="theme-toggle self-start md:self-auto mt-4 md:mt-0" id="themeToggle">
@@ -158,7 +161,7 @@
 
                     <a
                     href="#productos"
-                    class="inline-flex min-h-11 items-center bg-blanco px-6 py-3 text-[11px] font-bold uppercase tracking-wider text-tinta transition hover:-translate-y-1 hover:bg-neon"
+                    class="inline-flex min-h-11 items-center bg-lima px-6 py-3 text-[11px] font-bold uppercase tracking-wider text-tinta transition hover:-translate-y-1 hover:bg-neon hover:text-papel"
                     >
                     <span>Explorar universos</span>
                     </a>
@@ -166,7 +169,7 @@
 
                     <a
                     href="#lanzamientos"
-                    class="skew-button inline-flex min-h-11 items-center bg-papel px-6 py-3 text-[11px] font-bold uppercase tracking-wider text-tinta transition hover:-translate-y-1 hover:bg-neon"
+                    class="skew-button inline-flex min-h-11 items-center bg-lima px-6 py-3 text-[11px] font-bold uppercase tracking-wider text-tinta transition hover:-translate-y-1 hover:bg-neon hover:text-papel"
                     >
                     <span>Lanzamientos</span>
                     </a>
@@ -836,9 +839,15 @@
         >
 
             <img
-            src="media/img/logo pixel and porcelain blanco.png"
-            alt="Pixel and Porcelain"
-            class="h-12 w-auto object-contain"
+                src="media/img/logo pixel and porcelain blanco.png"
+                alt="Pixel and Porcelain"
+                class="footer-logo-dark h-12 w-auto object-contain"
+            >
+
+            <img
+                src="media/img/logo pixel and porcelain negro.png"
+                alt="Pixel and Porcelain"
+                class="footer-logo-light h-12 w-auto object-contain"
             >
 
         </a>
@@ -902,7 +911,7 @@
 
         <!-- PIE INFERIOR -->
 
-        <div class="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-papel/15 pt-5 text-[10px] uppercase tracking-wider text-papel/60 sm:flex-row sm:items-center sm:justify-between">
+        <div class="footer-bottom-text mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-papel/15 pt-5 text-[10px] uppercase tracking-wider text-papel/60 sm:flex-row sm:items-center sm:justify-between">
 
         <span>
             © 2026 Pixel and Porcelain
