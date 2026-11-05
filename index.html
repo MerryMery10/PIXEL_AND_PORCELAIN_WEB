@@ -618,75 +618,106 @@
 
         <!-- ================= FOOTER ================= -->
 
-        <footer class="footer relative px-[5%] pt-[60px] pb-5" id="footer">
+        <footer
+            class="site-footer border-t border-papel/15 bg-tinta px-4 py-12 sm:px-6 lg:px-8"
+        >
 
-            <div class="footer-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[0.8fr_0.8fr_1.4fr] gap-[30px] pb-[50px]">
+            <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-3 md:items-start">
 
-                <a href="index.html" class="logo">
-                    <!-- Logo modo oscuro (normal) -->
-                    <img src="media/img/logo pixel and porcelain blanco.png" alt="Pixel and Porcelain" class="logo-dark">
+            <!-- LOGO -->
 
-                    <!-- Logo modo claro -->
-                    <img src="media/img/logo pixel and porcelain negro.png" alt="Pixel and Porcelain" class="logo-light">
-                </a>
+            <a
+                href="index.html"
+                class="inline-flex"
+                aria-label="Pixel and Porcelain, volver al inicio"
+            >
+
+                <img
+                    src="media/img/logo pixel and porcelain blanco.png"
+                    alt="Pixel and Porcelain"
+                    class="footer-logo-dark h-12 w-auto object-contain"
+                >
+
+                <img
+                    src="media/img/logo pixel and porcelain negro.png"
+                    alt="Pixel and Porcelain"
+                    class="footer-logo-light h-12 w-auto object-contain"
+                >
+
+            </a>
 
 
-                <!-- ENLACES -->
+            <!-- ENLACES -->
 
-                <div class="footer-links flex flex-col gap-[15px]">
+            <nav
+                class="footer-links flex flex-wrap gap-x-6 gap-y-3 text-xs"
+                aria-label="Enlaces legales"
+            >
 
-                    <a href="#">Política de privacidad</a>
-                    <a href="#">Términos de uso</a>
-                    <a href="#">Cookies</a>
+                <a href="#">Política de privacidad</a>
+                <a href="#">Términos de uso</a>
+                <a href="#">Cookies</a>
+
+            </nav>
+
+
+            <!-- NEWSLETTER -->
+
+            <form id="newsletterForm" class="newsletter-form">
+
+                <label
+                for="newsletterEmail"
+                class="mb-3 block text-[10px] font-bold uppercase tracking-wider"
+                >
+                Suscríbete para no perderte nada
+                </label>
+
+                <div class="flex flex-col gap-2 sm:flex-row">
+
+                <input
+                    id="newsletterEmail"
+                    name="email"
+                    type="email"
+                    placeholder="Tu correo electrónico"
+                    required
+                    class="min-h-11 min-w-0 flex-1 border border-papel/40 bg-transparent px-3 text-sm text-papel outline-none focus:border-lima"
+                >
+
+                <button
+                    type="submit"
+                    class="min-h-11 bg-lima px-5 text-xs font-bold uppercase text-tinta transition hover:bg-neon"
+                >
+                    Unirme
+                </button>
 
                 </div>
 
+                <small
+                id="formFeedback"
+                class="mt-2 block text-xs text-lima"
+                aria-live="polite"
+                ></small>
 
-                <!-- NEWSLETTER -->
-
-                <form class="newsletter flex flex-col gap-3 md:col-span-2 lg:col-span-1" id="newsletterForm">
-
-                    <label for="newsletterEmail">
-                        SUSCRÍBETE PARA NO PERDERTE NADA
-                    </label>
-
-                    <div class="newsletter-input flex flex-col sm:flex-row gap-2">
-
-                        <input
-                            type="email"
-                            id="newsletterEmail"
-                            placeholder="Tu correo electrónico"
-                            required
-                            class="min-w-0 flex-1"
-                        >
-
-                        <button type="submit" class="button button-green">
-                            UNIRME
-                        </button>
-
-                    </div>
-
-                    <small id="formFeedback" aria-live="polite"></small>
-
-                </form>
+            </form>
 
             </div>
 
-        </article>
 
             <!-- PIE INFERIOR -->
 
-            <div class="footer-bottom flex flex-col sm:flex-row justify-between gap-4 pt-5">
+            <div class="footer-bottom-text mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-papel/15 pt-5 text-[10px] uppercase tracking-wider text-papel/60 sm:flex-row sm:items-center sm:justify-between">
 
-                <span>© 2026 PIXEL AND PORCELAIN</span>
+            <span>
+                © 2026 Pixel and Porcelain
+            </span>
 
-                <a href="mailto:hola@pixelandporcelain.com">
-                    CONTACTO
-                </a>
+            <a href="mailto:hola@pixelandporcelain.com">
+                Contacto
+            </a>
 
-                <a href="#inicio">
-                    VOLVER ARRIBA ↑
-                </a>
+            <a href="#inicio">
+                Volver arriba ↑
+            </a>
 
             </div>
 
@@ -703,10 +734,6 @@
         <!-- AOS -->
 
         <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
-            <div class="event-image min-h-[220px] md:min-h-[240px] grid place-items-center">
-                <span>IMAGEN EVENTO 01</span>
-            </div>
 
         <!-- JAVASCRIPT PROPIO -->
 
