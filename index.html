@@ -28,666 +28,682 @@
 
 <body class="min-h-screen overflow-x-hidden">
 
-    <!-- ================= HEADER ================= -->
+<!-- ================= HEADER ================= -->
 
-    <header class="header sticky top-0 z-[1000] w-full" id="inicio">
+<header class="header sticky top-0 z-[1000] w-full" id="inicio">
 
-        <div class="header-container mx-auto flex w-[92%] max-w-[1440px] min-h-[76px] items-center justify-between">
+    <div class="header-container mx-auto flex w-[92%] max-w-[1440px] min-h-[76px] items-center justify-between">
 
-            <a href="#inicio" class="logo">
-                PIXEL AND
-                <span>PORCELAIN</span>
-            </a>
+        <a href="#inicio" class="logo">
+                    PIXEL AND
+                    <span>PORCELAIN</span>
+        </a>
 
-            <!-- MENÚ MÓVIL -->
+<!-- MENÚ MÓVIL -->
 
-            <button
-                class="menu-toggle md:hidden flex flex-col items-center justify-center gap-[5px] w-11 h-11 p-2.5"
-                id="menuToggle"
-                aria-label="Abrir menú"
-                aria-expanded="false"
-                aria-controls="navigation">
+        <button
+            class="menu-toggle md:hidden flex flex-col items-center justify-center gap-[5px] w-11 h-11 p-2.5"
+            id="menuToggle"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="navigation">
 
-                <span></span>
-                <span></span>
-                <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
 
+        </button>
+
+<!-- NAVEGACIÓN -->
+
+        <nav
+            class="navigation absolute md:static top-full left-0 right-0 flex flex-col md:flex-row items-stretch md:items-center gap-0 md:gap-[35px] px-[5%] md:px-0"
+            id="navigation">
+
+            <a href="#novedades">Novedades</a>
+            <a href="#eventos">Eventos</a>
+            <a href="#productos">Productos</a>
+            <a href="#footer">Contacto</a>
+
+            <button class="theme-toggle self-start md:self-auto mt-4 md:mt-0" id="themeToggle">
+                ◐ MODO OSCURO
             </button>
 
-            <!-- NAVEGACIÓN -->
+        </nav>
 
-            <nav
-                class="navigation absolute md:static top-full left-0 right-0 flex flex-col md:flex-row items-stretch md:items-center gap-0 md:gap-[35px] px-[5%] md:px-0"
-                id="navigation">
+    </div>
 
-                <a href="#novedades">Novedades</a>
-                <a href="#eventos">Eventos</a>
-                <a href="#productos">Productos</a>
-                <a href="#footer">Contacto</a>
+</header>
 
-                <button class="theme-toggle self-start md:self-auto mt-4 md:mt-0" id="themeToggle">
-                    ◐ MODO OSCURO
-                </button>
 
-            </nav>
+<main>
+
+    <!-- ================= HOME / HERO ================= -->
+
+<section class="hero relative flex min-h-0 flex-col justify-center overflow-hidden" id="home">
+
+    <div class="hero-background absolute inset-0 pointer-events-none"></div>
+
+    <div class="hero-container relative z-10 mx-auto grid w-[92%] max-w-[1700px] grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] items-center gap-5 lg:gap-10 py-16 lg:py-30">
+
+    <!-- TEXTO -->
+
+    <div class="hero-content text-center lg:text-center" data-aos="fade-right">
+
+        <p class="eyebrow">
+            TU NUEVO PUNTO DE ENCUENTRO FRIKI
+        </p>
+
+        <h1>
+            PIXEL
+            <span>AND</span>
+            PORCELAIN
+        </h1>
+
+        <p class="hero-description mx-auto lg:mx-0">
+            Manga, cómics, figuras y objetos para quienes
+            viven entre universos. Encuentra tu próxima obsesión.
+        </p>
+
+        <div class="hero-buttons flex flex-wrap justify-center lg:justify-start gap-[15px]">
+
+            <a href="#productos" class="button button-green">
+                VER PRODUCTOS
+            </a>
+
+            <a href="#novedades" class="button button-pink">
+                ÚLTIMAS NOVEDADES
+            </a>
 
         </div>
 
-    </header>
-
-
-    <main>
-
-        <!-- ================= HOME / HERO ================= -->
-
-        <section
-            class="hero relative flex min-h-0 flex-col justify-center overflow-hidden" id="home">
-
-            <div class="hero-background absolute inset-0 pointer-events-none"></div>
-
-            <div class="hero-container relative z-10 mx-auto grid w-[92%] max-w-[1700px] grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] items-center gap-5 lg:gap-10 py-16 lg:py-30">
-
-                <!-- TEXTO -->
-
-                <div class="hero-content text-center lg:text-center" data-aos="fade-right">
-
-                    <p class="eyebrow">
-                        TU NUEVO PUNTO DE ENCUENTRO FRIKI
-                    </p>
-
-                    <h1>
-                        PIXEL
-                        <span>AND</span>
-                        PORCELAIN
-                    </h1>
-
-                    <p class="hero-description mx-auto lg:mx-0">
-                        Manga, cómics, figuras y objetos para quienes
-                        viven entre universos. Encuentra tu próxima obsesión.
-                    </p>
-
-                    <div class="hero-buttons flex flex-wrap justify-center lg:justify-start gap-[15px]">
-
-                        <a href="#productos" class="button button-green">
-                            VER PRODUCTOS
-                        </a>
-
-                        <a href="#novedades" class="button button-pink">
-                            ÚLTIMAS NOVEDADES
-                        </a>
-
-                    </div>
-
-                </div>
+    </div>
    
 
-        <!-- FIGURA 3D / SKETCHFAB -->
+    <!-- FIGURA 3D / SKETCHFAB -->
 
-        <div class="hero-3d relative flex min-h-[420px] lg:min-h-[480px] w-full items-center justify-center" data-aos="zoom-in">
+    <div class="hero-3d relative flex min-h-[420px] lg:min-h-[480px] w-full items-center justify-center" data-aos="zoom-in">
 
-            <!-- ÓRBITAS DECORATIVAS -->
-            <div class="orbit orbit-one"></div>
-            <div class="orbit orbit-two"></div>
+        <!-- ÓRBITAS DECORATIVAS -->
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
 
-            <!-- VISOR 3D -->
-        <div class="sketchfab-container relative z-10 w-full">
-            
-                <iframe
-                    title="Hatsune Miku - Modelo 3D"
-                    src="https://sketchfab.com/models/e8a9450e265e466ab856e3e8f8d529a0/embed?autostart=1&autospin=0.2&transparent=1&ui_infos=0&ui_controls=0&ui_watermark=0&ui_hint=0">
-                </iframe>
-
-            </div>
-
-            <!-- INDICADOR DECORATIVO -->
-            <span class="hero-3d-label absolute bottom-4 left-1/2 -translate-x-1/2 z-20">
-                3D MODEL / INTERACTIVE FIGURE
-            </span>
+        <!-- VISOR 3D -->
+    <div class="sketchfab-container relative z-10 w-full">
+        
+            <iframe
+                title="Hatsune Miku - Modelo 3D"
+                src="https://sketchfab.com/models/e8a9450e265e466ab856e3e8f8d529a0/embed?autostart=1&autospin=0.2&transparent=1&ui_infos=0&ui_controls=0&ui_watermark=0&ui_hint=0">
+            </iframe>
 
         </div>
 
-        </section>
+        <!-- INDICADOR DECORATIVO -->
+        <span class="hero-3d-label absolute bottom-4 left-1/2 -translate-x-1/2 z-20">
+            3D MODEL / INTERACTIVE FIGURE
+        </span>
 
-        <!-- CINTA INFERIOR -->
+    </div>
 
-            <div class="hero-marquee relative z-10 flex flex-wrap justify-around items-center gap-3 p-[15px]">
+</section>
 
-                <span>MANGA</span>
-                <span>✳</span>
-                <span>CÓMIC</span>
-                <span>✳</span>
-                <span>COLLECTIBLES</span>
-                <span>✳</span>
-                <span>POP CULTURE</span>
+<!-- CINTA INFERIOR / MARQUEE -->
 
+<div class="hero-marquee relative z-10 overflow-hidden py-[15px]">
+
+    <div class="marquee-track flex w-max items-center">
+
+            <!-- PRIMERA SECUENCIA -->
+
+        <div class="marquee-content flex shrink-0 items-center gap-8">
+            <span>MANGA</span>
+            <span>✳</span>
+            <span>CÓMIC</span>
+            <span>✳</span>
+            <span>COLLECTIBLES</span>
+            <span>✳</span>
+            <span>POP CULTURE</span>
+            <span>✳</span>
+            <span>MANGA</span>
+            <span>✳</span>
+            <span>CÓMIC</span>
+            <span>✳</span>
+            <span>COLLECTIBLES</span>
+            <span>✳</span>
+            <span>POP CULTURE</span>
+            <span>✳</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= ÚLTIMAS NOVEDADES ================= -->
+
+<section class="section news-section px-[4%] md:px-[5%] lg:px-[max(5%,calc((100vw-1440px)/2))] py-[70px] lg:py-[100px]" id="novedades">
+
+    <div class="section-title mb-10 lg:mb-[45px]" data-aos="fade-up">
+
+        <p class="eyebrow pb-3 lg:pb-8">NO TE QUEDES FUERA</p>
+
+        <h2>
+         ÚLTIMAS
+        <span>NOVEDADES</span>
+        </h2>
+
+    </div>
+
+
+ <!-- PASARELA DE NOTICIAS -->
+
+    <div class="news-track flex min-h-[390px] gap-[10px] overflow-x-auto snap-x snap-mandatory md:overflow-visible md:snap-none">
+
+        <article class="news-card relative flex-1 min-w-[82%] md:min-w-0 snap-center">
+
+            <div class="news-image">
+                <span>IMAGEN NOTICIA 01</span>
             </div>
 
+            <div class="news-info">
 
-        <!-- ================= ÚLTIMAS NOVEDADES ================= -->
+                <small>01 / UPDATE</small>
 
-        <section class="section news-section px-[4%] md:px-[5%] lg:px-[max(5%,calc((100vw-1440px)/2))] py-[70px] lg:py-[100px]" id="novedades">
+                <h3>NUEVOS UNIVERSOS</h3>
 
-            <div class="section-title mb-10 lg:mb-[45px]" data-aos="fade-up">
-
-                <p class="eyebrow">NO TE QUEDES FUERA</p>
-
-                <h2>
-                    ÚLTIMAS
-                    <span>NOVEDADES</span>
-                </h2>
-
-            </div>
-
-
-            <!-- PASARELA DE NOTICIAS -->
-
-            <div class="news-track flex min-h-[390px] gap-[10px] overflow-x-auto snap-x snap-mandatory md:overflow-visible md:snap-none">
-
-                <article class="news-card relative flex-1 min-w-[82%] md:min-w-0 snap-center">
-
-                    <div class="news-image">
-                        <span>IMAGEN NOTICIA 01</span>
-                    </div>
-
-                    <div class="news-info">
-
-                        <small>01 / UPDATE</small>
-
-                        <h3>NUEVOS UNIVERSOS</h3>
-
-                        <p>
-                            Descubre las últimas incorporaciones
-                            a nuestra tienda.
-                        </p>
-
-                        <a href="#productos">DESCUBRIR ↗</a>
-
-                    </div>
-
-                </article>
-
-
-                <article class="news-card relative flex-1 min-w-[82%] md:min-w-0 snap-center">
-
-                    <div class="news-image">
-                        <span>IMAGEN NOTICIA 02</span>
-                    </div>
-
-                    <div class="news-info">
-
-                        <small>02 / DROP</small>
-
-                        <h3>EDICIONES ESPECIALES</h3>
-
-                        <p>
-                            Variantes, ediciones limitadas
-                            y piezas para coleccionar.
-                        </p>
-
-                        <a href="#productos">DESCUBRIR ↗</a>
-
-                    </div>
-
-                </article>
-
-
-                <article class="news-card relative flex-1 min-w-[82%] md:min-w-0 snap-center">
-
-                    <div class="news-image">
-                        <span>IMAGEN NOTICIA 03</span>
-                    </div>
-
-                    <div class="news-info">
-
-                        <small>03 / COMMUNITY</small>
-
-                        <h3>LA COMUNIDAD SE MUEVE</h3>
-
-                        <p>
-                            Actividades, encuentros y planes
-                            para compartir afición.
-                        </p>
-
-                        <a href="#eventos">DESCUBRIR ↗</a>
-
-                    </div>
-
-                </article>
-
-
-                <article class="news-card relative flex-1 min-w-[82%] md:min-w-0 snap-center">
-
-                    <div class="news-image">
-                        <span>IMAGEN NOTICIA 04</span>
-                    </div>
-
-                    <div class="news-info">
-
-                        <small>04 / ALERT</small>
-
-                        <h3>PRÓXIMAMENTE</h3>
-
-                        <p>
-                            Estate pendiente de lo que está
-                            a punto de llegar.
-                        </p>
-
-                        <a href="#eventos">DESCUBRIR ↗</a>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= EVENTOS Y ANUNCIOS ================= -->
-
-        <section class="section events-section px-[4%] md:px-[5%] lg:px-[max(5%,calc((100vw-1440px)/2))] py-[70px] lg:py-[100px]" id="eventos">
-
-            <div class="section-title mb-10 lg:mb-[45px]" data-aos="fade-up">
-
-                <p class="eyebrow">
-                    ENCUENTROS · ACTIVIDADES · COMUNIDAD
+                <p>
+                    Descubre las últimas incorporaciones
+                    a nuestra tienda.
                 </p>
 
-                <h2>
-                    EVENTOS
-                    <span>& ANUNCIOS</span>
-                </h2>
+                <a href="#productos">DESCUBRIR ↗</a>
 
             </div>
 
-
-            <div class="events-container border-t">
-
-                <!-- EVENTO 1 -->
-
-                <article class="event-row grid grid-cols-1 md:grid-cols-[0.75fr_1.25fr] items-stretch gap-4 md:gap-[5%] py-5" data-aos="fade-up">
-
-                    <div class="event-content self-center">
-
-                        <small>EVENTO 01 / COMUNIDAD</small>
-
-                        <h3>CLUB DE LECTURA</h3>
-
-                        <p>
-                            Un espacio para compartir lecturas,
-                            teorías y recomendaciones con otros fans.
-                        </p>
-
-                        <a href="#footer">MÁS INFORMACIÓN ↗</a>
-
-                    </div>
-
-                    <div class="event-image min-h-[220px] md:min-h-[240px] grid place-items-center">
-                        <span>IMAGEN EVENTO 01</span>
-                    </div>
-
-                </article>
+        </article>
 
 
-                <!-- EVENTO 2 -->
+        <article class="news-card relative flex-1 min-w-[82%] md:min-w-0 snap-center">
 
-                <article class="event-row reverse grid grid-cols-1 md:grid-cols-[1.25fr_0.75fr] items-stretch gap-4 md:gap-[5%] py-5" data-aos="fade-up">
-
-                    <div class="event-content self-center md:order-2">
-
-                        <small>EVENTO 02 / ACTIVIDAD</small>
-
-                        <h3>INTERCAMBIO FRIKI</h3>
-
-                        <p>
-                            Trae tus coleccionables, encuentra
-                            nuevas piezas y conoce a otros coleccionistas.
-                        </p>
-
-                        <a href="#footer">MÁS INFORMACIÓN ↗</a>
-
-                    </div>
-
-                    <div class="event-image min-h-[220px] md:min-h-[240px] grid place-items-center md:order-1">
-                        <span>IMAGEN EVENTO 02</span>
-                    </div>
-
-                </article>
-
-
-                <!-- ANUNCIO 3 -->
-
-                <article class="event-row grid grid-cols-1 md:grid-cols-[0.75fr_1.25fr] items-stretch gap-4 md:gap-[5%] py-5" data-aos="fade-up">
-
-                    <div class="event-content self-center">
-
-                        <small>ANUNCIO 03 / LANZAMIENTO</small>
-
-                        <h3>NUEVO DROP</h3>
-
-                        <p>
-                            Muy pronto anunciaremos nuevas
-                            incorporaciones. Sigue nuestras actualizaciones.
-                        </p>
-
-                        <a href="#novedades">MANTENTE AL DÍA ↗</a>
-
-                    </div>
-
-                    <div class="event-image min-h-[220px] md:min-h-[240px] grid place-items-center">
-                        <span>IMAGEN ANUNCIO 03</span>
-                    </div>
-
-                </article>
-
+            <div class="news-image">
+                <span>IMAGEN NOTICIA 02</span>
             </div>
 
-        </section>
+            <div class="news-info">
 
+                <small>02 / DROP</small>
 
-        <!-- ================= PRODUCTOS ================= -->
+                <h3>EDICIONES ESPECIALES</h3>
 
-        <section class="section products-section px-[4%] md:px-[5%] lg:px-[max(5%,calc((100vw-1440px)/2))] py-[70px] lg:py-[100px]" id="productos">
-
-            <div class="section-title mb-10 lg:mb-[45px]" data-aos="fade-up">
-
-                <p class="eyebrow">
-                    ENCUENTRA TU PRÓXIMA PIEZA
+                <p>
+                    Variantes, ediciones limitadas
+                    y piezas para coleccionar.
                 </p>
 
-                <h2>
-                    PRODUCTOS
-                    <span>·</span>
-                    PRODUCTOS
-                </h2>
+                <a href="#productos">DESCUBRIR ↗</a>
 
             </div>
 
-
-            <!-- FILTROS Y FLECHAS -->
-
-            <div class="products-toolbar flex flex-col min-[421px]:flex-row justify-between items-stretch min-[421px]:items-center gap-5 mb-[25px]">
-
-                <div class="category-selector relative w-full min-[421px]:max-w-[430px]">
-
-                    <label for="categoryFilter" class="sr-only">
-                        Seleccionar categoría
-                    </label>
-
-                    <select id="categoryFilter">
-
-                        <option value="all">TODAS LAS CATEGORÍAS</option>
-                        <option value="figuras">FIGURAS DE ACCIÓN</option>
-                        <option value="laminas">LÁMINAS Y POSTERS</option>
-                        <option value="merch">MERCHANDISING</option>
-
-                    </select>
-
-                </div>
+        </article>
 
 
-                <div class="carousel-controls flex gap-[10px] justify-end">
+        <article class="news-card relative flex-1 min-w-[82%] md:min-w-0 snap-center">
 
-                    <button id="productsPrev" aria-label="Productos anteriores">
-                        ←
-                    </button>
+            <div class="news-image">
+                <span>IMAGEN NOTICIA 03</span>
+            </div>
 
-                    <button id="productsNext" aria-label="Productos siguientes">
-                        →
-                    </button>
+            <div class="news-info">
 
-                </div>
+                <small>03 / COMMUNITY</small>
+
+                <h3>LA COMUNIDAD SE MUEVE</h3>
+
+                <p>
+                    Actividades, encuentros y planes
+                    para compartir afición.
+                </p>
+
+                <a href="#eventos">DESCUBRIR ↗</a>
 
             </div>
 
+        </article>
 
-            <!-- CARRUSEL -->
 
-            <div class="products-carousel grid grid-flow-col auto-cols-[78%] sm:auto-cols-[45%] lg:auto-cols-[27%] gap-4 overflow-x-auto snap-x snap-mandatory overscroll-x-contain" id="productsCarousel">
+        <article class="news-card relative flex-1 min-w-[82%] md:min-w-0 snap-center">
 
+            <div class="news-image">
+                <span>IMAGEN NOTICIA 04</span>
+            </div>
 
-                <!-- PRODUCTO 1 -->
+            <div class="news-info">
 
-                <article class="product-card min-w-0 snap-start" data-category="figuras">
+                <small>04 / ALERT</small>
 
-                    <div class="product-image relative grid place-items-center">
-                        <span>IMAGEN PRODUCTO 01</span>
-                        <b>FIGURA</b>
-                    </div>
+                <h3>PRÓXIMAMENTE</h3>
 
-                    <div class="product-info">
+                <p>
+                    Estate pendiente de lo que está
+                    a punto de llegar.
+                </p>
 
-                        <small>FIGURAS DE ACCIÓN</small>
-
-                        <h3>FIGURA COLECCIONABLE</h3>
-
-                        <p>Descripción del producto.</p>
-
-                        <strong>00,00 €</strong>
-
-                    </div>
-
-                </article>
-
-
-                <!-- PRODUCTO 2 -->
-
-                <article class="product-card min-w-0 snap-start" data-category="laminas">
-
-                    <div class="product-image relative grid place-items-center">
-                        <span>IMAGEN PRODUCTO 02</span>
-                        <b>POSTER</b>
-                    </div>
-
-                    <div class="product-info">
-
-                        <small>LÁMINAS Y POSTERS</small>
-
-                        <h3>LÁMINA DE COLECCIÓN</h3>
-
-                        <p>Descripción del producto.</p>
-
-                        <strong>00,00 €</strong>
-
-                    </div>
-
-                </article>
-
-
-                <!-- PRODUCTO 3 -->
-
-                <article class="product-card min-w-0 snap-start" data-category="merch">
-
-                    <div class="product-image relative grid place-items-center">
-                        <span>IMAGEN PRODUCTO 03</span>
-                        <b>MERCH</b>
-                    </div>
-
-                    <div class="product-info">
-
-                        <small>MERCHANDISING</small>
-
-                        <h3>ARTÍCULO EXCLUSIVO</h3>
-
-                        <p>Descripción del producto.</p>
-
-                        <strong>00,00 €</strong>
-
-                    </div>
-
-                </article>
-
-
-                <!-- PRODUCTO 4 -->
-
-                <article class="product-card min-w-0 snap-start" data-category="figuras">
-
-                    <div class="product-image relative grid place-items-center">
-                        <span>IMAGEN PRODUCTO 04</span>
-                        <b>FIGURA</b>
-                    </div>
-
-                    <div class="product-info">
-
-                        <small>FIGURAS DE ACCIÓN</small>
-
-                        <h3>FIGURA ARTICULADA</h3>
-
-                        <p>Descripción del producto.</p>
-
-                        <strong>00,00 €</strong>
-
-                    </div>
-
-                </article>
-
-
-                <!-- PRODUCTO 5 -->
-
-                <article class="product-card min-w-0 snap-start" data-category="laminas">
-
-                    <div class="product-image relative grid place-items-center">
-                        <span>IMAGEN PRODUCTO 05</span>
-                        <b>POSTER</b>
-                    </div>
-
-                    <div class="product-info">
-
-                        <small>LÁMINAS Y POSTERS</small>
-
-                        <h3>POSTER EDICIÓN ESPECIAL</h3>
-
-                        <p>Descripción del producto.</p>
-
-                        <strong>00,00 €</strong>
-
-                    </div>
-
-                </article>
-
-
-                <!-- PRODUCTO 6 -->
-
-                <article class="product-card min-w-0 snap-start" data-category="merch">
-
-                    <div class="product-image relative grid place-items-center">
-                        <span>IMAGEN PRODUCTO 06</span>
-                        <b>MERCH</b>
-                    </div>
-
-                    <div class="product-info">
-
-                        <small>MERCHANDISING</small>
-
-                        <h3>MERCH DE TEMPORADA</h3>
-
-                        <p>Descripción del producto.</p>
-
-                        <strong>00,00 €</strong>
-
-                    </div>
-
-                </article>
+                <a href="#eventos">DESCUBRIR ↗</a>
 
             </div>
 
-            <p class="carousel-hint mt-5 text-right">
-                DESLIZA PARA EXPLORAR →
-            </p>
+        </article>
 
-        </section>
+    </div>
 
-    </main>
+</section>
 
 
-    <!-- ================= FOOTER ================= -->
+<!-- ================= EVENTOS Y ANUNCIOS ================= -->
 
-    <footer class="footer relative px-[5%] pt-[60px] pb-5" id="footer">
+<section class="section events-section px-[4%] md:px-[5%] lg:px-[max(5%,calc((100vw-1440px)/2))] py-[70px] lg:py-[100px]" id="eventos">
 
-        <div class="footer-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[0.8fr_0.8fr_1.4fr] gap-[30px] pb-[50px]">
+    <div class="section-title mb-10 lg:mb-[45px]" data-aos="fade-up">
 
-            <a href="#inicio" class="logo footer-logo">
-                PIXEL AND
-                <span>PORCELAIN</span>
-            </a>
+        <p class="eyebrow">
+            ENCUENTROS · ACTIVIDADES · COMUNIDAD
+        </p>
+
+        <h2>
+            EVENTOS
+            <span>& ANUNCIOS</span>
+        </h2>
+
+    </div>
 
 
-            <!-- ENLACES -->
+    <div class="events-container border-t">
 
-            <div class="footer-links flex flex-col gap-[15px]">
+        <!-- EVENTO 1 -->
 
-                <a href="#">Política de privacidad</a>
-                <a href="#">Términos de uso</a>
-                <a href="#">Cookies</a>
+        <article class="event-row grid grid-cols-1 md:grid-cols-[0.75fr_1.25fr] items-stretch gap-4 md:gap-[5%] py-5" data-aos="fade-up">
+
+            <div class="event-content self-center">
+
+                <small>EVENTO 01 / COMUNIDAD</small>
+
+                <h3>CLUB DE LECTURA</h3>
+
+                <p>
+                    Un espacio para compartir lecturas,
+                    teorías y recomendaciones con otros fans.
+                </p>
+
+                <a href="#footer">MÁS INFORMACIÓN ↗</a>
 
             </div>
 
+            <div class="event-image min-h-[220px] md:min-h-[240px] grid place-items-center">
+                <span>IMAGEN EVENTO 01</span>
+            </div>
 
-            <!-- NEWSLETTER -->
+        </article>
 
-            <form class="newsletter flex flex-col gap-3 md:col-span-2 lg:col-span-1" id="newsletterForm">
 
-                <label for="newsletterEmail">
-                    SUSCRÍBETE PARA NO PERDERTE NADA
-                </label>
+        <!-- EVENTO 2 -->
 
-                <div class="newsletter-input flex flex-col sm:flex-row gap-2">
+        <article class="event-row reverse grid grid-cols-1 md:grid-cols-[1.25fr_0.75fr] items-stretch gap-4 md:gap-[5%] py-5" data-aos="fade-up">
 
-                    <input
-                        type="email"
-                        id="newsletterEmail"
-                        placeholder="Tu correo electrónico"
-                        required
-                        class="min-w-0 flex-1"
-                    >
+            <div class="event-content self-center md:order-2">
 
-                    <button type="submit" class="button button-green">
-                        UNIRME
-                    </button>
+                <small>EVENTO 02 / ACTIVIDAD</small>
 
-                </div>
+                <h3>INTERCAMBIO FRIKI</h3>
 
-                <small id="formFeedback" aria-live="polite"></small>
+                <p>
+                    Trae tus coleccionables, encuentra
+                    nuevas piezas y conoce a otros coleccionistas.
+                </p>
 
-            </form>
+                <a href="#footer">MÁS INFORMACIÓN ↗</a>
+
+            </div>
+
+            <div class="event-image min-h-[220px] md:min-h-[240px] grid place-items-center md:order-1">
+                <span>IMAGEN EVENTO 02</span>
+            </div>
+
+        </article>
+
+
+        <!-- ANUNCIO 3 -->
+
+        <article class="event-row grid grid-cols-1 md:grid-cols-[0.75fr_1.25fr] items-stretch gap-4 md:gap-[5%] py-5" data-aos="fade-up">
+
+            <div class="event-content self-center">
+
+                <small>ANUNCIO 03 / LANZAMIENTO</small>
+
+                <h3>NUEVO DROP</h3>
+
+                <p>
+                    Muy pronto anunciaremos nuevas
+                    incorporaciones. Sigue nuestras actualizaciones.
+                </p>
+
+                <a href="#novedades">MANTENTE AL DÍA ↗</a>
+
+            </div>
+
+            <div class="event-image min-h-[220px] md:min-h-[240px] grid place-items-center">
+                <span>IMAGEN ANUNCIO 03</span>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRODUCTOS ================= -->
+
+<section class="section products-section px-[4%] md:px-[5%] lg:px-[max(5%,calc((100vw-1440px)/2))] py-[70px] lg:py-[100px]" id="productos">
+
+    <div class="section-title mb-10 lg:mb-[45px]" data-aos="fade-up">
+
+        <p class="eyebrow">
+            ENCUENTRA TU PRÓXIMA PIEZA
+        </p>
+
+        <h2>
+            PRODUCTOS
+            <span>·</span>
+            PRODUCTOS
+        </h2>
+
+    </div>
+
+
+    <!-- FILTROS Y FLECHAS -->
+
+    <div class="products-toolbar flex flex-col min-[421px]:flex-row justify-between items-stretch min-[421px]:items-center gap-5 mb-[25px]">
+
+        <div class="category-selector relative w-full min-[421px]:max-w-[430px]">
+
+            <label for="categoryFilter" class="sr-only">
+                Seleccionar categoría
+            </label>
+
+            <select id="categoryFilter">
+
+                <option value="all">TODAS LAS CATEGORÍAS</option>
+                <option value="figuras">FIGURAS DE ACCIÓN</option>
+                <option value="laminas">LÁMINAS Y POSTERS</option>
+                <option value="merch">MERCHANDISING</option>
+
+            </select>
 
         </div>
 
 
-        <!-- PIE INFERIOR -->
+        <div class="carousel-controls flex gap-[10px] justify-end">
 
-        <div class="footer-bottom flex flex-col sm:flex-row justify-between gap-4 pt-5">
+            <button id="productsPrev" aria-label="Productos anteriores">
+                ←
+            </button>
 
-            <span>© 2026 PIXEL AND PORCELAIN</span>
-
-            <a href="mailto:hola@pixelandporcelain.com">
-                CONTACTO
-            </a>
-
-            <a href="#inicio">
-                VOLVER ARRIBA ↑
-            </a>
+            <button id="productsNext" aria-label="Productos siguientes">
+                →
+            </button>
 
         </div>
 
-    </footer>
+    </div>
 
 
-    <!-- MODEL VIEWER -->
+    <!-- CARRUSEL -->
 
-    <script type="module"
-        src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js">
-    </script>
+    <div class="products-carousel grid grid-flow-col auto-cols-[78%] sm:auto-cols-[45%] lg:auto-cols-[27%] gap-4 overflow-x-auto snap-x snap-mandatory overscroll-x-contain" id="productsCarousel">
 
 
-    <!-- AOS -->
+        <!-- PRODUCTO 1 -->
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+        <article class="product-card min-w-0 snap-start" data-category="figuras">
+
+            <div class="product-image relative grid place-items-center">
+                <span>IMAGEN PRODUCTO 01</span>
+                <b>FIGURA</b>
+            </div>
+
+            <div class="product-info">
+
+                <small>FIGURAS DE ACCIÓN</small>
+
+                <h3>FIGURA COLECCIONABLE</h3>
+
+                <p>Descripción del producto.</p>
+
+                <strong>00,00 €</strong>
+
+            </div>
+
+        </article>
 
 
-    <!-- JAVASCRIPT PROPIO -->
+        <!-- PRODUCTO 2 -->
 
-    <script src="js/script.js"></script>
+        <article class="product-card min-w-0 snap-start" data-category="laminas">
+
+            <div class="product-image relative grid place-items-center">
+                <span>IMAGEN PRODUCTO 02</span>
+                <b>POSTER</b>
+            </div>
+
+            <div class="product-info">
+
+                <small>LÁMINAS Y POSTERS</small>
+
+                <h3>LÁMINA DE COLECCIÓN</h3>
+
+                <p>Descripción del producto.</p>
+
+                <strong>00,00 €</strong>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCTO 3 -->
+
+        <article class="product-card min-w-0 snap-start" data-category="merch">
+
+            <div class="product-image relative grid place-items-center">
+                <span>IMAGEN PRODUCTO 03</span>
+                <b>MERCH</b>
+            </div>
+
+            <div class="product-info">
+
+                <small>MERCHANDISING</small>
+
+                <h3>ARTÍCULO EXCLUSIVO</h3>
+
+                <p>Descripción del producto.</p>
+
+                <strong>00,00 €</strong>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCTO 4 -->
+
+        <article class="product-card min-w-0 snap-start" data-category="figuras">
+
+            <div class="product-image relative grid place-items-center">
+                <span>IMAGEN PRODUCTO 04</span>
+                <b>FIGURA</b>
+            </div>
+
+            <div class="product-info">
+
+                <small>FIGURAS DE ACCIÓN</small>
+
+                <h3>FIGURA ARTICULADA</h3>
+
+                <p>Descripción del producto.</p>
+
+                <strong>00,00 €</strong>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCTO 5 -->
+
+        <article class="product-card min-w-0 snap-start" data-category="laminas">
+
+            <div class="product-image relative grid place-items-center">
+                <span>IMAGEN PRODUCTO 05</span>
+                <b>POSTER</b>
+            </div>
+
+            <div class="product-info">
+
+                <small>LÁMINAS Y POSTERS</small>
+
+                <h3>POSTER EDICIÓN ESPECIAL</h3>
+
+                <p>Descripción del producto.</p>
+
+                <strong>00,00 €</strong>
+
+            </div>
+
+        </article>
+
+
+        <!-- PRODUCTO 6 -->
+
+        <article class="product-card min-w-0 snap-start" data-category="merch">
+
+            <div class="product-image relative grid place-items-center">
+                <span>IMAGEN PRODUCTO 06</span>
+                <b>MERCH</b>
+            </div>
+
+            <div class="product-info">
+
+                <small>MERCHANDISING</small>
+
+                <h3>MERCH DE TEMPORADA</h3>
+
+                <p>Descripción del producto.</p>
+
+                <strong>00,00 €</strong>
+
+            </div>
+
+        </article>
+
+    </div>
+
+    <p class="carousel-hint mt-5 text-right">
+        DESLIZA PARA EXPLORAR →
+    </p>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer relative px-[5%] pt-[60px] pb-5" id="footer">
+
+<div class="footer-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[0.8fr_0.8fr_1.4fr] gap-[30px] pb-[50px]">
+
+    <a href="#inicio" class="logo footer-logo">
+        PIXEL AND
+        <span>PORCELAIN</span>
+    </a>
+
+
+    <!-- ENLACES -->
+
+    <div class="footer-links flex flex-col gap-[15px]">
+
+        <a href="#">Política de privacidad</a>
+        <a href="#">Términos de uso</a>
+        <a href="#">Cookies</a>
+
+    </div>
+
+
+    <!-- NEWSLETTER -->
+
+    <form class="newsletter flex flex-col gap-3 md:col-span-2 lg:col-span-1" id="newsletterForm">
+
+        <label for="newsletterEmail">
+            SUSCRÍBETE PARA NO PERDERTE NADA
+        </label>
+
+        <div class="newsletter-input flex flex-col sm:flex-row gap-2">
+
+            <input
+                type="email"
+                id="newsletterEmail"
+                placeholder="Tu correo electrónico"
+                required
+                class="min-w-0 flex-1"
+            >
+
+            <button type="submit" class="button button-green">
+                UNIRME
+            </button>
+
+        </div>
+
+        <small id="formFeedback" aria-live="polite"></small>
+
+    </form>
+
+</div>
+
+
+<!-- PIE INFERIOR -->
+
+<div class="footer-bottom flex flex-col sm:flex-row justify-between gap-4 pt-5">
+
+    <span>© 2026 PIXEL AND PORCELAIN</span>
+
+    <a href="mailto:hola@pixelandporcelain.com">
+        CONTACTO
+    </a>
+
+    <a href="#inicio">
+        VOLVER ARRIBA ↑
+    </a>
+
+</div>
+
+</footer>
+
+
+<!-- MODEL VIEWER -->
+
+<script type="module"
+src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js">
+</script>
+
+
+<!-- AOS -->
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+
+<!-- JAVASCRIPT PROPIO -->
+
+<script src="js/script.js"></script>
 
 </body>
 </html>
