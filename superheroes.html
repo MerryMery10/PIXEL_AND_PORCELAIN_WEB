@@ -1,167 +1,945 @@
+
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pixel and Porcelain: manga, cómics, figuras y coleccionismo.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pixel and Porcelain: cómics, novelas gráficas, figuras y merchandising de superhéroes.">
+  <meta name="theme-color" content="#050505">
 
-    <title>Comic</title>
+  <title>Superhéroes | Pixel and Porcelain</title>
 
-    <!-- TIPOGRAFÍAS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- TIPOGRAFÍAS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Dela+Gothic+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- TAILWIND CSS -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- TAILWIND CSS 4 -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <!-- CSS PROPIO -->
-    <link rel="stylesheet" href="css/styles.css">
+  <!-- COLORES Y TIPOGRAFÍAS PERSONALIZADOS -->
+  <style type="text/tailwindcss">
+    @theme {
+      --color-neon: #ff1493;
+      --color-lima: #b6ff00;
+      --color-tinta: #080808;
+      --color-papel: #f5f5f5;
 
-    <!-- AOS: ANIMACIONES AL HACER SCROLL -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+      --font-titulo: "Boldonse", sans-serif;
+      --font-sans: "Inter", Arial, sans-serif;
+    }
+  </style>
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <!-- CSS PROPIO -->
+  <link rel="stylesheet" href="css/styles.css">
 
 </head>
 
-<body>
+<body class="min-h-screen overflow-x-hidden bg-tinta font-sans text-papel antialiased">
 
-    <!-- ================= HEADER ================= -->
+  <!-- ================= HEADER ================= -->
 
-    <header class="header" id="inicio">
+  <header class="site-header sticky top-0 z-50 border-b border-lima/70 bg-tinta/95 backdrop-blur">
 
-        <div class="header-container">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-4 py-3 sm:px-6 lg:px-8">
 
-            <a href="index.html" class="logo" aria-label="Pixel and Porcelain, volver a la página principal">
-                <img src="media/img/logo pixel and porcelain blanco.png" alt="Pixel and Porcelain" class="logo-img">
+      <a href="index.html" class="site-logo shrink-0" aria-label="Pixel and Porcelain, inicio">
+
+        <img
+          src="media/img/logo pixel and porcelain blanco.png"
+          alt="Pixel and Porcelain"
+          class="h-10 w-auto object-contain"
+        >
+
+      </a>
+
+      <!-- MENÚ MÓVIL -->
+
+      <button
+        class="menu-toggle inline-flex h-11 w-11 flex-col items-center justify-center gap-1.5 border border-papel/50 lg:hidden"
+        id="menuToggle"
+        type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="navigation"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- NAVEGACIÓN -->
+
+      <nav id="navigation" class="navigation" aria-label="Navegación principal">
+
+        <a href="index.html">Home</a>
+        <a href="superheroes.html" aria-current="page" class="active">Superheroes</a>
+        <a href="comic.html">Comic</a>
+        <a href="manga.html">Manga</a>
+        <a href="culture.html">Culture</a>
+        <a href="blog.html">Blog</a>
+
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Cambiar a modo claro"
+        >
+          ◐ MODO
+        </button>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- ================= PORTADA ================= -->
+
+    <section
+      class="hero relative isolate overflow-hidden px-4 pb-20 pt-14 sm:px-6 md:pb-28 md:pt-20 lg:px-8"
+      aria-labelledby="titulo-superheroes"
+    >
+
+      <!-- MANCHAS DE COLOR -->
+
+      <div class="hero-glow hero-glow-pink" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-green" aria-hidden="true"></div>
+
+
+      <div class="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
+
+        <!-- TEXTO -->
+
+        <div class="relative z-10">
+
+          <p
+            class="mb-5 text-[10px] font-bold uppercase tracking-[0.32em] text-neon sm:text-xs"
+            data-aos="fade-down"
+          >
+            Episodio 01 · En tu barrio
+          </p>
+
+
+          <h1
+            id="titulo-superheroes"
+            class="font-titulo text-5xl uppercase leading-[0.98] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
+          >
+
+            <span class="title-outline block" data-aos="fade-right">
+              Super
+            </span>
+
+            <span
+              class="block text-neon"
+              data-aos="fade-right"
+              data-aos-delay="120"
+            >
+              Héroes
+            </span>
+
+          </h1>
+
+
+          <p
+            class="mt-6 max-w-lg text-sm leading-6 text-papel/90 sm:text-base sm:leading-7"
+            data-aos="fade-up"
+            data-aos-delay="180"
+          >
+            Grapas, tomos, novelas gráficas, figuras y merch de tus héroes favoritos.
+            Cada viñeta de esta página es una puerta a una estantería de la tienda.
+          </p>
+
+
+          <!-- BOTONES -->
+
+          <div
+            class="mt-8 flex flex-wrap gap-4"
+            data-aos="fade-up"
+            data-aos-delay="260"
+          >
+
+            <a
+              href="#productos"
+              class="skew-button inline-flex min-h-11 items-center bg-lima px-6 py-3 text-[11px] font-bold uppercase tracking-wider text-tinta transition hover:-translate-y-1 hover:bg-neon"
+            >
+              <span>Explorar universos</span>
             </a>
 
-            <!-- BOTÓN MENÚ MÓVIL -->
 
-            <button class="menu-toggle" id="menuToggle"
-                aria-label="Abrir menú"
-                aria-expanded="false"
-                aria-controls="navigation">
+            <a
+              href="#lanzamientos"
+              class="skew-button inline-flex min-h-11 items-center bg-papel px-6 py-3 text-[11px] font-bold uppercase tracking-wider text-tinta transition hover:-translate-y-1 hover:bg-neon"
+            >
+              <span>Lanzamientos</span>
+            </a>
 
-                <span></span>
-                <span></span>
-                <span></span>
-
-            </button>
-
-            <!-- NAVEGACIÓN -->
-            <nav class="navigation" id="navigation">
-
-                <a href="superheroes.html">superhéroes</a>
-                <a href="comic.html">cómic</a>
-                <a href="manga.html">manga</a>
-                <a href="culture.html">cultura</a>
-                <a href="blog.html">blog</a>
-
-                <button class="theme-toggle" id="themeToggle" type="button"
-                    aria-label="Cambiar tema">
-
-                    <span class="sun-icon">☀</span>
-
-                </button>
-
-            </nav>
+          </div>
 
         </div>
 
-    </header>
+
+        <!-- IMÁGENES FLOTANTES -->
+
+        <div
+          class="hero-art relative mx-auto h-[22rem] w-full max-w-xl sm:h-[27rem] lg:h-[31rem]"
+          data-aos="zoom-in"
+          data-aos-delay="180"
+        >
+
+          <!-- PORTADA DESTACADA -->
+
+          <figure class="floating-card floating-card-main absolute left-[5%] top-2 h-[68%] w-[58%] -rotate-[4deg] border-[5px] border-papel bg-neutral-200 shadow-[10px_10px_0_#ff1493]">
+
+            <div class="flex h-full items-center justify-center p-4 text-center text-xs font-semibold text-neutral-700">
+
+              [Portada<br>destacada]
+
+            </div>
+
+          </figure>
 
 
-    <main>
+          <!-- FIGURA 3D -->
 
-    </main>
+          <figure class="floating-card floating-card-secondary absolute bottom-0 right-[3%] h-[62%] w-[48%] rotate-[4deg] border-[5px] border-papel bg-neutral-200 shadow-[10px_10px_0_#b6ff00]">
+
+            <div class="flex h-full items-center justify-center p-4 text-center text-xs font-semibold text-neutral-700">
+
+              [Figura 3D]
+
+            </div>
+
+          </figure>
+
+        </div>
+
+      </div>
+
+    </section>
 
 
+    <!-- ================= CINTA EN MOVIMIENTO ================= -->
 
-    <!-- ================= FOOTER ================= -->
+    <div
+      class="ticker relative z-10 -rotate-1 overflow-hidden border-y-2 border-tinta bg-lima py-2.5 text-tinta"
+      aria-hidden="true"
+    >
 
-    <footer class="footer" id="footer">
+      <div class="ticker-track flex w-max">
 
-        <div class="footer-container">
+        <p class="ticker-content flex shrink-0 items-center gap-6 pr-6 text-lg font-bold uppercase md:text-2xl">
+
+          <span>Tomos</span>
+          <span>·</span>
+          <span>Novelas gráficas</span>
+          <span>·</span>
+          <span>Figuras</span>
+          <span>·</span>
+          <span>Merch</span>
+          <span>·</span>
+          <span>Reservas</span>
+          <span>·</span>
+          <span>Grapas</span>
+          <span>·</span>
+
+        </p>
 
 
-            <a href="index.html" class="logo footer-logo" aria-label="Pixel and Porcelain, volver a la página principal">
-                <img src="media/img/logo pixel and porcelain blanco.png" alt="Pixel and Porcelain" class="logo-img">
-            </a>
+        <p class="ticker-content flex shrink-0 items-center gap-6 pr-6 text-lg font-bold uppercase md:text-2xl">
+
+          <span>Tomos</span>
+          <span>·</span>
+          <span>Novelas gráficas</span>
+          <span>·</span>
+          <span>Figuras</span>
+          <span>·</span>
+          <span>Merch</span>
+          <span>·</span>
+          <span>Reservas</span>
+          <span>·</span>
+          <span>Grapas</span>
+          <span>·</span>
+
+        </p>
+
+      </div>
+
+    </div>
 
 
-            <div class="footer-links">
+    <!-- ================= PRODUCTOS ================= -->
 
-                <a href="#">Política de privacidad</a>
-                <a href="#">Términos de uso</a>
-                <a href="#">Cookies</a>
+    <section
+      id="productos"
+      class="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8"
+      aria-labelledby="titulo-productos"
+    >
+
+      <h2 id="titulo-productos" class="sr-only">
+        Productos de superhéroes
+      </h2>
+
+
+      <!-- FILTROS -->
+
+      <div
+        class="mb-8 flex flex-wrap gap-3"
+        role="group"
+        aria-label="Filtrar productos por categoría"
+        data-aos="fade-up"
+      >
+
+        <button
+          type="button"
+          class="filter-button is-active"
+          data-filter="todo"
+          aria-pressed="true"
+        >
+          Todo
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-filter="grapa"
+          aria-pressed="false"
+        >
+          Grapas
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-filter="tomo"
+          aria-pressed="false"
+        >
+          Tomos
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-filter="figura"
+          aria-pressed="false"
+        >
+          Figuras
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-filter="merch"
+          aria-pressed="false"
+        >
+          Merch
+        </button>
+
+      </div>
+
+
+      <!-- REJILLA DE PRODUCTOS -->
+
+      <div
+        id="productGrid"
+        class="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:gap-6"
+      >
+
+        <!-- PRODUCTO 1: DESTACADO -->
+
+        <article
+          class="product-card sm:col-span-2"
+          data-category="grapa"
+          data-aos="fade-up"
+        >
+
+          <div class="product-panel flex h-full flex-col gap-4 sm:flex-row sm:gap-5">
+
+            <div class="product-image relative min-h-36 shrink-0 sm:min-h-52 sm:w-[40%]">
+
+              <span class="category-tag tag-pink">Grapa</span>
+
+              <!-- Aquí puedes introducir la imagen del producto -->
 
             </div>
 
 
-            <!-- NEWSLETTER -->
+            <div class="flex min-w-0 flex-1 flex-col items-start gap-3">
 
-            <form class="newsletter" id="newsletterForm">
+              <h3 class="product-title">
+                Capitán Voltio #1
+              </h3>
 
-                <label for="newsletterEmail">
-                    SUSCRÍBETE PARA NO PERDERTE NADA
-                </label>
+              <p class="product-description">
+                Primer número de la nueva serie. Portada variante en tienda.
+              </p>
 
-                <div class="newsletter-input">
+              <span class="price-tag mt-auto">
+                [Precio]
+              </span>
 
-                    <input
-                        type="email"
-                        id="newsletterEmail"
-                        placeholder="Tu correo electrónico"
-                        required
-                    >
+            </div>
 
-                    <button type="submit" class="button button-green">
-                        UNIRME
-                    </button>
+          </div>
 
-                </div>
+        </article>
 
-                <small id="formFeedback" aria-live="polite"></small>
 
-            </form>
+        <!-- PRODUCTO 2 -->
+
+        <article
+          class="product-card"
+          data-category="figura"
+          data-aos="fade-up"
+          data-aos-delay="70"
+        >
+
+          <div class="product-panel flex h-full flex-col gap-3">
+
+            <div class="product-image relative h-36 sm:h-44">
+
+              <span class="category-tag tag-green">Figura</span>
+
+            </div>
+
+            <h3 class="product-title">
+              Titán Cobalto
+            </h3>
+
+            <span class="price-tag mt-auto self-start">
+              [Precio]
+            </span>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCTO 3 -->
+
+        <article
+          class="product-card"
+          data-category="tomo"
+          data-aos="fade-up"
+        >
+
+          <div class="product-panel flex h-full flex-col gap-3">
+
+            <div class="product-image relative h-36 sm:h-44">
+
+              <span class="category-tag tag-green">Tomo</span>
+
+            </div>
+
+            <h3 class="product-title">
+              La Liga Nocturna · T3
+            </h3>
+
+            <span class="price-tag mt-auto self-start">
+              [Precio]
+            </span>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCTO 4: DESTACADO -->
+
+        <article
+          class="product-card sm:col-span-2"
+          data-category="tomo"
+          data-aos="fade-up"
+          data-aos-delay="70"
+        >
+
+          <div class="product-panel flex h-full flex-col gap-4 sm:flex-row sm:gap-5">
+
+            <div class="product-image relative min-h-36 shrink-0 sm:min-h-52 sm:w-[40%]">
+
+              <span class="category-tag tag-green">Tomo</span>
+
+            </div>
+
+
+            <div class="flex min-w-0 flex-1 flex-col items-start gap-3">
+
+              <h3 class="product-title">
+                Vigilante Escarlata · Integral
+              </h3>
+
+              <p class="product-description">
+                La saga entera en un solo volumen de tapa dura.
+              </p>
+
+              <span class="price-tag mt-auto">
+                [Precio]
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCTO 5 -->
+
+        <article
+          class="product-card"
+          data-category="merch"
+          data-aos="fade-up"
+        >
+
+          <div class="product-panel flex h-full flex-col gap-3">
+
+            <div class="product-image relative h-36 sm:h-44">
+
+              <span class="category-tag tag-pink">Merch</span>
+
+            </div>
+
+            <h3 class="product-title">
+              Camiseta Escuadrón
+            </h3>
+
+            <span class="price-tag mt-auto self-start">
+              [Precio]
+            </span>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCTO 6 -->
+
+        <article
+          class="product-card"
+          data-category="grapa"
+          data-aos="fade-up"
+          data-aos-delay="70"
+        >
+
+          <div class="product-panel flex h-full flex-col gap-3">
+
+            <div class="product-image relative h-36 sm:h-44">
+
+              <span class="category-tag tag-pink">Grapa</span>
+
+            </div>
+
+            <h3 class="product-title">
+              Héroes de Barrio #12
+            </h3>
+
+            <span class="price-tag mt-auto self-start">
+              [Precio]
+            </span>
+
+          </div>
+
+        </article>
+
+
+        <!-- PRODUCTO 7 -->
+
+        <article
+          class="product-card"
+          data-category="figura"
+          data-aos="fade-up"
+          data-aos-delay="140"
+        >
+
+          <div class="product-panel flex h-full flex-col gap-3">
+
+            <div class="product-image relative h-36 sm:h-44">
+
+              <span class="category-tag tag-green">Figura</span>
+
+            </div>
+
+            <h3 class="product-title">
+              Busto Arcana
+            </h3>
+
+            <span class="price-tag mt-auto self-start">
+              [Precio]
+            </span>
+
+          </div>
+
+        </article>
+
+      </div>
+
+
+      <p
+        id="noProducts"
+        class="hidden py-10 text-center text-sm text-papel/70"
+      >
+        No hay productos en esta categoría.
+      </p>
+
+    </section>
+
+
+    <!-- ================= HÉROE DEL MES ================= -->
+
+    <section
+      class="relative overflow-hidden border-y-8 border-tinta bg-neon px-4 py-16 text-tinta sm:px-6 md:py-24 lg:px-8"
+      aria-labelledby="titulo-heroe"
+    >
+
+      <div
+        class="dot-pattern pointer-events-none absolute inset-0"
+        aria-hidden="true"
+      ></div>
+
+
+      <div class="relative mx-auto grid max-w-7xl gap-7 lg:grid-cols-2">
+
+        <!-- TARJETA PRINCIPAL -->
+
+        <article
+          class="hero-month-card bg-tinta p-7 text-papel shadow-[10px_10px_0_#b6ff00] sm:p-9"
+          data-aos="fade-right"
+        >
+
+          <p class="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-lima">
+            Héroe del mes
+          </p>
+
+          <h2
+            id="titulo-heroe"
+            class="mb-5 font-titulo text-3xl uppercase sm:text-4xl"
+          >
+            [Nombre]
+          </h2>
+
+          <p class="mb-7 max-w-md text-sm leading-6 text-papel/85">
+            Cada mes el equipo de la tienda elige un personaje y monta su estantería:
+            lectura de inicio, su mejor arco y la figura que no puede faltar.
+          </p>
+
+          <a
+            href="#productos"
+            class="skew-button inline-flex min-h-11 items-center bg-lima px-6 py-3 text-[11px] font-bold uppercase tracking-wider text-tinta transition hover:bg-papel"
+          >
+            <span>Ver su estantería</span>
+          </a>
+
+        </article>
+
+
+        <!-- RECOMENDACIONES -->
+
+        <div class="grid grid-cols-2 gap-4 sm:gap-5">
+
+          <article
+            class="col-span-2 border-2 border-tinta bg-papel p-5 sm:p-6"
+            data-aos="fade-left"
+          >
+
+            <h3 class="text-base font-semibold uppercase sm:text-lg">
+              Empieza por aquí
+            </h3>
+
+            <p class="mt-2 text-xs">
+              [Título recomendado para iniciarse]
+            </p>
+
+          </article>
+
+
+          <article
+            class="min-h-36 border-2 border-tinta bg-lima p-5 sm:min-h-44 sm:p-6"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+
+            <h3 class="text-sm font-semibold uppercase sm:text-base">
+              Su mejor arco
+            </h3>
+
+            <p class="mt-2 text-xs">
+              [Título del arco]
+            </p>
+
+          </article>
+
+
+          <article
+            class="min-h-36 border-2 border-tinta bg-tinta p-5 text-papel sm:min-h-44 sm:p-6"
+            data-aos="fade-up"
+            data-aos-delay="180"
+          >
+
+            <h3 class="text-sm font-semibold uppercase text-neon sm:text-base">
+              Figura
+            </h3>
+
+            <p class="mt-2 text-xs">
+              [Figura recomendada]
+            </p>
+
+          </article>
 
         </div>
 
+      </div>
 
-        <div class="footer-bottom">
+    </section>
 
-            <span>© 2026 PIXEL AND PORCELAIN</span>
 
-            <a href="mailto:hola@pixelandporcelain.com">
-                CONTACTO
-            </a>
+    <!-- ================= PRÓXIMOS LANZAMIENTOS ================= -->
 
-            <a href="#inicio">
-                VOLVER ARRIBA ↑
-            </a>
+    <section
+      id="lanzamientos"
+      class="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8"
+      aria-labelledby="titulo-lanzamientos"
+    >
+
+      <h2
+        id="titulo-lanzamientos"
+        class="mb-10 text-3xl font-light uppercase leading-tight sm:text-4xl md:text-5xl"
+        data-aos="fade-up"
+      >
+        Próximos
+        <span class="title-outline">lanzamientos</span>
+      </h2>
+
+
+      <ul class="flex flex-col gap-3 sm:gap-4">
+
+        <!-- LANZAMIENTO 1 -->
+
+        <li class="release-row" data-aos="fade-left">
+
+          <time datetime="2026-11-15" class="release-date">
+            [DD/MM]
+          </time>
+
+          <p class="release-name">
+            Capitán Voltio #2
+          </p>
+
+          <span class="release-type">
+            Grapa
+          </span>
+
+          <a
+            href="mailto:hola@pixelandporcelain.com?subject=Reserva%20Capit%C3%A1n%20Voltio%20%232"
+            class="skew-button release-button"
+          >
+            <span>Reservar</span>
+          </a>
+
+        </li>
+
+
+        <!-- LANZAMIENTO 2 -->
+
+        <li class="release-row" data-aos="fade-left" data-aos-delay="70">
+
+          <time class="release-date">
+            [DD/MM]
+          </time>
+
+          <p class="release-name">
+            La Liga Nocturna · Tomo 4
+          </p>
+
+          <span class="release-type">
+            Tomo
+          </span>
+
+          <a
+            href="mailto:hola@pixelandporcelain.com?subject=Reserva%20La%20Liga%20Nocturna%20Tomo%204"
+            class="skew-button release-button"
+          >
+            <span>Reservar</span>
+          </a>
+
+        </li>
+
+
+        <!-- LANZAMIENTO 3 -->
+
+        <li class="release-row" data-aos="fade-left" data-aos-delay="140">
+
+          <time class="release-date">
+            [DD/MM]
+          </time>
+
+          <p class="release-name">
+            Figura Vigilante Escarlata
+          </p>
+
+          <span class="release-type">
+            Figura
+          </span>
+
+          <a
+            href="mailto:hola@pixelandporcelain.com?subject=Reserva%20Figura%20Vigilante%20Escarlata"
+            class="skew-button release-button"
+          >
+            <span>Reservar</span>
+          </a>
+
+        </li>
+
+
+        <!-- LANZAMIENTO 4 -->
+
+        <li class="release-row" data-aos="fade-left" data-aos-delay="210">
+
+          <time class="release-date">
+            [DD/MM]
+          </time>
+
+          <p class="release-name">
+            Antología Héroes de Barrio
+          </p>
+
+          <span class="release-type">
+            Novela gráfica
+          </span>
+
+          <a
+            href="mailto:hola@pixelandporcelain.com?subject=Reserva%20Antolog%C3%ADa%20H%C3%A9roes%20de%20Barrio"
+            class="skew-button release-button"
+          >
+            <span>Reservar</span>
+          </a>
+
+        </li>
+
+      </ul>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer
+    class="site-footer border-t border-papel/15 bg-tinta px-4 py-12 sm:px-6 lg:px-8"
+  >
+
+    <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-3 md:items-start">
+
+      <!-- LOGO -->
+
+      <a
+        href="index.html"
+        class="inline-flex"
+        aria-label="Pixel and Porcelain, volver al inicio"
+      >
+
+        <img
+          src="media/img/logo pixel and porcelain blanco.png"
+          alt="Pixel and Porcelain"
+          class="h-12 w-auto object-contain"
+        >
+
+      </a>
+
+
+      <!-- ENLACES -->
+
+      <nav
+        class="footer-links flex flex-wrap gap-x-6 gap-y-3 text-xs"
+        aria-label="Enlaces legales"
+      >
+
+        <a href="#">Política de privacidad</a>
+        <a href="#">Términos de uso</a>
+        <a href="#">Cookies</a>
+
+      </nav>
+
+
+      <!-- NEWSLETTER -->
+
+      <form id="newsletterForm" class="newsletter-form">
+
+        <label
+          for="newsletterEmail"
+          class="mb-3 block text-[10px] font-bold uppercase tracking-wider"
+        >
+          Suscríbete para no perderte nada
+        </label>
+
+        <div class="flex flex-col gap-2 sm:flex-row">
+
+          <input
+            id="newsletterEmail"
+            name="email"
+            type="email"
+            placeholder="Tu correo electrónico"
+            required
+            class="min-h-11 min-w-0 flex-1 border border-papel/40 bg-transparent px-3 text-sm text-papel outline-none focus:border-lima"
+          >
+
+          <button
+            type="submit"
+            class="min-h-11 bg-lima px-5 text-xs font-bold uppercase text-tinta transition hover:bg-neon"
+          >
+            Unirme
+          </button>
 
         </div>
 
-    </footer>
+        <small
+          id="formFeedback"
+          class="mt-2 block text-xs text-lima"
+          aria-live="polite"
+        ></small>
+
+      </form>
+
+    </div>
 
 
+    <!-- PIE INFERIOR -->
 
-    <!-- LIBRERÍA MODEL VIEWER PARA LOS MODELOS 3D -->
+    <div class="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-papel/15 pt-5 text-[10px] uppercase tracking-wider text-papel/60 sm:flex-row sm:items-center sm:justify-between">
 
-    <script type="module"
-        src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js">
-    </script>
+      <span>
+        © 2026 Pixel and Porcelain
+      </span>
+
+      <a href="mailto:hola@pixelandporcelain.com">
+        Contacto
+      </a>
+
+      <a href="#inicio">
+        Volver arriba ↑
+      </a>
+
+    </div>
+
+  </footer>
 
 
-    <!-- AOS -->
+  <!-- ================= SCRIPTS ================= -->
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <!-- AOS -->
 
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-    <!-- JAVASCRIPT PROPIO -->
+  <!-- JAVASCRIPT PROPIO -->
 
-    <script src="js/script.js"></script>
+  <script src="js/script.js"></script>
 
 </body>
 </html>

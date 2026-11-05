@@ -1,26 +1,28 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="description" content="Pixel and Porcelain: manga, cómics, figuras y coleccionismo.">
 
     <title>Pixel and Porcelain</title>
 
-    <!-- TIPOGRAFÍAS -->
+    <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Dela+Gothic+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Boldonse&family=Dela+Gothic+One&display=swap" rel="stylesheet">
 
-    <!-- TAILWIND CSS -->
+    <!-- TAILWIND CSS 4 -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <!-- CSS PROPIO -->
+    <!-- CSS COMPARTIDO -->
     <link rel="stylesheet" href="css/styles.css">
 
-    <!-- AOS: ANIMACIONES AL HACER SCROLL -->
+    <!-- AOS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
 </head>
@@ -29,37 +31,39 @@
 
     <!-- ================= HEADER ================= -->
 
-    <header class="header" id="inicio">
+    <header class="site-header" id="inicio">
 
         <div class="header-container">
 
-            <a href="index.html" class="logo" aria-label="Pixel and Porcelain, volver a la página principal">
-                <img src="media/img/logo pixel and porcelain blanco.png" alt="Pixel and Porcelain" class="logo-img">
+            <a href="index.html" class="logo" aria-label="Pixel and Porcelain">
+                <img
+                    src="media/img/logo pixel and porcelain blanco.png"
+                    alt="Pixel and Porcelain"
+                    class="logo-img"
+                >
             </a>
 
-            <!-- BOTÓN MENÚ MÓVIL -->
-
-            <button class="menu-toggle" id="menuToggle"
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
                 aria-label="Abrir menú"
                 aria-expanded="false"
-                aria-controls="navigation">
-
+                aria-controls="navigation"
+            >
                 <span></span>
                 <span></span>
                 <span></span>
-
             </button>
-
-            <!-- NAVEGACIÓN -->
 
             <nav class="navigation" id="navigation">
 
-                <a href="index.html">home</a>
-                <a href="superheroes.html">superheroes</a>
-                <a href="comic.html">comic</a>
-                <a href="manga.html">manga</a>
-                <a href="culture.html">culture</a>
-                <a href="blog.html">blog</a>
+                <a href="index.html" class="active">HOME</a>
+                <a href="superheroes.html">SUPERHÉROES</a>
+                <a href="comic.html">CÓMIC</a>
+                <a href="manga.html">MANGA</a>
+                <a href="culture.html">CULTURE</a>
+                <a href="blog.html">BLOG</a>
 
                 <button class="theme-toggle" id="themeToggle" type="button">
                     ◐ MODO
@@ -78,11 +82,10 @@
 
         <section class="hero" id="home">
 
-            <div class="hero-background"></div>
+            <div class="hero-glow hero-glow-pink"></div>
+            <div class="hero-glow hero-glow-green"></div>
 
             <div class="hero-container">
-
-                <!-- TEXTO: PRINCIPAL -->
 
                 <div class="hero-content" data-aos="fade-right">
 
@@ -90,9 +93,9 @@
                         TU NUEVO PUNTO DE ENCUENTRO FRIKI
                     </p>
 
-                    <h1>
+                    <h1 class="hero-title">
                         PIXEL
-                        <span>AND</span>
+                        <span class="hero-and">AND</span>
                         PORCELAIN
                     </h1>
 
@@ -116,44 +119,38 @@
                 </div>
 
 
-                <!-- ESPACIO PARA LA FIGURA 3D -->
+                <!-- FIGURA 3D -->
 
                 <div class="hero-3d" data-aos="zoom-in">
 
                     <div class="orbit orbit-one"></div>
                     <div class="orbit orbit-two"></div>
 
-                    <!-- PLACEHOLDER TEMPORAL -->
-
                     <div class="figure-placeholder">
 
                         <span>✳</span>
-                        FIGURA 3D
 
-                        <small>
-                            ARRASTRA PARA ROTAR
-                        </small>
+                        <strong>FIGURA 3D</strong>
+
+                        <small>ARRASTRA PARA ROTAR</small>
 
                     </div>
 
                     <!--
                     CUANDO TENGÁIS EL MODELO 3D:
 
-                    Descomentad el siguiente componente
-                    y eliminad el placeholder anterior.
+                    Sustituir el placeholder por:
 
                     <model-viewer
-                        src="assets/models/personaje.glb"
+                        src="media/models/personaje.glb"
                         alt="Figura coleccionable 3D"
                         camera-controls
                         auto-rotate
                         rotation-per-second="18deg"
                         shadow-intensity="1"
                         exposure="1.2"
-                        interaction-prompt="auto"
                         touch-action="pan-y">
                     </model-viewer>
-
                     -->
 
                 </div>
@@ -161,17 +158,31 @@
             </div>
 
 
-            <!-- CINTA INFERIOR -->
+            <!-- CINTA ANIMADA -->
 
-            <div class="hero-marquee">
+            <div class="hero-marquee ticker">
 
-                <span>MANGA</span>
-                <span>✳</span>
-                <span>CÓMIC</span>
-                <span>✳</span>
-                <span>COLLECTIBLES</span>
-                <span>✳</span>
-                <span>POP CULTURE</span>
+                <div class="ticker-track">
+
+                    <span>MANGA</span>
+                    <span>✳</span>
+                    <span>CÓMIC</span>
+                    <span>✳</span>
+                    <span>COLLECTIBLES</span>
+                    <span>✳</span>
+                    <span>POP CULTURE</span>
+                    <span>✳</span>
+
+                    <span>MANGA</span>
+                    <span>✳</span>
+                    <span>CÓMIC</span>
+                    <span>✳</span>
+                    <span>COLLECTIBLES</span>
+                    <span>✳</span>
+                    <span>POP CULTURE</span>
+                    <span>✳</span>
+
+                </div>
 
             </div>
 
@@ -183,7 +194,7 @@
         </section>
 
 
-        <!-- ================= ÚLTIMAS NOVEDADES ================= -->
+        <!-- ================= NOVEDADES ================= -->
 
         <section class="section news-section" id="novedades">
 
@@ -199,13 +210,11 @@
             </div>
 
 
-            <!-- PASARELA DE NOTICIAS -->
-
             <div class="news-track">
 
-                <article class="news-card">
+                <article class="news-card" data-aos="fade-up">
 
-                    <div class="news-image">
+                    <div class="news-image news-image-one">
                         <span>IMAGEN NOTICIA 01</span>
                     </div>
 
@@ -227,9 +236,9 @@
                 </article>
 
 
-                <article class="news-card">
+                <article class="news-card" data-aos="fade-up" data-aos-delay="100">
 
-                    <div class="news-image">
+                    <div class="news-image news-image-two">
                         <span>IMAGEN NOTICIA 02</span>
                     </div>
 
@@ -251,9 +260,9 @@
                 </article>
 
 
-                <article class="news-card">
+                <article class="news-card" data-aos="fade-up" data-aos-delay="200">
 
-                    <div class="news-image">
+                    <div class="news-image news-image-three">
                         <span>IMAGEN NOTICIA 03</span>
                     </div>
 
@@ -275,9 +284,9 @@
                 </article>
 
 
-                <article class="news-card">
+                <article class="news-card" data-aos="fade-up" data-aos-delay="300">
 
-                    <div class="news-image">
+                    <div class="news-image news-image-four">
                         <span>IMAGEN NOTICIA 04</span>
                     </div>
 
@@ -303,7 +312,7 @@
         </section>
 
 
-        <!-- ================= EVENTOS Y ANUNCIOS ================= -->
+        <!-- ================= EVENTOS ================= -->
 
         <section class="section events-section" id="eventos">
 
@@ -322,9 +331,6 @@
 
 
             <div class="events-container">
-
-
-                <!-- EVENTO 1 -->
 
                 <article class="event-row" data-aos="fade-up">
 
@@ -350,8 +356,6 @@
                 </article>
 
 
-                <!-- EVENTO 2 -->
-
                 <article class="event-row reverse" data-aos="fade-up">
 
                     <div class="event-content">
@@ -375,8 +379,6 @@
 
                 </article>
 
-
-                <!-- ANUNCIO 3 -->
 
                 <article class="event-row" data-aos="fade-up">
 
@@ -418,14 +420,12 @@
 
                 <h2>
                     PRODUCTOS
-                    <span>·</span>
+                    <span>✳</span>
                     PRODUCTOS
                 </h2>
 
             </div>
 
-
-            <!-- FILTROS Y FLECHAS -->
 
             <div class="products-toolbar">
 
@@ -437,21 +437,10 @@
 
                     <select id="categoryFilter">
 
-                        <option value="all">
-                            TODAS LAS CATEGORÍAS
-                        </option>
-
-                        <option value="figuras">
-                            FIGURAS DE ACCIÓN
-                        </option>
-
-                        <option value="laminas">
-                            LÁMINAS Y POSTERS
-                        </option>
-
-                        <option value="merch">
-                            MERCHANDISING
-                        </option>
+                        <option value="all">TODAS LAS CATEGORÍAS</option>
+                        <option value="figuras">FIGURAS DE ACCIÓN</option>
+                        <option value="laminas">LÁMINAS Y POSTERS</option>
+                        <option value="merch">MERCHANDISING</option>
 
                     </select>
 
@@ -460,11 +449,11 @@
 
                 <div class="carousel-controls">
 
-                    <button id="productsPrev" aria-label="Productos anteriores">
+                    <button id="productsPrev" type="button" aria-label="Productos anteriores">
                         ←
                     </button>
 
-                    <button id="productsNext" aria-label="Productos siguientes">
+                    <button id="productsNext" type="button" aria-label="Productos siguientes">
                         →
                     </button>
 
@@ -473,12 +462,7 @@
             </div>
 
 
-            <!-- CARRUSEL -->
-
             <div class="products-carousel" id="productsCarousel">
-
-
-                <!-- PRODUCTO 1 -->
 
                 <article class="product-card" data-category="figuras">
 
@@ -490,19 +474,14 @@
                     <div class="product-info">
 
                         <small>FIGURAS DE ACCIÓN</small>
-
                         <h3>FIGURA COLECCIONABLE</h3>
-
                         <p>Descripción del producto.</p>
-
                         <strong>00,00 €</strong>
 
                     </div>
 
                 </article>
 
-
-                <!-- PRODUCTO 2 -->
 
                 <article class="product-card" data-category="laminas">
 
@@ -514,19 +493,14 @@
                     <div class="product-info">
 
                         <small>LÁMINAS Y POSTERS</small>
-
                         <h3>LÁMINA DE COLECCIÓN</h3>
-
                         <p>Descripción del producto.</p>
-
                         <strong>00,00 €</strong>
 
                     </div>
 
                 </article>
 
-
-                <!-- PRODUCTO 3 -->
 
                 <article class="product-card" data-category="merch">
 
@@ -538,19 +512,14 @@
                     <div class="product-info">
 
                         <small>MERCHANDISING</small>
-
                         <h3>ARTÍCULO EXCLUSIVO</h3>
-
                         <p>Descripción del producto.</p>
-
                         <strong>00,00 €</strong>
 
                     </div>
 
                 </article>
 
-
-                <!-- PRODUCTO 4 -->
 
                 <article class="product-card" data-category="figuras">
 
@@ -562,19 +531,14 @@
                     <div class="product-info">
 
                         <small>FIGURAS DE ACCIÓN</small>
-
                         <h3>FIGURA ARTICULADA</h3>
-
                         <p>Descripción del producto.</p>
-
                         <strong>00,00 €</strong>
 
                     </div>
 
                 </article>
 
-
-                <!-- PRODUCTO 5 -->
 
                 <article class="product-card" data-category="laminas">
 
@@ -586,19 +550,14 @@
                     <div class="product-info">
 
                         <small>LÁMINAS Y POSTERS</small>
-
                         <h3>POSTER EDICIÓN ESPECIAL</h3>
-
                         <p>Descripción del producto.</p>
-
                         <strong>00,00 €</strong>
 
                     </div>
 
                 </article>
 
-
-                <!-- PRODUCTO 6 -->
 
                 <article class="product-card" data-category="merch">
 
@@ -610,11 +569,8 @@
                     <div class="product-info">
 
                         <small>MERCHANDISING</small>
-
                         <h3>MERCH DE TEMPORADA</h3>
-
                         <p>Descripción del producto.</p>
-
                         <strong>00,00 €</strong>
 
                     </div>
@@ -622,6 +578,7 @@
                 </article>
 
             </div>
+
 
             <p class="carousel-hint">
                 DESLIZA PARA EXPLORAR →
@@ -634,13 +591,16 @@
 
     <!-- ================= FOOTER ================= -->
 
-    <footer class="footer" id="footer">
+    <footer class="site-footer" id="footer">
 
         <div class="footer-container">
 
-
-            <a href="index.html" class="logo footer-logo" aria-label="Pixel and Porcelain, volver a la página principal">
-                <img src="media/img/logo pixel and porcelain blanco.png" alt="Pixel and Porcelain" class="logo-img">
+            <a href="index.html" class="logo footer-logo">
+                <img
+                    src="media/img/logo pixel and porcelain blanco.png"
+                    alt="Pixel and Porcelain"
+                    class="logo-img"
+                >
             </a>
 
 
@@ -652,8 +612,6 @@
 
             </div>
 
-
-            <!-- NEWSLETTER -->
 
             <form class="newsletter" id="newsletterForm">
 
@@ -700,9 +658,10 @@
     </footer>
 
 
-    <!-- LIBRERÍA MODEL VIEWER PARA LOS MODELOS 3D -->
+    <!-- MODEL VIEWER -->
 
-    <script type="module"
+    <script
+        type="module"
         src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js">
     </script>
 
@@ -712,7 +671,7 @@
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
 
-    <!-- JAVASCRIPT PROPIO -->
+    <!-- JAVASCRIPT COMPARTIDO -->
 
     <script src="js/script.js"></script>
 
