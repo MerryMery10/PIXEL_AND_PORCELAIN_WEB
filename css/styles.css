@@ -459,18 +459,51 @@ body.light-mode .logo .logo-light {
 }
 
 
-/* CINTA INFERIOR */
+/* ==========================================
+   CINTA INFERIOR / MARQUEE
+========================================== */
 
 .hero-marquee {
-
     background: var(--magenta);
-
     color: var(--black);
-
     font-family: var(--font-title);
-
     font-size: 0.7rem;
+}
 
+.marquee-track {
+    animation: marqueeMovement 20s linear infinite;
+    will-change: transform;
+}
+
+.marquee-content {
+    min-width: 100vw;
+    white-space: nowrap;
+    padding-right: 2rem;
+}
+
+.marquee-content span:nth-child(even) {
+    color: var(--green);
+    font-size: 1rem;
+}
+
+@keyframes marqueeMovement {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.hero-marquee:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+        animation: none;
+    }
 }
 
 

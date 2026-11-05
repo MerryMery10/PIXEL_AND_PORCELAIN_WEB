@@ -336,4 +336,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+    /* ======================================
+   8. MARQUEE INFINITO
+====================================== */
+
+    const marqueeTrack = $(".marquee-track");
+
+    if (marqueeTrack.length) {
+
+        const originalContent = marqueeTrack.find(".marquee-content").first();
+
+        // Duplicamos el contenido para crear el bucle
+        const duplicatedContent = originalContent.clone();
+
+        marqueeTrack.append(duplicatedContent);
+
+    }
+
 });
+
+
