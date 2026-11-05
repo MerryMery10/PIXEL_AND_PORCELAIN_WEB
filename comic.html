@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pixel and Porcelain: manga, cómics, figuras y coleccionismo.">
+
+    <title>Pixel and Porcelain</title>
+
+    <!-- TIPOGRAFÍAS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Dela+Gothic+One&display=swap" rel="stylesheet">
+
+    <!-- TAILWIND CSS 4 -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- COLORES Y TIPOGRAFÍAS PERSONALIZADOS -->
+    <style type="text/tailwindcss">
+        @theme {
+        --color-neon: #FF00A1;
+        --color-lima: #70FF0D;
+        --color-tinta: #000000;
+        --color-papel: #ffffff;
+
+        --font-titulo: "Boldonse", sans-serif;
+        --font-sans: "Inter", Arial, sans-serif;
+        }
+    </style>
+
+    <!-- CSS PROPIO -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+</head>
+
+<body class="min-h-screen overflow-x-hidden">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header sticky top-0 z-[1000] w-full" id="inicio">
+
+        <div class="header-container mx-auto flex w-[92%] max-w-[1440px] min-h-[76px] items-center justify-between">
+
+            <a href="index.html" class="logo">
+                PIXEL AND
+                <span>PORCELAIN</span>
+            </a>
+
+            <!-- MENÚ MÓVIL -->
+
+            <button
+                class="menu-toggle md:hidden flex flex-col items-center justify-center gap-[5px] w-11 h-11 p-2.5"
+                id="menuToggle"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                aria-controls="navigation">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+            <!-- NAVEGACIÓN -->
+
+            <nav
+                class="navigation absolute md:static top-full left-0 right-0 flex flex-col md:flex-row items-stretch md:items-center gap-0 md:gap-[35px] px-[5%] md:px-0"
+                id="navigation">
+
+                <a href="superheroes.html">SUPERHEROES</a>
+                <a href="comic.html">COMIC</a>
+                <a href="manga.html">MANGA</a>
+                <a href="culture.html">CULTURE</a>
+                <a href="blog.html">BLOG</a>
+
+                <button class="theme-toggle self-start md:self-auto mt-4 md:mt-0" id="themeToggle">
+                    ◐ MODO OSCURO
+                </button>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <main>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer relative px-[5%] pt-[60px] pb-5" id="footer">
+
+        <div class="footer-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[0.8fr_0.8fr_1.4fr] gap-[30px] pb-[50px]">
+
+            <a href="#inicio" class="logo footer-logo">
+                PIXEL AND
+                <span>PORCELAIN</span>
+            </a>
+
+
+            <!-- ENLACES -->
+
+            <div class="footer-links flex flex-col gap-[15px]">
+
+                <a href="#">Política de privacidad</a>
+                <a href="#">Términos de uso</a>
+                <a href="#">Cookies</a>
+
+            </div>
+
+
+            <!-- NEWSLETTER -->
+
+            <form class="newsletter flex flex-col gap-3 md:col-span-2 lg:col-span-1" id="newsletterForm">
+
+                <label for="newsletterEmail">
+                    SUSCRÍBETE PARA NO PERDERTE NADA
+                </label>
+
+                <div class="newsletter-input flex flex-col sm:flex-row gap-2">
+
+                    <input
+                        type="email"
+                        id="newsletterEmail"
+                        placeholder="Tu correo electrónico"
+                        required
+                        class="min-w-0 flex-1"
+                    >
+
+                    <button type="submit" class="button button-green">
+                        UNIRME
+                    </button>
+
+                </div>
+
+                <small id="formFeedback" aria-live="polite"></small>
+
+            </form>
+
+        </div>
+
+
+        <!-- PIE INFERIOR -->
+
+        <div class="footer-bottom flex flex-col sm:flex-row justify-between gap-4 pt-5">
+
+            <span>© 2026 PIXEL AND PORCELAIN</span>
+
+            <a href="mailto:hola@pixelandporcelain.com">
+                CONTACTO
+            </a>
+
+            <a href="#inicio">
+                VOLVER ARRIBA ↑
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <!-- MODEL VIEWER -->
+
+    <script type="module"
+        src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js">
+    </script>
+
+
+    <!-- AOS -->
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+
+    <!-- JAVASCRIPT PROPIO -->
+
+    <script src="js/script.js"></script>
+</body>
