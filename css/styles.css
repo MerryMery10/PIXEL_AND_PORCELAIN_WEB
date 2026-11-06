@@ -1,11 +1,3 @@
-
-/* ==========================================
-   PIXEL AND PORCELAIN
-   CSS ESTÉTICO PRINCIPAL
-   MAQUETACIÓN RESPONSIVE: TAILWIND CSS 4
-========================================== */
-
-
 /* ==========================================
    1. VARIABLES Y CONFIGURACIÓN GENERAL
 ========================================== */
@@ -751,7 +743,7 @@ body.light-mode .logo .logo-light {
 
 .products-section {
 
-    background: #080808;
+    background: #000000;
 
 }
 
@@ -1153,8 +1145,6 @@ body.light-mode .newsletter-input input {
 body.light-mode .footer-bottom {
     border-color: black;
 }
-
-/* FOOTER EN MODO CLARO */
 
 /* FOOTER EN MODO CLARO */
 

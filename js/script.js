@@ -1,10 +1,3 @@
-
-/* ==========================================
-   PIXEL AND PORCELAIN
-   JAVASCRIPT PRINCIPAL
-========================================== */
-
-
 document.addEventListener("DOMContentLoaded", function () {
 
 
@@ -26,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const nextButton = document.getElementById("productsNext");
 
-    const productCards = document.querySelectorAll(".product-card");
+    const productGrid = document.querySelectorAll(".product-card");
 
     const newsletterForm = document.getElementById("newsletterForm");
 
@@ -125,45 +118,87 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+   
     /* ======================================
-       4. FILTRO DE PRODUCTOS
+        4. FILTRO DE PRODUCTOS
     ====================================== */
 
-    if (categoryFilter && productsCarousel) {
+    const filterButtons = document.querySelectorAll(".filter-button");
+    const productCards = document.querySelectorAll("#productGrid .product-card");
+    const noProducts = document.getElementById("noProducts");
 
-        categoryFilter.addEventListener("change", function () {
+    if (filterButtons.length > 0 && productCards.length > 0) {
 
-            const selectedCategory = categoryFilter.value;
+        filterButtons.forEach(function (button) {
 
+            button.addEventListener("click", function () {
 
-            productCards.forEach(function (card) {
+                const selectedCategory = button.dataset.filter;
 
-                const productCategory = card.dataset.category;
+                // Restablecer el estilo de todos los botones
+                filterButtons.forEach(function (btn) {
 
+                    btn.classList.remove(
+                        "is-active",
+                        "bg-neon",
+                        "text-tinta"
+                    );
 
-                const isVisible =
-                    selectedCategory === "all" ||
-                    productCategory === selectedCategory;
+                    btn.classList.add(
+                        "bg-transparent",
+                        "text-neon"
+                    );
 
+                    btn.setAttribute("aria-pressed", "false");
+                });
 
-                card.hidden = !isVisible;
+                // Activar visualmente el botón seleccionado
+                button.classList.add("is-active");
 
-            });
+                button.classList.remove(
+                    "bg-transparent",
+                    "text-neon"
+                );
 
+                button.classList.add(
+                    "bg-neon",
+                    "text-tinta"
+                );
 
-            // Volver al principio del carrusel
+                button.setAttribute("aria-pressed", "true");
 
-            productsCarousel.scrollTo({
+                // Mostrar únicamente los productos de esa categoría
+                let visibleProducts = 0;
 
-                left: 0,
+                productCards.forEach(function (card) {
 
-                behavior: "smooth"
+                    const productCategory = card.dataset.category;
+
+                    const isVisible =
+                        selectedCategory === "todo" ||
+                        productCategory === selectedCategory;
+
+                    card.hidden = !isVisible;
+
+                    if (isVisible) {
+                        visibleProducts++;
+                    }
+                });
+
+                // Mostrar mensaje si no hay productos
+                if (noProducts) {
+                    noProducts.classList.toggle(
+                        "hidden",
+                        visibleProducts > 0
+                    );
+                }
 
             });
 
         });
 
     }
+
 
 
 
