@@ -40,7 +40,7 @@
 
     <body id="inicio" clas="min-h-screen overflow-x-hidden bg-tinta font-sans text-papel antialiased">
 
-    <!-- ================= HEADER ================= -->
+        <!-- ================= HEADER ================= -->
 
         <header class="header sticky top-0 z-[1000] w-full" id="inicio">
 
@@ -672,36 +672,36 @@
                         <div class="absolute inset-0 bg-gradient-to-t from-tinta via-tinta/75 to-transparent"></div>
 
 
-                        <!-- CONTENIDO -->
+                            <!-- CONTENIDO -->
 
-                        <div class="relative z-10">
+                            <div class="relative z-10">
 
-                            <p class="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-lima">
-                                Héroe del mes · Noviembre 2026
-                            </p>
+                                <p class="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-lima">
+                                    Héroe del mes · Noviembre 2026
+                                </p>
 
-                            <h2
-                                id="titulo-heroe"
-                                class="mb-5 font-titulo text-4xl uppercase sm:text-5xl lg:text-6xl"
-                            >
-                                Spider-Man
-                            </h2>
+                                <h2
+                                    id="titulo-heroe"
+                                    class="mb-5 font-titulo text-4xl uppercase sm:text-5xl lg:text-6xl"
+                                >
+                                    Spider-Man
+                                </h2>
 
-                            <p class="mb-7 max-w-md text-sm leading-6 text-papel/90 sm:text-base">
-                                Detrás de la máscara está Peter Parker, un joven que intenta
-                                equilibrar su vida personal con la responsabilidad de proteger
-                                Nueva York. Con sus telarañas, ingenio y determinación,
-                                demuestra que cualquiera puede convertirse en héroe.
-                            </p>
+                                <p class="mb-7 max-w-md text-sm leading-6 text-papel/90 sm:text-base">
+                                    Detrás de la máscara está Peter Parker, un joven que intenta
+                                    equilibrar su vida personal con la responsabilidad de proteger
+                                    Nueva York. Con sus telarañas, ingenio y determinación,
+                                    demuestra que cualquiera puede convertirse en héroe.
+                                </p>
 
-                            <a
-                                href="#productos"
-                                class="skew-button inline-flex min-h-11 items-center bg-lima px-6 py-3 text-[11px] font-bold uppercase tracking-wider text-tinta transition hover:bg-papel"
-                            >
-                                <span>Ver su estantería</span>
-                            </a>
+                                <a
+                                    href="#productos"
+                                    class="skew-button inline-flex min-h-11 items-center bg-lima px-6 py-3 text-[11px] font-bold uppercase tracking-wider text-tinta transition hover:bg-papel"
+                                >
+                                    <span>Ver su estantería</span>
+                                </a>
 
-                        </div>
+                            </div>
 
                     </article>
 
@@ -790,133 +790,177 @@
             <!-- ================= PRÓXIMOS LANZAMIENTOS ================= -->
 
             <section
-            id="lanzamientos"
-            class="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8"
-            aria-labelledby="titulo-lanzamientos"
+                id="lanzamientos"
+                class="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24 lg:px-8"
+                aria-labelledby="titulo-lanzamientos"
             >
 
-            <h2
-                id="titulo-lanzamientos"
-                class="mb-10 text-3xl font-light uppercase leading-tight sm:text-4xl md:text-5xl"
-                data-aos="fade-up"
-            >
-                Próximos
-                <span class="title-outline">lanzamientos</span>
-            </h2>
-
-
-            <ul class="flex flex-col gap-3 sm:gap-4">
-
-                <!-- LANZAMIENTO 1 -->
-
-                <li class="release-row" data-aos="fade-left">
-
-                <time datetime="2026-11-15" class="release-date">
-                    [DD/MM]
-                </time>
-
-                <p class="release-name">
-                    Capitán Voltio #2
-                </p>
-
-                <span class="release-type">
-                    Grapa
-                </span>
-
-                <a
-                    href="mailto:hola@pixelandporcelain.com?subject=Reserva%20Capit%C3%A1n%20Voltio%20%232"
-                    class="skew-button release-button"
+                <h2
+                    id="titulo-lanzamientos"
+                    class="mb-10 text-3xl font-light uppercase leading-tight sm:text-4xl md:text-5xl"
+                    data-aos="fade-up"
                 >
-                    <span>Reservar</span>
-                </a>
-
-                </li>
+                    Próximos lanzamientos
+                </h2>
 
 
-                <!-- LANZAMIENTO 2 -->
-
-                <li class="release-row" data-aos="fade-left" data-aos-delay="70">
-
-                <time class="release-date">
-                    [DD/MM]
-                </time>
-
-                <p class="release-name">
-                    La Liga Nocturna · Tomo 4
-                </p>
-
-                <span class="release-type">
-                    Tomo
-                </span>
-
-                <a
-                    href="mailto:hola@pixelandporcelain.com?subject=Reserva%20La%20Liga%20Nocturna%20Tomo%204"
-                    class="skew-button release-button"
-                >
-                    <span>Reservar</span>
-                </a>
-
-                </li>
+                <ul class="flex flex-col gap-5">
 
 
-                <!-- LANZAMIENTO 3 -->
+                    <!-- LANZAMIENTO 1 -->
 
-                <li class="release-row" data-aos="fade-left" data-aos-delay="140">
+                    <li
+                        class="release-row grid grid-cols-[75px_minmax(0,1fr)_auto] items-center gap-3 border-2 border-tinta bg-papel p-4 text-tinta shadow-[7px_7px_0_#b6ff00] transition duration-300 hover:-translate-y-1 hover:shadow-[10px_10px_0_#ff00a1] sm:grid-cols-[110px_minmax(0,1fr)_auto] sm:gap-5 sm:p-6"
+                        data-aos="fade-left"
+                    >
 
-                <time class="release-date">
-                    [DD/MM]
-                </time>
+                        <time
+                            datetime="2026-11-15"
+                            class="text-center font-titulo text-2xl leading-none sm:text-4xl"
+                        >
+                            15/11
+                        </time>
 
-                <p class="release-name">
-                    Figura Vigilante Escarlata
-                </p>
+                        <div class="min-w-0">
 
-                <span class="release-type">
-                    Figura
-                </span>
+                            <p class="release-name text-sm font-bold uppercase leading-snug sm:text-lg">
+                                Capitán Voltio #2
+                            </p>
 
-                <a
-                    href="mailto:hola@pixelandporcelain.com?subject=Reserva%20Figura%20Vigilante%20Escarlata"
-                    class="skew-button release-button"
-                >
-                    <span>Reservar</span>
-                </a>
+                            <span class="mt-2 inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-neon">
+                                Grapa
+                            </span>
 
-                </li>
+                        </div>
+
+                        <a
+                            href="mailto:hola@pixelandporcelain.com?subject=Reserva%20Capit%C3%A1n%20Voltio%20%232"
+                            class="skew-button inline-flex min-h-10 items-center justify-center bg-lima px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-tinta transition hover:bg-neon hover:text-papel sm:px-6 sm:text-xs"
+                        >
+                            <span>Reservar</span>
+                        </a>
+
+                    </li>
 
 
-                <!-- LANZAMIENTO 4 -->
+                    <!-- LANZAMIENTO 2 -->
 
-                <li class="release-row" data-aos="fade-left" data-aos-delay="210">
+                    <li
+                        class="release-row grid grid-cols-[75px_minmax(0,1fr)_auto] items-center gap-3 border-2 border-tinta bg-papel p-4 text-tinta shadow-[7px_7px_0_#b6ff00] transition duration-300 hover:-translate-y-1 hover:shadow-[10px_10px_0_#ff00a1] sm:grid-cols-[110px_minmax(0,1fr)_auto] sm:gap-5 sm:p-6"
+                        data-aos="fade-left"
+                        data-aos-delay="70"
+                    >
 
-                <time class="release-date">
-                    [DD/MM]
-                </time>
+                        <time
+                            datetime="2026-11-22"
+                            class="text-center font-titulo text-2xl leading-none sm:text-4xl"
+                        >
+                            22/11
+                        </time>
 
-                <p class="release-name">
-                    Antología Héroes de Barrio
-                </p>
+                        <div class="min-w-0">
 
-                <span class="release-type">
-                    Novela gráfica
-                </span>
+                            <p class="release-name text-sm font-bold uppercase leading-snug sm:text-lg">
+                                La Liga Nocturna · Tomo 4
+                            </p>
 
-                <a
-                    href="mailto:hola@pixelandporcelain.com?subject=Reserva%20Antolog%C3%ADa%20H%C3%A9roes%20de%20Barrio"
-                    class="skew-button release-button"
-                >
-                    <span>Reservar</span>
-                </a>
+                            <span class="mt-2 inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-neon">
+                                Tomo
+                            </span>
 
-                </li>
+                        </div>
 
-            </ul>
+                        <a
+                            href="mailto:hola@pixelandporcelain.com?subject=Reserva%20La%20Liga%20Nocturna%20Tomo%204"
+                            class="skew-button inline-flex min-h-10 items-center justify-center bg-lima px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-tinta transition hover:bg-neon hover:text-papel sm:px-6 sm:text-xs"
+                        >
+                            <span>Reservar</span>
+                        </a>
+
+                    </li>
+
+
+                    <!-- LANZAMIENTO 3 -->
+
+                    <li
+                        class="release-row grid grid-cols-[75px_minmax(0,1fr)_auto] items-center gap-3 border-2 border-tinta bg-papel p-4 text-tinta shadow-[7px_7px_0_#b6ff00] transition duration-300 hover:-translate-y-1 hover:shadow-[10px_10px_0_#ff00a1] sm:grid-cols-[110px_minmax(0,1fr)_auto] sm:gap-5 sm:p-6"
+                        data-aos="fade-left"
+                        data-aos-delay="140"
+                    >
+
+                        <time
+                            datetime="2026-11-26"
+                            class="text-center font-titulo text-2xl leading-none sm:text-4xl"
+                        >
+                            26/11
+                        </time>
+
+                        <div class="min-w-0">
+
+                            <p class="release-name text-sm font-bold uppercase leading-snug sm:text-lg">
+                                Figura Vigilante Escarlata
+                            </p>
+
+                            <span class="mt-2 inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-neon">
+                                Figura
+                            </span>
+
+                        </div>
+
+                        <a
+                            href="mailto:hola@pixelandporcelain.com?subject=Reserva%20Figura%20Vigilante%20Escarlata"
+                            class="skew-button inline-flex min-h-10 items-center justify-center bg-lima px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-tinta transition hover:bg-neon hover:text-papel sm:px-6 sm:text-xs"
+                        >
+                            <span>Reservar</span>
+                        </a>
+
+                    </li>
+
+
+                    <!-- LANZAMIENTO 4 -->
+
+                    <li
+                        class="release-row grid grid-cols-[75px_minmax(0,1fr)_auto] items-center gap-3 border-2 border-tinta bg-papel p-4 text-tinta shadow-[7px_7px_0_#b6ff00] transition duration-300 hover:-translate-y-1 hover:shadow-[10px_10px_0_#ff00a1] sm:grid-cols-[110px_minmax(0,1fr)_auto] sm:gap-5 sm:p-6"
+                        data-aos="fade-left"
+                        data-aos-delay="210"
+                    >
+
+                        <time
+                            datetime="2026-11-30"
+                            class="text-center font-titulo text-2xl leading-none sm:text-4xl"
+                        >
+                            30/11
+                        </time>
+
+                        <div class="min-w-0">
+
+                            <p class="release-name text-sm font-bold uppercase leading-snug sm:text-lg">
+                                Antología Héroes de Barrio
+                            </p>
+
+                            <span class="mt-2 inline-block text-[10px] font-bold uppercase tracking-[0.2em] text-neon">
+                                Novela gráfica
+                            </span>
+
+                        </div>
+
+                        <a
+                            href="mailto:hola@pixelandporcelain.com?subject=Reserva%20Antolog%C3%ADa%20H%C3%A9roes%20de%20Barrio"
+                            class="skew-button inline-flex min-h-10 items-center justify-center bg-lima px-3 py-2 text-[10px] font-bold uppercase tracking-wider text-tinta transition hover:bg-neon hover:text-papel sm:px-6 sm:text-xs"
+                        >
+                            <span>Reservar</span>
+                        </a>
+
+                    </li>
+
+                </ul>
 
             </section>
 
         </main>
 
-
+        
+    </body>
     <!-- ================= FOOTER ================= -->
 
     <footer
