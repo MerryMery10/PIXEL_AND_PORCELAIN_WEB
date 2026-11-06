@@ -41,7 +41,6 @@ body {
 }
 
 a {
-    color: inherit;
     text-decoration: none;
 }
 
@@ -75,25 +74,38 @@ button {
 
 }
 
+/* LOGO DEL HEADER */
+
 .logo {
-
     display: flex;
-    flex-direction: column;
-
-    font-family: var(--font-title);
-
-    font-size: 1rem;
-
-    line-height: 0.9;
-
-    letter-spacing: -1px;
-
+    align-items: center;
 }
 
-.logo span {
-    color: var(--magenta);
+.logo img {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
 }
 
+/* MODO OSCURO */
+
+.logo .logo-dark {
+    display: block !important;
+}
+
+.logo .logo-light {
+    display: none !important;
+}
+
+/* MODO CLARO */
+
+body.light-mode .logo .logo-dark {
+    display: none !important;
+}
+
+body.light-mode .logo .logo-light {
+    display: block !important;
+}
 
 /* NAVEGACIÓN */
 
@@ -978,7 +990,7 @@ button {
    9. FOOTER
 ========================================== */
 
-.footer {
+.site-footer {
 
     background:
 
@@ -1005,8 +1017,12 @@ button {
     font-size: 0.6rem;
 }
 
-.footer-links a:hover {
-    color: var(--green);
+body.light-mode .footer-links a {
+    color: var(--black);
+}
+
+body.light-mode .footer-links a:hover {
+    color: var(--magenta);
 }
 
 
@@ -1171,6 +1187,88 @@ body.light-mode .footer-bottom {
     border-color: black;
 }
 
+/* FOOTER EN MODO CLARO */
+
+/* FOOTER EN MODO CLARO */
+
+body.light-mode .site-footer {
+
+    background:
+
+        radial-gradient(
+            ellipse at 20% 20%,
+            rgba(255, 0, 161, 0.25),
+            transparent 40%
+        ),
+
+        radial-gradient(
+            ellipse at 75% 70%,
+            rgba(112, 255, 13, 0.25),
+            transparent 38%
+        ),
+
+        #e8e3e7;
+
+    color: var(--black);
+
+}
+
+/* LOGOS DEL FOOTER */
+
+/* Modo oscuro */
+.footer-logo-dark {
+    display: block;
+}
+
+.footer-logo-light {
+    display: none;
+}
+
+/* Modo claro */
+body.light-mode .footer-logo-dark {
+    display: none;
+}
+
+body.light-mode .footer-logo-light {
+    display: block;
+}
+
+/* TEXTOS Y ENLACES DEL FOOTER */
+
+body.light-mode .site-footer a {
+    color: var(--black);
+}
+
+body.light-mode .site-footer a:hover {
+    color: var(--magenta);
+}
+
+/* NEWSLETTER EN MODO CLARO */
+
+body.light-mode .site-footer label {
+    color: var(--black);
+}
+
+body.light-mode .site-footer input {
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--black);
+    border-color: var(--black);
+}
+
+body.light-mode .site-footer input::placeholder {
+    color: #666;
+}
+
+body.light-mode .site-footer small {
+    color: #555;
+}
+
+/* BORDE DEL PIE INFERIOR */
+
+body.light-mode .site-footer .border-t {
+    border-color: var(--black);
+}
+
 
 /* ==========================================
    11. AJUSTES VISUALES RESPONSIVE
@@ -1210,6 +1308,12 @@ body.light-mode .footer-bottom {
         align-items: flex-start;
     }
 
+}
+
+/* TEXTO INFERIOR DEL FOOTER EN MODO CLARO */
+
+body.light-mode .footer-bottom-text {
+    color: var(--black);
 }
 
 
