@@ -1,189 +1,433 @@
+
 <!DOCTYPE html>
 <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Pixel and Porcelain: manga, cómics, figuras y coleccionismo.">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pixel and Porcelain: manga, cómics, figuras y coleccionismo.">
+        <title>Pixel and Porcelain</title>
 
-    <title>Pixel and Porcelain</title>
+        <!-- TIPOGRAFÍAS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- TIPOGRAFÍAS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Dela+Gothic+One&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Dela+Gothic+One&display=swap" rel="stylesheet">
+        <!-- TAILWIND CSS 4 -->
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <!-- TAILWIND CSS 4 -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <!-- COLORES Y TIPOGRAFÍAS PERSONALIZADOS -->
+        <style type="text/tailwindcss">
+            @theme {
+            --color-neon: #FF00A1;
+            --color-lima: #70FF0D;
+            --color-tinta: #000000;
+            --color-papel: #ffffff;
 
-    <!-- COLORES Y TIPOGRAFÍAS PERSONALIZADOS -->
-    <style type="text/tailwindcss">
-        @theme {
-        --color-neon: #FF00A1;
-        --color-lima: #70FF0D;
-        --color-tinta: #000000;
-        --color-papel: #ffffff;
+            --font-titulo: "Boldonse", sans-serif;
+            --font-sans: "Inter", Arial, sans-serif;
+            }
+        </style>
 
-        --font-titulo: "Boldonse", sans-serif;
-        --font-sans: "Inter", Arial, sans-serif;
-        }
-    </style>
+        <!-- CSS PROPIO -->
+        <link rel="stylesheet" href="css/styles.css">
 
-    <!-- CSS PROPIO -->
-    <link rel="stylesheet" href="css/styles.css">
+        <!-- AOS -->
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
-    <!-- AOS -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    </head>
 
-</head>
+    <body id="inicio" clas="min-h-screen overflow-x-hidden bg-tinta font-sans text-papel antialiased">
 
-<body id="inicio" clas="min-h-screen overflow-x-hidden bg-tinta font-sans text-papel antialiased">
+        <!-- ================= HEADER ================= -->
 
-    <!-- ================= HEADER ================= -->
+        <header class="header sticky top-0 z-[1000] w-full" id="inicio">
 
-    <header class="header sticky top-0 z-[1000] w-full" id="inicio">
+            <div class="header-container mx-auto flex w-[92%] max-w-[1440px] min-h-[76px] items-center justify-between">
 
-        <div class="header-container mx-auto flex w-[92%] max-w-[1440px] min-h-[76px] items-center justify-between">
+                <a href="index.html" class="logo">
+                    <!-- Logo modo oscuro (normal) -->
+                    <img src="media/img/logo pixel and porcelain blanco.png" alt="Pixel and Porcelain" class="logo-dark">
 
-            <a href="index.html" class="logo">
-                <!-- Logo modo oscuro (normal) -->
-                <img src="media/img/logo pixel and porcelain blanco.png" alt="Pixel and Porcelain" class="logo-dark">
+                    <!-- Logo modo claro -->
+                    <img src="media/img/logo pixel and porcelain negro.png" alt="Pixel and Porcelain" class="logo-light">
+                </a>
 
-                <!-- Logo modo claro -->
-                <img src="media/img/logo pixel and porcelain negro.png" alt="Pixel and Porcelain" class="logo-light">
-            </a>
+                <!-- MENÚ MÓVIL -->
 
-            <!-- MENÚ MÓVIL -->
+                <button
+                    class="menu-toggle md:hidden flex flex-col items-center justify-center gap-[5px] w-11 h-11 p-2.5"
+                    id="menuToggle"
+                    aria-label="Abrir menú"
+                    aria-expanded="false"
+                    aria-controls="navigation">
 
-            <button
-                class="menu-toggle md:hidden flex flex-col items-center justify-center gap-[5px] w-11 h-11 p-2.5"
-                id="menuToggle"
-                aria-label="Abrir menú"
-                aria-expanded="false"
-                aria-controls="navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
 
-                <span></span>
-                <span></span>
-                <span></span>
-
-            </button>
-
-            <!-- NAVEGACIÓN -->
-
-            <nav
-                class="navigation absolute md:static top-full left-0 right-0 flex flex-col md:flex-row items-stretch md:items-center gap-0 md:gap-[35px] px-[5%] md:px-0"
-                id="navigation">
-
-                <a href="superheroes.html">SUPERHÉROES</a>
-                <a href="comic.html">CÓMIC</a>
-                <a href="manga.html">MANGA</a>
-                <a href="culture.html">CULTURA</a>
-                <a href="blog.html">BLOG</a>
-
-                <button class="theme-toggle self-start md:self-auto mt-4 md:mt-0" id="themeToggle">
-                    ◐ MODO OSCURO
                 </button>
 
-            </nav>
+                <!-- NAVEGACIÓN -->
 
-        </div>
+                <nav
+                    class="navigation absolute md:static top-full left-0 right-0 flex flex-col md:flex-row items-stretch md:items-center gap-0 md:gap-[35px] px-[5%] md:px-0"
+                    id="navigation">
 
-    </header>
+                    <a href="superheroes.html">SUPERHÉROES</a>
+                    <a href="comic.html">CÓMIC</a>
+                    <a href="manga.html">MANGA</a>
+                    <a href="culture.html">CULTURA</a>
+                    <a href="blog.html">BLOG</a>
+
+                    <button class="theme-toggle self-start md:self-auto mt-4 md:mt-0" id="themeToggle">
+                        ◐ MODO OSCURO
+                    </button>
+
+                </nav>
+
+            </div>
+
+        </header>
+
 
     <main>
 
-    </main>
+        <!-- HERO BLOG -->
+        <section class="blog-hero">
 
-    <!-- ================= FOOTER ================= -->
+            <div class="blog-hero-grid"></div>
 
-    <footer class="footer relative px-[5%] pt-[60px] pb-5" id="footer">
+            <div class="blog-hero-content" data-aos="fade-up">
 
-        <div class="footer-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[0.8fr_0.8fr_1.4fr] gap-[30px] pb-[50px]">
+                <span class="blog-eyebrow">
+                    <span class="blog-live-dot"></span>
+                    PIXEL AND PORCELAIN COMMUNITY
+                </span>
 
-            <a href="index.html" class="logo">
-                <!-- Logo modo oscuro (normal) -->
-                <img src="media/img/logo pixel and porcelain blanco.png" alt="Pixel and Porcelain" class="logo-dark">
+                <h1>
+                    THE<br>
+                    <span>FANDOM</span><br>
+                    ZONE<span class="blog-title-dot">.</span>
+                </h1>
 
-                <!-- Logo modo claro -->
-                <img src="media/img/logo pixel and porcelain negro.png" alt="Pixel and Porcelain" class="logo-light">
-            </a>
+                <p>
+                    Tus opiniones, tus teorías, tus obsesiones.
+                    Este espacio es tan tuyo como nuestro.
+                </p>
+
+                <a href="#community-wall" class="button button-green">
+                    ENTRA EN LA CONVERSACIÓN
+                </a>
+
+            </div>
+
+            <div class="blog-hero-decoration" aria-hidden="true">
+                <span class="blog-decoration-cross">+</span>
+                <span class="blog-decoration-circle"></span>
+                <span class="blog-decoration-text">SCROLL TO EXPLORE</span>
+                <span class="blog-decoration-number">01 / 04</span>
+            </div>
+
+            <div class="blog-hero-marquee">
+                <div class="blog-marquee-track">
+                    <span>SHARE YOUR THOUGHTS ✳ JOIN THE FANDOM ✳ TALK ABOUT WHAT YOU LOVE ✳</span>
+                    <span aria-hidden="true">SHARE YOUR THOUGHTS ✳ JOIN THE FANDOM ✳ TALK ABOUT WHAT YOU LOVE ✳</span>
+                </div>
+            </div>
+
+        </section>
 
 
-            <!-- ENLACES -->
+        <!-- INTRODUCCIÓN -->
+        <section class="blog-intro section" data-aos="fade-up">
 
-            <div class="footer-links flex flex-col gap-[15px]">
+            <div class="blog-section-label">
+                <span>01</span>
+                <span>WELCOME TO THE COMMUNITY</span>
+            </div>
 
-                <a href="#">Política de privacidad</a>
-                <a href="#">Términos de uso</a>
-                <a href="#">Cookies</a>
+            <div class="blog-intro-content">
+                <h2>
+                    NO SOMOS SOLO<br>
+                    <span>ESPECTADORES.</span>
+                </h2>
+
+                <p>
+                    Somos fans, coleccionistas, lectores y personas con
+                    demasiadas teorías en la cabeza. Queremos saber qué
+                    estás leyendo, qué te ha marcado y qué necesitas
+                    recomendarle al mundo.
+                </p>
+            </div>
+
+            <div class="blog-intro-sticker" aria-hidden="true">
+                <span>YOUR</span>
+                <strong>SPACE!</strong>
+                <span>YOUR RULES.</span>
+            </div>
+
+        </section>
+
+
+        <!-- MURO DE LA COMUNIDAD -->
+        <section class="blog-community section" id="community-wall">
+
+            <div class="blog-section-label">
+                <span>02</span>
+                <span>COMMUNITY WALL</span>
+            </div>
+
+            <div class="blog-wall-heading">
+                <div>
+                    <h2>WHAT'S<br><span>ON YOUR MIND?</span></h2>
+                    <p>Publica, comenta y comparte tus descubrimientos.</p>
+                </div>
+
+                <div class="blog-wall-counter">
+                    <span class="blog-live-dot"></span>
+                    <span id="blogPostCounter">0 POSTS</span>
+                </div>
+            </div>
+
+
+            <!-- FORMULARIO PARA PUBLICAR -->
+            <div class="blog-compose" data-aos="fade-up">
+
+                <div class="blog-compose-header">
+                    <span class="blog-compose-icon">✳</span>
+                    <div>
+                        <h3>DROP YOUR THOUGHTS</h3>
+                        <p>El fandom quiere escucharte.</p>
+                    </div>
+                </div>
+
+                <form id="blogPostForm">
+
+                    <label for="blogAuthor">TU NOMBRE / NICKNAME</label>
+                    <input
+                        type="text"
+                        id="blogAuthor"
+                        maxlength="24"
+                        placeholder="Ej. MangaLover99"
+                        required
+                    >
+
+                    <label for="blogPostText">¿QUÉ QUIERES COMPARTIR?</label>
+                    <textarea
+                        id="blogPostText"
+                        maxlength="280"
+                        rows="4"
+                        placeholder="Tengo una teoría sobre el último capítulo..."
+                        required
+                    ></textarea>
+
+                    <div class="blog-compose-bottom">
+
+                        <div class="blog-compose-options">
+                            <label for="blogPostCategory">CATEGORÍA</label>
+                            <select id="blogPostCategory">
+                                <option value="Manga">Manga</option>
+                                <option value="Cómics">Cómics</option>
+                                <option value="Coleccionismo">Coleccionismo</option>
+                                <option value="Anime y cultura geek">Anime y cultura geek</option>
+                                <option value="Recomendaciones">Recomendaciones</option>
+                                <option value="General">General</option>
+                            </select>
+                        </div>
+
+                        <div class="blog-publish-actions">
+                            <span id="blogCharCounter">0 / 280</span>
+                            <button type="submit" class="button button-pink">
+                                PUBLICAR <span>↗</span>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <p class="blog-form-feedback" id="blogFormFeedback" aria-live="polite"></p>
+
+                </form>
 
             </div>
 
 
-            <!-- NEWSLETTER -->
+            <!-- FILTROS -->
+            <div class="blog-feed-toolbar">
 
-            <form class="newsletter flex flex-col gap-3 md:col-span-2 lg:col-span-1" id="newsletterForm">
-
-                <label for="newsletterEmail">
-                    SUSCRÍBETE PARA NO PERDERTE NADA
-                </label>
-
-                <div class="newsletter-input flex flex-col sm:flex-row gap-2">
-
-                    <input
-                        type="email"
-                        id="newsletterEmail"
-                        placeholder="Tu correo electrónico"
-                        required
-                        class="min-w-0 flex-1"
-                    >
-
-                    <button type="submit" class="button button-green">
-                        UNIRME
-                    </button>
-
+                <div class="blog-feed-title">
+                    <span class="blog-live-dot"></span>
+                    <h3>THE FEED</h3>
                 </div>
 
-                <small id="formFeedback" aria-live="polite"></small>
+                <div class="blog-filters" id="blogFilters">
+                    <button class="blog-filter active" data-filter="all">TODO</button>
+                    <button class="blog-filter" data-filter="Manga">MANGA</button>
+                    <button class="blog-filter" data-filter="Cómics">CÓMICS</button>
+                    <button class="blog-filter" data-filter="Coleccionismo">COLECCIONISMO</button>
+                    <button class="blog-filter" data-filter="Anime y cultura geek">GEEK</button>
+                    <button class="blog-filter" data-filter="Recomendaciones">RECOMENDACIONES</button>
+                    <button class="blog-filter" data-filter="General">GENERAL</button>
+                </div>
 
-            </form>
+            </div>
+
+
+            <!-- PUBLICACIONES -->
+            <div class="blog-feed" id="blogFeed" aria-live="polite">
+
+                <!-- Las publicaciones se generan desde JavaScript -->
+
+            </div>
+
+            <div class="blog-empty-state" id="blogEmptyState" hidden>
+                <span>404</span>
+                <h3>NO POSTS FOUND</h3>
+                <p>De momento no hay publicaciones en esta categoría.</p>
+            </div>
+
+        </section>
+
+
+        <!-- CIERRE / CTA -->
+        <section class="blog-cta" data-aos="fade-up">
+
+            <div class="blog-cta-content">
+                <span>END OF TRANSMISSION?</span>
+                <h2>KEEP THE<br><span>CONVERSATION</span><br>GOING.</h2>
+                <a href="#community-wall" class="button button-green">
+                    ESCRIBE ALGO
+                </a>
+            </div>
+
+            <div class="blog-cta-symbol" aria-hidden="true">✳</div>
+
+        </section>
+
+    </main>
+
+ <!-- ================= FOOTER ================= -->
+
+    <footer
+        class="site-footer border-t border-papel/15 bg-tinta px-4 py-12 sm:px-6 lg:px-8"
+    >
+
+        <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-3 md:items-start">
+
+        <!-- LOGO -->
+
+        <a
+            href="index.html"
+            class="inline-flex"
+            aria-label="Pixel and Porcelain, volver al inicio"
+        >
+
+            <img
+                src="media/img/logo pixel and porcelain blanco.png"
+                alt="Pixel and Porcelain"
+                class="footer-logo-dark h-12 w-auto object-contain"
+            >
+
+            <img
+                src="media/img/logo pixel and porcelain negro.png"
+                alt="Pixel and Porcelain"
+                class="footer-logo-light h-12 w-auto object-contain"
+            >
+
+        </a>
+
+
+        <!-- ENLACES -->
+
+        <nav
+            class="footer-links flex flex-wrap gap-x-6 gap-y-3 text-xs"
+            aria-label="Enlaces legales"
+        >
+
+            <a href="#">Política de privacidad</a>
+            <a href="#">Términos de uso</a>
+            <a href="#">Cookies</a>
+
+        </nav>
+
+
+        <!-- NEWSLETTER -->
+
+        <form id="newsletterForm" class="newsletter-form">
+
+            <label
+            for="newsletterEmail"
+            class="mb-3 block text-[10px] font-bold uppercase tracking-wider"
+            >
+            Suscríbete para no perderte nada
+            </label>
+
+            <div class="flex flex-col gap-2 sm:flex-row">
+
+            <input
+                id="newsletterEmail"
+                name="email"
+                type="email"
+                placeholder="Tu correo electrónico"
+                required
+                class="min-h-11 min-w-0 flex-1 border border-papel/40 bg-transparent px-3 text-sm text-papel outline-none focus:border-lima"
+            >
+
+            <button
+                type="submit"
+                class="min-h-11 bg-lima px-5 text-xs font-bold uppercase text-tinta transition hover:bg-neon"
+            >
+                Unirme
+            </button>
+
+            </div>
+
+            <small
+            id="formFeedback"
+            class="mt-2 block text-xs text-lima"
+            aria-live="polite"
+            ></small>
+
+        </form>
 
         </div>
 
 
         <!-- PIE INFERIOR -->
 
-        <div class="footer-bottom flex flex-col sm:flex-row justify-between gap-4 pt-5">
+        <div class="footer-bottom-text mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-papel/15 pt-5 text-[10px] uppercase tracking-wider text-papel/60 sm:flex-row sm:items-center sm:justify-between">
 
-            <span>© 2026 PIXEL AND PORCELAIN</span>
+        <span>
+            © 2026 Pixel and Porcelain
+        </span>
 
-            <a href="mailto:hola@pixelandporcelain.com">
-                CONTACTO
-            </a>
+        <a href="mailto:hola@pixelandporcelain.com">
+            Contacto
+        </a>
 
-            <a href="#inicio">
-                VOLVER ARRIBA ↑
-            </a>
+        <a href="#inicio">
+            Volver arriba ↑
+        </a>
 
         </div>
 
     </footer>
 
+        <!-- MODEL VIEWER -->
 
-    <!-- MODEL VIEWER -->
-
-    <script type="module"
-        src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js">
-    </script>
-
-
-    <!-- AOS -->
-
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+        <script type="module"
+            src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js">
+        </script>
 
 
-    <!-- JAVASCRIPT PROPIO -->
+        <!-- AOS -->
 
-    <script src="js/script.js"></script>
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+        <!-- JAVASCRIPT PROPIO -->
+
+        <script src="js/script.js"></script>
+
 </body>
+</html>

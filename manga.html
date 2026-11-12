@@ -1,12 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pixel and Porcelain: manga, cómics, figuras y coleccionismo.">
+    <meta name="description" content="Descubre el universo manga en Pixel and Porcelain: shonen, shojo, seinen, josei y mucho más.">
 
-    <title>Pixel and Porcelain</title>
+    <title>MANGA | Pixel and Porcelain</title>
 
     <!-- TIPOGRAFÍAS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,13 +21,13 @@
     <!-- COLORES Y TIPOGRAFÍAS PERSONALIZADOS -->
     <style type="text/tailwindcss">
         @theme {
-        --color-neon: #FF00A1;
-        --color-lima: #70FF0D;
-        --color-tinta: #000000;
-        --color-papel: #ffffff;
+            --color-neon: #FF00A1;
+            --color-lima: #70FF0D;
+            --color-tinta: #000000;
+            --color-papel: #ffffff;
 
-        --font-titulo: "Boldonse", sans-serif;
-        --font-sans: "Inter", Arial, sans-serif;
+            --font-titulo: "Boldonse", sans-serif;
+            --font-sans: "Inter", Arial, sans-serif;
         }
     </style>
 
@@ -38,7 +39,7 @@
 
 </head>
 
-<body id="inicio" clas="min-h-screen overflow-x-hidden bg-tinta font-sans text-papel antialiased">
+<body class="min-h-screen overflow-x-hidden bg-tinta font-sans text-papel antialiased">
 
     <!-- ================= HEADER ================= -->
 
@@ -47,11 +48,11 @@
         <div class="header-container mx-auto flex w-[92%] max-w-[1440px] min-h-[76px] items-center justify-between">
 
             <a href="index.html" class="logo">
-                <!-- Logo modo oscuro (normal) -->
-                <img src="media/img/logo pixel and porcelain blanco.png" alt="Pixel and Porcelain" class="logo-dark">
+                <img src="media/img/logo pixel and porcelain blanco.png"
+                    alt="Pixel and Porcelain" class="logo-dark">
 
-                <!-- Logo modo claro -->
-                <img src="media/img/logo pixel and porcelain negro.png" alt="Pixel and Porcelain" class="logo-light">
+                <img src="media/img/logo pixel and porcelain negro.png"
+                    alt="Pixel and Porcelain" class="logo-light">
             </a>
 
             <!-- MENÚ MÓVIL -->
@@ -77,9 +78,9 @@
 
                 <a href="superheroes.html">SUPERHÉROES</a>
                 <a href="comic.html">CÓMIC</a>
-                <a href="manga.html">MANGA</a>
+                <a href="manga.html" aria-current="page">MANGA</a>
                 <a href="culture.html">CULTURA</a>
-                <a href="blog.html">BLOG</a>
+                <a href="manga.html">BLOG</a>
 
                 <button class="theme-toggle self-start md:self-auto mt-4 md:mt-0" id="themeToggle">
                     ◐ MODO OSCURO
@@ -91,22 +92,563 @@
 
     </header>
 
-    <main>
+
+    <!-- ================= CONTENIDO MANGA ================= -->
+
+    <main class="manga-page">
+
+
+        <!-- HERO -->
+
+        <section class="manga-hero">
+
+            <div class="manga-hero-content">
+
+                <p class="manga-eyebrow">DESCUBRE TU PRÓXIMO UNIVERSO</p>
+
+                <h1>MANGA</h1>
+
+            </div>
+
+        </section>
+
+
+        <!-- EXPLORA EL MANGA -->
+
+        <section class="manga-categories section-container"
+            aria-label="Explora nuestras categorías de manga">
+
+            <article class="manga-category">
+
+                <h2>ACCIÓN Y<br>AVENTURA</h2>
+
+                <a href="#demografias"
+                    class="button button-green manga-explore">
+                    EXPLORAR
+                </a>
+
+            </article>
+
+
+            <article class="manga-category">
+
+                <h2>ROMANCE Y<br>DRAMA</h2>
+
+                <a href="#demografias"
+                    class="button button-green manga-explore">
+                    EXPLORAR
+                </a>
+
+            </article>
+
+
+            <article class="manga-category">
+
+                <h2>FANTASÍA Y<br>MISTERIO</h2>
+
+                <a href="#generos"
+                    class="button button-green manga-explore">
+                    EXPLORAR
+                </a>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- ELIGE TU DEMOGRAFÍA -->
+
+        <section class="manga-demographics section-container"
+            id="demografias">
+
+            <h2 class="manga-section-title">
+                ELIGE TU DEMOGRAFÍA
+            </h2>
+
+
+            <div class="manga-demographic-layout">
+
+
+                <!-- LOMOS INTERACTIVOS -->
+
+                <div class="manga-books"
+                    role="group"
+                    aria-label="Selecciona una demografía manga">
+
+
+                    <button
+                        class="manga-book manga-book-1 is-active"
+                        type="button"
+                        data-manga-type="0"
+                        aria-expanded="true"
+                        aria-controls="mangaInfoPanel">
+
+                        <span class="manga-book-number">1</span>
+
+                        <span class="manga-book-title">SHONEN</span>
+
+                    </button>
+
+
+                    <button
+                        class="manga-book manga-book-2"
+                        type="button"
+                        data-manga-type="1"
+                        aria-expanded="false"
+                        aria-controls="mangaInfoPanel">
+
+                        <span class="manga-book-number">2</span>
+
+                        <span class="manga-book-title">SHOJO</span>
+
+                    </button>
+
+
+                    <button
+                        class="manga-book manga-book-3"
+                        type="button"
+                        data-manga-type="2"
+                        aria-expanded="false"
+                        aria-controls="mangaInfoPanel">
+
+                        <span class="manga-book-number">3</span>
+
+                        <span class="manga-book-title">SEINEN</span>
+
+                    </button>
+
+
+                    <button
+                        class="manga-book manga-book-4"
+                        type="button"
+                        data-manga-type="3"
+                        aria-expanded="false"
+                        aria-controls="mangaInfoPanel">
+
+                        <span class="manga-book-number">4</span>
+
+                        <span class="manga-book-title">JOSEI</span>
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- PANEL INFORMATIVO -->
+
+                <div class="manga-info-panel"
+                    id="mangaInfoPanel"
+                    aria-live="polite">
+
+                    <div class="manga-info-content">
+
+                        <p class="manga-demographic-label"
+                            id="mangaAudience">
+                            PARA UN PÚBLICO JOVEN
+                        </p>
+
+                        <h3 id="mangaTypeTitle">
+                            SHONEN
+                        </h3>
+
+                        <p id="mangaTypeDescription">
+                            Historias de acción, aventura, amistad y
+                            superación. Protagonistas que crecen,
+                            se enfrentan a desafíos y persiguen sus sueños.
+                        </p>
+
+
+                        <div class="manga-featured-grid"
+                            id="mangaFeaturedGrid">
+
+
+                            <article class="manga-featured-item">
+
+                                <div class="manga-cover-placeholder">
+                                    (PORTADA)
+                                </div>
+
+                                <h4>ONE PIECE</h4>
+
+                            </article>
+
+
+                            <article class="manga-featured-item">
+
+                                <div class="manga-cover-placeholder">
+                                    (PORTADA)
+                                </div>
+
+                                <h4>HAIKYUU!!</h4>
+
+                            </article>
+
+
+                            <article class="manga-featured-item">
+
+                                <div class="manga-cover-placeholder">
+                                    (PORTADA)
+                                </div>
+
+                                <h4>MY HERO ACADEMIA</h4>
+
+                            </article>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- GÉNEROS MANGA -->
+
+        <section class="manga-genres section-container"
+            id="generos">
+
+            <h2 class="manga-section-title">
+                EXPLORA TU UNIVERSO
+            </h2>
+
+            <p class="manga-section-intro">
+                CADA HISTORIA TIENE SU PROPIO MUNDO.
+                ¿EN CUÁL QUIERES PERDERTE?
+            </p>
+
+
+            <div class="manga-genre-grid">
+
+
+                <a href="#comunidad"
+                    class="manga-genre-card genre-action">
+
+                    <span class="manga-genre-number">01</span>
+
+                    <h3>ACCIÓN</h3>
+
+                    <span class="manga-genre-arrow">↗</span>
+
+                </a>
+
+
+                <a href="#comunidad"
+                    class="manga-genre-card genre-fantasy">
+
+                    <span class="manga-genre-number">02</span>
+
+                    <h3>FANTASÍA</h3>
+
+                    <span class="manga-genre-arrow">↗</span>
+
+                </a>
+
+
+                <a href="#comunidad"
+                    class="manga-genre-card genre-romance">
+
+                    <span class="manga-genre-number">03</span>
+
+                    <h3>ROMANCE</h3>
+
+                    <span class="manga-genre-arrow">↗</span>
+
+                </a>
+
+
+                <a href="#comunidad"
+                    class="manga-genre-card genre-horror">
+
+                    <span class="manga-genre-number">04</span>
+
+                    <h3>TERROR</h3>
+
+                    <span class="manga-genre-arrow">↗</span>
+
+                </a>
+
+
+                <a href="#comunidad"
+                    class="manga-genre-card genre-sports">
+
+                    <span class="manga-genre-number">05</span>
+
+                    <h3>DEPORTES</h3>
+
+                    <span class="manga-genre-arrow">↗</span>
+
+                </a>
+
+
+                <a href="#comunidad"
+                    class="manga-genre-card genre-slice">
+
+                    <span class="manga-genre-number">06</span>
+
+                    <h3>SLICE OF LIFE</h3>
+
+                    <span class="manga-genre-arrow">↗</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- COMUNIDAD MANGA -->
+
+        <section class="manga-community" id="comunidad">
+
+            <div class="manga-community-container">
+
+
+                <!-- COLUMNA IZQUIERDA -->
+
+                <div class="manga-community-conversation">
+
+                    <h2>COMUNIDAD<br>MANGA</h2>
+
+                    <p class="manga-community-subtitle">
+                        UNA HISTORIA, MIL OPINIONES:
+                    </p>
+
+
+                    <div class="manga-speech-bubbles">
+
+
+                        <p class="manga-bubble manga-bubble-left">
+
+                            <strong>AKIRA:</strong>
+                            Necesito hablar del último capítulo.
+                            ¡No estaba preparada!
+
+                        </p>
+
+
+                        <p class="manga-bubble manga-bubble-right">
+
+                            <strong>YUNA:</strong>
+                            Yo sigo pensando en ese giro.
+                            Tenemos que comentarlo.
+
+                        </p>
+
+
+                        <p class="manga-bubble manga-bubble-left">
+
+                            <strong>REN:</strong>
+                            Vine buscando un manga nuevo
+                            y salí con cinco.
+
+                        </p>
+
+
+                        <p class="manga-bubble manga-bubble-right manga-bubble-green">
+
+                            <strong>NOSOTROS:</strong>
+                            ¡Aquí siempre hay una historia
+                            esperándote!
+
+                        </p>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- COLUMNA DERECHA -->
+
+                <div class="manga-community-activities">
+
+
+                    <!-- DESTACADO -->
+
+                    <article class="manga-community-card manga-featured-session">
+
+                        <p class="manga-card-label">
+                            RECOMENDACIÓN DEL MES
+                        </p>
+
+                        <h3>
+                            TU PRÓXIMA<br>LECTURA
+                        </h3>
+
+                        <p class="manga-session-description">
+                            Descubre nuevas historias, autores
+                            y universos que todavía no conoces.
+                        </p>
+
+                        <a href="#demografias"
+                            class="button button-pink manga-discover-button">
+                            DESCUBRIR MANGA
+                        </a>
+
+                    </article>
+
+
+
+                    <!-- ENCUESTA -->
+
+                    <article class="manga-community-card manga-poll-card">
+
+                        <h3>
+                            ¿QUÉ GÉNERO<br>LEEMOS AHORA?
+                        </h3>
+
+
+                        <form id="mangaPollForm">
+
+                            <fieldset class="manga-poll-options">
+
+                                <legend class="sr-only">
+                                    Elige tu género manga favorito
+                                </legend>
+
+
+                                <label class="manga-poll-option">
+
+                                    <input
+                                        type="radio"
+                                        name="mangaVote"
+                                        value="0"
+                                        required>
+
+                                    <span class="manga-poll-option-content">
+
+                                        <span class="manga-poll-option-name">
+                                            OPCIÓN A · ACCIÓN Y AVENTURA
+                                        </span>
+
+                                        <span class="manga-poll-result">
+
+                                            <span class="manga-poll-result-bar"></span>
+
+                                            <span class="manga-poll-percentage">
+                                                0%
+                                            </span>
+
+                                        </span>
+
+                                    </span>
+
+                                </label>
+
+
+
+                                <label class="manga-poll-option">
+
+                                    <input
+                                        type="radio"
+                                        name="mangaVote"
+                                        value="1">
+
+                                    <span class="manga-poll-option-content">
+
+                                        <span class="manga-poll-option-name">
+                                            OPCIÓN B · ROMANCE Y DRAMA
+                                        </span>
+
+                                        <span class="manga-poll-result">
+
+                                            <span class="manga-poll-result-bar"></span>
+
+                                            <span class="manga-poll-percentage">
+                                                0%
+                                            </span>
+
+                                        </span>
+
+                                    </span>
+
+                                </label>
+
+
+
+                                <label class="manga-poll-option">
+
+                                    <input
+                                        type="radio"
+                                        name="mangaVote"
+                                        value="2">
+
+                                    <span class="manga-poll-option-content">
+
+                                        <span class="manga-poll-option-name">
+                                            OPCIÓN C · TERROR Y MISTERIO
+                                        </span>
+
+                                        <span class="manga-poll-result">
+
+                                            <span class="manga-poll-result-bar"></span>
+
+                                            <span class="manga-poll-percentage">
+                                                0%
+                                            </span>
+
+                                        </span>
+
+                                    </span>
+
+                                </label>
+
+
+                            </fieldset>
+
+
+                            <button type="submit"
+                                class="button button-green manga-poll-submit">
+                                VOTAR
+                            </button>
+
+
+                            <p class="manga-poll-feedback"
+                                id="mangaPollFeedback"
+                                aria-live="polite">
+                                Elige tu género favorito.
+                            </p>
+
+
+                        </form>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
 
     </main>
 
+
+
     <!-- ================= FOOTER ================= -->
 
-    <footer class="footer relative px-[5%] pt-[60px] pb-5" id="footer">
+    <footer class="footer site-footer relative px-[5%] pt-[60px] pb-5"
+        id="footer">
 
         <div class="footer-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[0.8fr_0.8fr_1.4fr] gap-[30px] pb-[50px]">
 
             <a href="index.html" class="logo">
-                <!-- Logo modo oscuro (normal) -->
-                <img src="media/img/logo pixel and porcelain blanco.png" alt="Pixel and Porcelain" class="logo-dark">
 
-                <!-- Logo modo claro -->
-                <img src="media/img/logo pixel and porcelain negro.png" alt="Pixel and Porcelain" class="logo-light">
+                <img src="media/img/logo pixel and porcelain blanco.png"
+                    alt="Pixel and Porcelain" class="logo-dark">
+
+                <img src="media/img/logo pixel and porcelain negro.png"
+                    alt="Pixel and Porcelain" class="logo-light">
+
             </a>
 
 
@@ -123,7 +665,8 @@
 
             <!-- NEWSLETTER -->
 
-            <form class="newsletter flex flex-col gap-3 md:col-span-2 lg:col-span-1" id="newsletterForm">
+            <form class="newsletter flex flex-col gap-3 md:col-span-2 lg:col-span-1"
+                id="newsletterForm">
 
                 <label for="newsletterEmail">
                     SUSCRÍBETE PARA NO PERDERTE NADA
@@ -136,8 +679,7 @@
                         id="newsletterEmail"
                         placeholder="Tu correo electrónico"
                         required
-                        class="min-w-0 flex-1"
-                    >
+                        class="min-w-0 flex-1">
 
                     <button type="submit" class="button button-green">
                         UNIRME
@@ -171,11 +713,10 @@
     </footer>
 
 
-    <!-- MODEL VIEWER -->
 
-    <script type="module"
-        src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js">
-    </script>
+    <!-- JQUERY: NECESARIO PARA EL MARQUEE DEL JS COMPARTIDO -->
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 
     <!-- AOS -->
@@ -186,4 +727,6 @@
     <!-- JAVASCRIPT PROPIO -->
 
     <script src="js/script.js"></script>
+
 </body>
+</html>

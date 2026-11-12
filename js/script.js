@@ -789,6 +789,1050 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    /* ======================================
+       9. PÁGINA MANGA
+    ====================================== */
+
+
+    /* ======================================
+       9.1. SELECCIÓN DE DEMOGRAFÍAS
+    ====================================== */
+
+    const mangaPage = document.querySelector(".manga-page");
+
+    if (mangaPage) {
+
+        const mangaBooks = mangaPage.querySelectorAll(".manga-book");
+
+        const mangaAudience = mangaPage.querySelector("#mangaAudience");
+
+        const mangaTypeTitle = mangaPage.querySelector("#mangaTypeTitle");
+
+        const mangaTypeDescription = mangaPage.querySelector(
+            "#mangaTypeDescription"
+        );
+
+        const mangaFeaturedGrid = mangaPage.querySelector(
+            "#mangaFeaturedGrid"
+        );
+
+
+        // Información de las cuatro demografías
+
+        const mangaTypes = [
+
+            {
+                audience: "PARA UN PÚBLICO JOVEN",
+
+                title: "SHONEN",
+
+                description:
+                    "Historias de acción, aventura, amistad y superación. Protagonistas que crecen, se enfrentan a desafíos y persiguen sus sueños.",
+
+                featured: [
+                    "ONE PIECE",
+                    "HAIKYUU!!",
+                    "MY HERO ACADEMIA"
+                ]
+
+            },
+
+            {
+                audience: "PARA UN PÚBLICO JOVEN FEMENINO",
+
+                title: "SHOJO",
+
+                description:
+                    "Historias centradas en las emociones, las relaciones personales y el crecimiento. Romance, amistad y personajes que descubren quiénes son.",
+
+                featured: [
+                    "FRUITS BASKET",
+                    "SAILOR MOON",
+                    "NANA"
+                ]
+
+            },
+
+            {
+                audience: "PARA UN PÚBLICO ADULTO",
+
+                title: "SEINEN",
+
+                description:
+                    "Narrativas de mayor complejidad temática. Conflictos psicológicos, dilemas morales, violencia, crítica social y mundos llenos de matices.",
+
+                featured: [
+                    "MONSTER",
+                    "BERSERK",
+                    "VINLAND SAGA"
+                ]
+
+            },
+
+            {
+                audience: "PARA UN PÚBLICO ADULTO FEMENINO",
+
+                title: "JOSEI",
+
+                description:
+                    "Relatos sobre la vida adulta, las relaciones y la identidad. Historias más cotidianas, íntimas y realistas, con personajes complejos.",
+
+                featured: [
+                    "PARADISE KISS",
+                    "CHIHAYAFURU",
+                    "PRINCESS JELLYFISH"
+                ]
+
+            }
+
+        ];
+
+
+        // Actualizar el panel de información
+
+        function showMangaType(index) {
+
+            const selectedType = mangaTypes[index];
+
+            if (!selectedType) return;
+
+
+            mangaAudience.textContent = selectedType.audience;
+
+            mangaTypeTitle.textContent = selectedType.title;
+
+            mangaTypeDescription.textContent =
+                selectedType.description;
+
+
+            // Crear los mangas destacados
+
+            mangaFeaturedGrid.innerHTML = "";
+
+
+            selectedType.featured.forEach(function (manga) {
+
+                const article = document.createElement("article");
+
+                article.classList.add("manga-featured-item");
+
+
+                const cover = document.createElement("div");
+
+                cover.classList.add("manga-cover-placeholder");
+
+                cover.textContent = "(PORTADA)";
+
+
+                const heading = document.createElement("h4");
+
+                heading.textContent = manga;
+
+
+                article.appendChild(cover);
+
+                article.appendChild(heading);
+
+                mangaFeaturedGrid.appendChild(article);
+
+            });
+
+        }
+
+
+        // Activar un solo lomo cada vez
+
+        mangaBooks.forEach(function (button) {
+
+            button.addEventListener("click", function () {
+
+                const selectedIndex = Number(button.dataset.mangaType);
+
+
+                mangaBooks.forEach(function (otherButton) {
+
+                    const isSelected = otherButton === button;
+
+                    otherButton.classList.toggle(
+                        "is-active",
+                        isSelected
+                    );
+
+                    otherButton.setAttribute(
+                        "aria-expanded",
+                        String(isSelected)
+                    );
+
+                });
+
+
+                showMangaType(selectedIndex);
+
+            });
+
+        });
+
+
+        // Inicializar la primera demografía
+
+        if (
+            mangaBooks.length &&
+            mangaAudience &&
+            mangaTypeTitle &&
+            mangaTypeDescription &&
+            mangaFeaturedGrid
+        ) {
+
+            showMangaType(0);
+
+        }
+
+    }
+
+
+
+    /* ======================================
+       9.2. ENCUESTA COMUNIDAD MANGA
+    ====================================== */
+
+    const mangaPollForm = document.getElementById("mangaPollForm");
+
+    const mangaPollFeedback = document.getElementById(
+        "mangaPollFeedback"
+    );
+
+
+    if (mangaPollForm && mangaPollFeedback) {
+
+        const mangaPollOptions = mangaPollForm.querySelectorAll(
+            'input[name="mangaVote"]'
+        );
+
+
+        const mangaPollBars = mangaPollForm.querySelectorAll(
+            ".manga-poll-result-bar"
+        );
+
+
+        const mangaPollPercentages = mangaPollForm.querySelectorAll(
+            ".manga-poll-percentage"
+        );
+
+
+        // Resultados iniciales
+
+        const initialMangaVotes = [0, 0, 0];
+
+
+        // Claves independientes de la encuesta de cómic
+
+        const mangaVotesStorageKey = "pixelPorcelainMangaVotes";
+
+        const mangaUserVoteStorageKey = "pixelPorcelainMangaUserVote";
+
+
+        let mangaVotes = initialMangaVotes.slice();
+
+        let previousMangaVote = null;
+
+
+        // Recuperar los resultados guardados
+
+        try {
+
+            const savedMangaVotes = localStorage.getItem(
+                mangaVotesStorageKey
+            );
+
+            const savedMangaUserVote = localStorage.getItem(
+                mangaUserVoteStorageKey
+            );
+
+
+            if (savedMangaVotes) {
+
+                const parsedVotes = JSON.parse(savedMangaVotes);
+
+
+                if (
+                    Array.isArray(parsedVotes) &&
+                    parsedVotes.length === 3 &&
+                    parsedVotes.every(
+                        vote => Number.isInteger(vote) && vote >= 0
+                    )
+                ) {
+
+                    mangaVotes = parsedVotes;
+
+                }
+
+            }
+
+
+            if (savedMangaUserVote !== null) {
+
+                const parsedUserVote = Number(savedMangaUserVote);
+
+
+                if (
+                    Number.isInteger(parsedUserVote) &&
+                    parsedUserVote >= 0 &&
+                    parsedUserVote < 3
+                ) {
+
+                    previousMangaVote = parsedUserVote;
+
+                }
+
+            }
+
+        } catch (error) {
+
+            console.warn(
+                "No se pudieron recuperar los votos de manga."
+            );
+
+        }
+
+
+        // Calcular porcentajes que sumen exactamente 100
+
+        function calculateMangaPercentages(votes) {
+
+            const total = votes.reduce(
+                (sum, vote) => sum + vote,
+                0
+            );
+
+
+            if (total === 0) {
+
+                return [0, 0, 0];
+
+            }
+
+
+            const exactPercentages = votes.map(
+                vote => (vote / total) * 100
+            );
+
+
+            const roundedPercentages = exactPercentages.map(
+                percentage => Math.floor(percentage)
+            );
+
+
+            let remaining = 100 - roundedPercentages.reduce(
+                (sum, percentage) => sum + percentage,
+                0
+            );
+
+
+            const remainders = exactPercentages.map(
+                (percentage, index) => ({
+                    index: index,
+                    remainder: percentage - roundedPercentages[index]
+                })
+            );
+
+
+            remainders.sort(function (a, b) {
+
+                return b.remainder - a.remainder;
+
+            });
+
+
+            for (let i = 0; i < remaining; i++) {
+
+                roundedPercentages[remainders[i].index]++;
+
+            }
+
+
+            return roundedPercentages;
+
+        }
+
+
+        // Actualizar visualmente los resultados
+
+        function updateMangaPoll() {
+
+            const percentages = calculateMangaPercentages(
+                mangaVotes
+            );
+
+
+            mangaPollOptions.forEach(function (option, index) {
+
+                mangaPollBars[index].style.width =
+                    percentages[index] + "%";
+
+
+                mangaPollPercentages[index].textContent =
+                    percentages[index] + "%";
+
+
+                // Recuperar la selección del usuario
+
+                option.checked = previousMangaVote === index;
+
+            });
+
+        }
+
+
+        // Mostrar resultados al cargar
+
+        updateMangaPoll();
+
+
+        // Registrar el voto
+
+        mangaPollForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+
+            const selectedOption = mangaPollForm.querySelector(
+                'input[name="mangaVote"]:checked'
+            );
+
+
+            if (!selectedOption) {
+
+                mangaPollFeedback.textContent =
+                    "Selecciona una opción antes de votar.";
+
+                return;
+
+            }
+
+
+            const selectedVote = Number(selectedOption.value);
+
+
+            // Restar el voto anterior si cambia de opción
+
+            if (previousMangaVote !== null) {
+
+                mangaVotes[previousMangaVote] = Math.max(
+                    0,
+                    mangaVotes[previousMangaVote] - 1
+                );
+
+            }
+
+
+            // Añadir el nuevo voto
+
+            mangaVotes[selectedVote]++;
+
+            previousMangaVote = selectedVote;
+
+
+            // Guardar los resultados en el navegador
+
+            try {
+
+                localStorage.setItem(
+                    mangaVotesStorageKey,
+                    JSON.stringify(mangaVotes)
+                );
+
+
+                localStorage.setItem(
+                    mangaUserVoteStorageKey,
+                    String(previousMangaVote)
+                );
+
+            } catch (error) {
+
+                console.warn(
+                    "No se pudieron guardar los votos de manga."
+                );
+
+            }
+
+
+            // Actualizar porcentajes
+
+            updateMangaPoll();
+
+
+            mangaPollFeedback.textContent =
+                "¡Gracias por votar! Tu elección ha sido registrada.";
+
+        });
+
+    }
+
+
+/* =========================================================
+   PÁGINA BLOG — MURO DE LA COMUNIDAD
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const blogForm = document.getElementById("blogPostForm");
+
+    // Evita ejecutar esta funcionalidad en otras páginas.
+    if (!blogForm) return;
+
+    const blogAuthor = document.getElementById("blogAuthor");
+    const blogText = document.getElementById("blogPostText");
+    const blogCategory = document.getElementById("blogPostCategory");
+    const blogCharCounter = document.getElementById("blogCharCounter");
+    const blogFeedback = document.getElementById("blogFormFeedback");
+    const blogFeed = document.getElementById("blogFeed");
+    const blogFilters = document.getElementById("blogFilters");
+    const blogEmptyState = document.getElementById("blogEmptyState");
+    const blogPostCounter = document.getElementById("blogPostCounter");
+
+    const BLOG_STORAGE_KEY = "pixelPorcelainBlogPosts";
+    const BLOG_USER_KEY = "pixelPorcelainBlogUser";
+
+    let activeFilter = "all";
+
+    // Identificador local del navegador.
+    // Permite reconocer las publicaciones creadas desde este dispositivo.
+    let currentUserId = localStorage.getItem(BLOG_USER_KEY);
+
+    if (!currentUserId) {
+        currentUserId = createBlogId();
+        localStorage.setItem(BLOG_USER_KEY, currentUserId);
+    }
+
+
+    // GENERAR IDENTIFICADORES
+
+    function createBlogId() {
+        if (window.crypto && crypto.randomUUID) {
+            return crypto.randomUUID();
+        }
+
+        return Date.now().toString(36) + Math.random().toString(36).slice(2);
+    }
+
+
+    // LEER PUBLICACIONES GUARDADAS
+
+    function getBlogPosts() {
+        try {
+            const savedPosts = JSON.parse(
+                localStorage.getItem(BLOG_STORAGE_KEY)
+            );
+
+            return Array.isArray(savedPosts) ? savedPosts : [];
+        } catch (error) {
+            console.error("No se pudieron cargar las publicaciones:", error);
+            return [];
+        }
+    }
+
+
+    // GUARDAR PUBLICACIONES
+
+    function saveBlogPosts(posts) {
+        try {
+            localStorage.setItem(
+                BLOG_STORAGE_KEY,
+                JSON.stringify(posts)
+            );
+
+            return true;
+
+        } catch (error) {
+            console.error("No se pudieron guardar las publicaciones:", error);
+            showFeedback("No se ha podido guardar. Puede que el almacenamiento esté lleno.");
+            return false;
+        }
+    }
+
+
+    // MENSAJES DEL FORMULARIO
+
+    function showFeedback(message, isError = false) {
+        blogFeedback.textContent = message;
+        blogFeedback.style.color = isError
+            ? "#FF6B83"
+            : "var(--green, #70FF0D)";
+    }
+
+
+    // CONTADOR DE CARACTERES
+
+    blogText.addEventListener("input", () => {
+        const length = blogText.value.length;
+
+        blogCharCounter.textContent = `${length} / 280`;
+
+        blogCharCounter.style.color = length >= 260
+            ? "#FF00A1"
+            : "rgba(255,255,255,.5)";
+    });
+
+
+    // FECHA LEGIBLE
+
+    function formatBlogDate(dateValue) {
+        const date = new Date(dateValue);
+
+        if (Number.isNaN(date.getTime())) {
+            return "Fecha desconocida";
+        }
+
+        return date.toLocaleDateString("es-ES", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric"
+        });
+    }
+
+
+    // CREAR ELEMENTOS DE FORMA SEGURA
+
+    function createElement(tag, className, text) {
+        const element = document.createElement(tag);
+
+        if (className) {
+            element.className = className;
+        }
+
+        if (text !== undefined) {
+            element.textContent = text;
+        }
+
+        return element;
+    }
+
+
+    // CREAR UNA PUBLICACIÓN
+
+    function createPostCard(post) {
+
+        const article = createElement("article", "blog-post");
+        article.dataset.postId = post.id;
+
+        const top = createElement("div", "blog-post-top");
+        const user = createElement("div", "blog-post-user");
+
+        const avatar = createElement(
+            "div",
+            "blog-post-avatar",
+            post.author.charAt(0).toUpperCase()
+        );
+
+        const userInfo = createElement("div");
+        const author = createElement(
+            "div",
+            "blog-post-author",
+            post.author
+        );
+
+        const date = createElement(
+            "div",
+            "blog-post-date",
+            formatBlogDate(post.date)
+        );
+
+        userInfo.append(author, date);
+        user.append(avatar, userInfo);
+
+        const category = createElement(
+            "span",
+            "blog-post-category",
+            post.category
+        );
+
+        top.append(user, category);
+
+
+        // TEXTO
+
+        const message = createElement(
+            "p",
+            "blog-post-text",
+            post.text
+        );
+
+
+        // ACCIONES
+
+        const actions = createElement("div", "blog-post-actions");
+
+        const likeButton = createElement(
+            "button",
+            "blog-post-action"
+        );
+
+        const alreadyLiked = (post.likedBy || []).includes(currentUserId);
+
+        likeButton.classList.toggle("liked", alreadyLiked);
+        likeButton.setAttribute(
+            "aria-pressed",
+            alreadyLiked ? "true" : "false"
+        );
+
+        likeButton.innerHTML = `
+            <span aria-hidden="true">${alreadyLiked ? "♥" : "♡"}</span>
+            <span>${(post.likes || []).length}</span>
+        `;
+
+        likeButton.dataset.action = "like";
+
+
+        const commentButton = createElement(
+            "button",
+            "blog-post-action",
+            `↳ ${post.comments.length} COMENTARIOS`
+        );
+
+        commentButton.dataset.action = "comments";
+
+
+        actions.append(likeButton, commentButton);
+
+
+        // ELIMINAR PUBLICACIÓN PROPIA
+
+        if (post.userId === currentUserId) {
+
+            const deleteButton = createElement(
+                "button",
+                "blog-post-action blog-post-delete",
+                "ELIMINAR ×"
+            );
+
+            deleteButton.dataset.action = "delete";
+
+            actions.append(deleteButton);
+        }
+
+
+        // ZONA DE COMENTARIOS
+
+        const commentsSection = createElement("div", "blog-comments");
+        commentsSection.hidden = true;
+
+        const commentsList = createElement(
+            "div",
+            "blog-comments-list"
+        );
+
+        post.comments.forEach(comment => {
+
+            const commentElement = createElement(
+                "div",
+                "blog-comment"
+            );
+
+            const commentAuthor = createElement(
+                "strong",
+                "",
+                comment.author
+            );
+
+            const commentText = createElement(
+                "span",
+                "",
+                comment.text
+            );
+
+            commentElement.append(commentAuthor, commentText);
+            commentsList.append(commentElement);
+        });
+
+
+        // FORMULARIO DE COMENTARIOS
+
+        const commentForm = createElement(
+            "form",
+            "blog-comment-form"
+        );
+
+        const commentInput = document.createElement("input");
+
+        commentInput.type = "text";
+        commentInput.maxLength = 180;
+        commentInput.placeholder = "Escribe una respuesta...";
+        commentInput.required = true;
+        commentInput.setAttribute("aria-label", "Escribe un comentario");
+
+        const commentSubmit = createElement(
+            "button",
+            "",
+            "ENVIAR"
+        );
+
+        commentSubmit.type = "submit";
+
+        commentForm.append(commentInput, commentSubmit);
+
+        commentsSection.append(commentsList, commentForm);
+
+
+        article.append(top, message, actions, commentsSection);
+
+        return article;
+    }
+
+
+    // MOSTRAR PUBLICACIONES
+
+    function renderBlogPosts() {
+
+        const posts = getBlogPosts();
+
+        blogFeed.replaceChildren();
+
+        const filteredPosts = posts
+            .filter(post => {
+                return activeFilter === "all" ||
+                    post.category === activeFilter;
+            })
+            .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        filteredPosts.forEach(post => {
+            blogFeed.append(createPostCard(post));
+        });
+
+        blogPostCounter.textContent =
+            `${posts.length} ${posts.length === 1 ? "POST" : "POSTS"}`;
+
+        blogEmptyState.hidden = filteredPosts.length > 0;
+    }
+
+
+    // PUBLICAR MENSAJE
+
+    blogForm.addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+        const author = blogAuthor.value.trim();
+        const text = blogText.value.trim();
+        const category = blogCategory.value;
+
+        if (!author || !text) {
+            showFeedback("Completa tu nombre y tu publicación.", true);
+            return;
+        }
+
+        if (text.length > 280) {
+            showFeedback("Tu publicación supera los 280 caracteres.", true);
+            return;
+        }
+
+        const posts = getBlogPosts();
+
+        const newPost = {
+            id: createBlogId(),
+            userId: currentUserId,
+            author: author,
+            text: text,
+            category: category,
+            date: new Date().toISOString(),
+            likes: [],
+            likedBy: [],
+            comments: []
+        };
+
+        posts.unshift(newPost);
+
+        if (!saveBlogPosts(posts)) return;
+
+        // Volver a mostrar todas las categorías.
+        activeFilter = "all";
+
+        blogFilters.querySelectorAll(".blog-filter").forEach(button => {
+            button.classList.toggle(
+                "active",
+                button.dataset.filter === "all"
+            );
+        });
+
+        blogForm.reset();
+        blogCharCounter.textContent = "0 / 280";
+
+        showFeedback("¡PUBLICACIÓN ENVIADA! BIENVENIDA A LA COMUNIDAD.");
+
+        renderBlogPosts();
+
+        // Desplazar el usuario hacia la nueva publicación.
+        blogFeed.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    });
+
+
+    // FILTRAR PUBLICACIONES
+
+    blogFilters.addEventListener("click", (event) => {
+
+        const button = event.target.closest(".blog-filter");
+
+        if (!button) return;
+
+        activeFilter = button.dataset.filter;
+
+        blogFilters.querySelectorAll(".blog-filter").forEach(filter => {
+            filter.classList.toggle("active", filter === button);
+        });
+
+        renderBlogPosts();
+    });
+
+
+    // ACCIONES DEL MURO: ME GUSTA, COMENTAR Y ELIMINAR
+
+    blogFeed.addEventListener("click", (event) => {
+
+        const button = event.target.closest("[data-action]");
+
+        if (!button) return;
+
+        const article = button.closest(".blog-post");
+
+        if (!article) return;
+
+        const postId = article.dataset.postId;
+        const action = button.dataset.action;
+
+        const posts = getBlogPosts();
+        const post = posts.find(item => item.id === postId);
+
+        if (!post) return;
+
+
+        // ME GUSTA
+
+        if (action === "like") {
+
+            post.likes = post.likes || [];
+            post.likedBy = post.likedBy || [];
+
+            const liked = post.likedBy.includes(currentUserId);
+
+            if (liked) {
+                post.likedBy = post.likedBy.filter(
+                    id => id !== currentUserId
+                );
+
+                post.likes = post.likes.filter(
+                    id => id !== currentUserId
+                );
+
+            } else {
+                post.likedBy.push(currentUserId);
+                post.likes.push(currentUserId);
+            }
+
+            if (saveBlogPosts(posts)) {
+                renderBlogPosts();
+            }
+        }
+
+
+        // MOSTRAR / OCULTAR COMENTARIOS
+
+        if (action === "comments") {
+
+            const commentsSection = article.querySelector(".blog-comments");
+
+            commentsSection.hidden = !commentsSection.hidden;
+
+            button.setAttribute(
+                "aria-expanded",
+                commentsSection.hidden ? "false" : "true"
+            );
+        }
+
+
+        // ELIMINAR PUBLICACIÓN
+
+        if (action === "delete") {
+
+            if (post.userId !== currentUserId) return;
+
+            const confirmDelete = window.confirm(
+                "¿Seguro que quieres eliminar esta publicación?"
+            );
+
+            if (!confirmDelete) return;
+
+            const updatedPosts = posts.filter(
+                item => item.id !== postId
+            );
+
+            if (saveBlogPosts(updatedPosts)) {
+                renderBlogPosts();
+            }
+        }
+
+    });
+
+
+    // ENVIAR COMENTARIOS
+
+    blogFeed.addEventListener("submit", (event) => {
+
+        const form = event.target.closest(".blog-comment-form");
+
+        if (!form) return;
+
+        event.preventDefault();
+
+        const article = form.closest(".blog-post");
+        const postId = article.dataset.postId;
+        const input = form.querySelector("input");
+
+        const commentText = input.value.trim();
+
+        if (!commentText) return;
+
+        const posts = getBlogPosts();
+        const post = posts.find(item => item.id === postId);
+
+        if (!post) return;
+
+        post.comments = post.comments || [];
+
+        const authorName = blogAuthor.value.trim() || "Invitado";
+
+        post.comments.push({
+            id: createBlogId(),
+            author: authorName,
+            text: commentText,
+            date: new Date().toISOString()
+        });
+
+        if (saveBlogPosts(posts)) {
+            renderBlogPosts();
+
+            const updatedArticle = blogFeed.querySelector(
+                `[data-post-id="${postId}"]`
+            );
+
+            if (updatedArticle) {
+                updatedArticle.querySelector(".blog-comments").hidden = false;
+            }
+        }
+
+    });
+
+
+    // PRIMERA CARGA
+
+    renderBlogPosts();
+
+});
+
+
+
 
 
 

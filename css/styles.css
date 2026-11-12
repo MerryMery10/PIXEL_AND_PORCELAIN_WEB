@@ -2114,3 +2114,1816 @@ body.light-mode .comic-reading-club {
     }
 
 }
+
+
+/* ==========================================
+   PIXEL AND PORCELAIN
+   PÁGINA MANGA
+========================================== */
+
+
+/* ==========================================
+   1. BASE
+========================================== */
+
+.manga-page {
+    --manga-pink: #FF00A1;
+    --manga-green: #70FF0D;
+    --manga-black: #050505;
+    --manga-white: #F5F2F4;
+
+    overflow: hidden;
+    background: var(--manga-black);
+    color: var(--manga-white);
+}
+
+.manga-page .section-container {
+    width: 92%;
+    max-width: 1440px;
+    margin-inline: auto;
+}
+
+.manga-page button,
+.manga-page a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* ==========================================
+   2. HERO
+========================================== */
+
+.manga-hero {
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    padding: 45px 4%;
+
+    background:
+        radial-gradient(
+            ellipse at 65% 25%,
+            rgba(255, 0, 161, 0.95),
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 15% 80%,
+            rgba(255, 0, 161, 0.55),
+            transparent 55%
+        ),
+        linear-gradient(
+            135deg,
+            #090909 5%,
+            #210019 55%,
+            #050505 100%
+        );
+}
+
+.manga-hero-content {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+}
+
+.manga-eyebrow {
+    margin-bottom: 8px;
+    color: var(--manga-green);
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.manga-hero h1 {
+    margin: 0;
+    color: var(--manga-white);
+    font-family: "Boldonse", sans-serif;
+    font-size: clamp(3.5rem, 9vw, 7.5rem);
+    line-height: 0.95;
+    letter-spacing: -4px;
+}
+
+
+/* ==========================================
+   3. CATEGORÍAS
+========================================== */
+
+.manga-categories {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5%;
+    padding-block: 55px 65px;
+}
+
+.manga-category {
+    min-height: 145px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 12px;
+
+    border: 3px solid var(--manga-white);
+    background: var(--manga-black);
+    text-align: center;
+
+    transition:
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.manga-category:hover {
+    border-color: var(--manga-green);
+    transform: translateY(-5px);
+}
+
+.manga-category h2 {
+    margin: 0;
+    font-family: "Boldonse", sans-serif;
+    font-size: clamp(1rem, 2.1vw, 1.8rem);
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+.manga-explore {
+    min-width: 125px;
+    padding: 7px 20px;
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 10px;
+    text-align: center;
+    text-decoration: none;
+    transform: skewX(-20deg);
+}
+
+
+/* ==========================================
+   4. DEMOGRAFÍAS MANGA
+========================================== */
+
+.manga-demographics {
+    padding-block: 5px 75px;
+}
+
+.manga-section-title {
+    margin: 0 0 25px;
+    font-family: "Boldonse", sans-serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.manga-demographic-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 15px;
+    align-items: stretch;
+    min-height: 260px;
+}
+
+
+/* Lomos */
+
+.manga-books {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    min-width: 0;
+}
+
+.manga-book {
+    position: relative;
+    min-width: 0;
+    min-height: 260px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px 8px;
+    border: 0;
+
+    color: var(--manga-black);
+    cursor: pointer;
+
+    transition:
+        filter 0.25s ease,
+        transform 0.25s ease;
+}
+
+.manga-book-1 {
+    background: var(--manga-white);
+}
+
+.manga-book-2 {
+    background: var(--manga-green);
+}
+
+.manga-book-3 {
+    background: var(--manga-pink);
+}
+
+.manga-book-4 {
+    background: #A6A6A6;
+}
+
+.manga-book:hover {
+    filter: brightness(0.88);
+}
+
+.manga-book:focus-visible {
+    outline: 3px solid var(--manga-white);
+    outline-offset: 4px;
+}
+
+.manga-book-number {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    min-width: 25px;
+    padding: 2px 5px;
+
+    background: var(--manga-black);
+    color: var(--manga-white);
+
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 13px;
+    text-align: center;
+}
+
+.manga-book-title {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: clamp(12px, 1.2vw, 16px);
+    line-height: 1;
+    text-align: center;
+}
+
+
+/* Panel informativo */
+
+.manga-info-panel {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+
+    padding: 25px;
+
+    background: var(--manga-white);
+    color: var(--manga-black);
+}
+
+.manga-info-content {
+    width: 100%;
+}
+
+.manga-demographic-label {
+    margin: 0 0 5px;
+    color: #333;
+
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 11px;
+}
+
+.manga-info-panel h3 {
+    margin: 0 0 8px;
+
+    font-family: "Boldonse", sans-serif;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    line-height: 1.1;
+}
+
+.manga-info-content > p:not(.manga-demographic-label) {
+    max-width: 650px;
+    margin: 0 0 18px;
+
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* Mangas destacados */
+
+.manga-featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.manga-featured-item {
+    min-width: 0;
+}
+
+.manga-cover-placeholder {
+    aspect-ratio: 1.25 / 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px;
+
+    background: #D4D4D4;
+    color: var(--manga-white);
+
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 10px;
+    text-align: center;
+}
+
+.manga-featured-item h4 {
+    margin: 7px 0 0;
+
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 10px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+
+/* ==========================================
+   5. GÉNEROS
+========================================== */
+
+.manga-genres {
+    padding-block: 5px 80px;
+}
+
+.manga-section-intro {
+    margin: -10px 0 25px;
+
+    color: var(--manga-green);
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.manga-genre-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.manga-genre-card {
+    position: relative;
+    min-height: 155px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    padding: 20px;
+
+    border: 2px solid var(--manga-white);
+    background: #111;
+
+    color: var(--manga-white);
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.manga-genre-card:hover {
+    transform: translateY(-5px);
+    background: var(--manga-green);
+    border-color: var(--manga-green);
+    color: var(--manga-black);
+}
+
+.manga-genre-number {
+    position: absolute;
+    top: 14px;
+    left: 18px;
+
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 11px;
+    opacity: 0.7;
+}
+
+.manga-genre-card h3 {
+    margin: 0;
+
+    font-family: "Boldonse", sans-serif;
+    font-size: clamp(1rem, 2vw, 1.6rem);
+    line-height: 1;
+}
+
+.manga-genre-arrow {
+    font-family: Arial, sans-serif;
+    font-size: 28px;
+    line-height: 1;
+    transition: transform 0.25s ease;
+}
+
+.manga-genre-card:hover .manga-genre-arrow {
+    transform: translate(4px, -4px);
+}
+
+
+/* ==========================================
+   6. COMUNIDAD MANGA
+========================================== */
+
+.manga-community {
+    padding: 45px 4% 55px;
+
+    background: var(--manga-pink);
+    color: var(--manga-white);
+}
+
+.manga-community-container {
+    width: 100%;
+    max-width: 1440px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 7%;
+
+    margin-inline: auto;
+}
+
+
+/* Conversación */
+
+.manga-community-conversation h2 {
+    margin: 0 0 18px;
+
+    font-family: "Boldonse", sans-serif;
+    font-size: clamp(2.2rem, 4.5vw, 4rem);
+    line-height: 0.9;
+}
+
+.manga-community-subtitle {
+    display: inline-block;
+
+    margin: 0 0 20px;
+    padding: 5px 12px;
+
+    background: var(--manga-green);
+    color: var(--manga-black);
+
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 10px;
+}
+
+.manga-speech-bubbles {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.manga-bubble {
+    position: relative;
+    width: fit-content;
+    max-width: 85%;
+
+    margin: 0;
+    padding: 13px 17px;
+
+    border-radius: 22px;
+
+    background: var(--manga-white);
+    color: var(--manga-black);
+
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.manga-bubble-left {
+    align-self: flex-start;
+}
+
+.manga-bubble-right {
+    align-self: flex-end;
+}
+
+.manga-bubble-green {
+    background: var(--manga-green);
+}
+
+
+/* Tarjetas */
+
+.manga-community-activities {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.manga-community-card {
+    padding: 20px;
+
+    background: var(--manga-white);
+    color: var(--manga-black);
+
+    box-shadow: 5px 5px 0 var(--manga-green);
+}
+
+.manga-card-label {
+    display: inline-block;
+
+    margin: 0 0 8px;
+    padding: 4px 12px;
+
+    background: var(--manga-green);
+
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 10px;
+}
+
+.manga-community-card h3 {
+    margin: 0 0 14px;
+
+    font-family: "Boldonse", sans-serif;
+    font-size: clamp(1.3rem, 2.5vw, 2rem);
+    line-height: 1;
+}
+
+.manga-session-description {
+    max-width: 400px;
+    margin: 0 0 15px;
+
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.manga-discover-button {
+    display: inline-block;
+
+    padding: 9px 18px;
+
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 10px;
+    text-decoration: none;
+}
+
+
+/* ==========================================
+   7. ENCUESTA MANGA
+========================================== */
+
+.manga-poll-options {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.manga-poll-option {
+    display: block;
+    cursor: pointer;
+}
+
+.manga-poll-option input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.manga-poll-option-content {
+    position: relative;
+    display: block;
+    overflow: hidden;
+
+    border: 2px solid var(--manga-black);
+    background: var(--manga-white);
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.manga-poll-option-name {
+    position: relative;
+    z-index: 1;
+
+    display: block;
+    padding: 7px 10px;
+
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+.manga-poll-option:hover .manga-poll-option-content {
+    background: var(--manga-green);
+    animation: mangaGlitch 0.3s steps(2, end);
+}
+
+.manga-poll-option input:checked + .manga-poll-option-content {
+    background: var(--manga-green);
+}
+
+.manga-poll-option input:focus-visible + .manga-poll-option-content {
+    outline: 3px solid var(--manga-pink);
+    outline-offset: 3px;
+}
+
+.manga-poll-result {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 18px;
+    padding: 0 9px 5px;
+}
+
+.manga-poll-result-bar {
+    position: absolute;
+    inset: 0 auto 0 0;
+
+    width: 0%;
+    background: rgba(112, 255, 13, 0.65);
+
+    transition: width 0.5s ease;
+}
+
+.manga-poll-percentage {
+    position: relative;
+    z-index: 1;
+
+    margin-left: auto;
+
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 10px;
+}
+
+.manga-poll-submit {
+    margin-top: 15px;
+    padding: 9px 25px;
+
+    border: 0;
+
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.manga-poll-feedback {
+    min-height: 18px;
+    margin: 10px 0 0;
+
+    font-family: "Dela Gothic One", sans-serif;
+    font-size: 10px;
+}
+
+
+/* ==========================================
+   8. ANIMACIÓN GLITCH
+========================================== */
+
+@keyframes mangaGlitch {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-2px);
+    }
+
+    50% {
+        transform: translateX(2px);
+    }
+
+    75% {
+        transform: translateX(-1px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+/* ==========================================
+   9. MODO CLARO
+========================================== */
+
+body.light-mode .manga-page {
+    background: #F5F2F4;
+    color: var(--manga-black);
+}
+
+body.light-mode .manga-hero {
+    background:
+        radial-gradient(
+            ellipse at 65% 25%,
+            rgba(255, 0, 161, 0.9),
+            transparent 55%
+        ),
+        linear-gradient(
+            135deg,
+            #F5F2F4,
+            #E6C8DC 60%,
+            #F5F2F4
+        );
+}
+
+body.light-mode .manga-hero h1 {
+    color: var(--manga-black);
+}
+
+body.light-mode .manga-category {
+    background: #F5F2F4;
+    color: var(--manga-black);
+    border-color: var(--manga-black);
+}
+
+
+/* ==========================================
+   10. RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .manga-hero {
+        min-height: 200px;
+        padding-block: 35px;
+    }
+
+    .manga-hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .manga-categories {
+        gap: 12px;
+        padding-block: 35px 50px;
+    }
+
+    .manga-category {
+        min-height: 125px;
+        padding: 13px 7px;
+        border-width: 2px;
+    }
+
+    .manga-category h2 {
+        font-size: clamp(0.75rem, 2.3vw, 1rem);
+    }
+
+    .manga-explore {
+        min-width: 0;
+        padding: 6px 10px;
+        font-size: 8px;
+    }
+
+    .manga-demographics {
+        padding-bottom: 50px;
+    }
+
+    .manga-demographic-layout {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .manga-books {
+        min-height: 190px;
+        gap: 8px;
+    }
+
+    .manga-book {
+        min-height: 190px;
+    }
+
+    .manga-info-panel {
+        min-height: 230px;
+        padding: 20px;
+    }
+
+    .manga-genres {
+        padding-bottom: 55px;
+    }
+
+    .manga-genre-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .manga-community-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .manga-community-conversation h2 {
+        font-size: clamp(2.5rem, 9vw, 4rem);
+    }
+
+    .manga-community-activities {
+        gap: 15px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .manga-page .section-container {
+        width: 90%;
+    }
+
+    .manga-hero {
+        min-height: 165px;
+        padding-inline: 5%;
+    }
+
+    .manga-eyebrow {
+        font-size: 10px;
+    }
+
+    .manga-categories {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        width: 90%;
+    }
+
+    .manga-category {
+        min-height: 105px;
+        padding: 13px;
+    }
+
+    .manga-category h2 {
+        font-size: 1.2rem;
+    }
+
+    .manga-explore {
+        min-width: 130px;
+    }
+
+    .manga-section-title {
+        font-size: 1.7rem;
+    }
+
+    .manga-books {
+        min-height: 160px;
+        gap: 6px;
+    }
+
+    .manga-book {
+        min-height: 160px;
+        padding-inline: 4px;
+    }
+
+    .manga-book-number {
+        top: 7px;
+        left: 6px;
+        min-width: 20px;
+        font-size: 11px;
+    }
+
+    .manga-book-title {
+        font-size: 10px;
+    }
+
+    .manga-info-panel {
+        padding: 16px;
+    }
+
+    .manga-info-panel h3 {
+        font-size: 1.25rem;
+    }
+
+    .manga-info-content > p:not(.manga-demographic-label) {
+        font-size: 10px;
+    }
+
+    .manga-featured-grid {
+        gap: 7px;
+    }
+
+    .manga-cover-placeholder {
+        aspect-ratio: 1 / 1.2;
+        font-size: 8px;
+    }
+
+    .manga-featured-item h4 {
+        font-size: 8px;
+    }
+
+    .manga-genre-grid {
+        gap: 9px;
+    }
+
+    .manga-genre-card {
+        min-height: 120px;
+        padding: 13px;
+    }
+
+    .manga-genre-card h3 {
+        font-size: 0.9rem;
+    }
+
+    .manga-genre-number {
+        top: 10px;
+        left: 12px;
+    }
+
+    .manga-community {
+        padding: 35px 5%;
+    }
+
+    .manga-community-card {
+        padding: 16px;
+    }
+
+    .manga-poll-option-name {
+        font-size: 10px;
+    }
+
+    .manga-bubble {
+        max-width: 95%;
+        font-size: 10px;
+    }
+
+}
+
+
+/* ==========================================
+   11. ACCESIBILIDAD
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .manga-page *,
+    .manga-page *::before,
+    .manga-page *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
+
+
+/* =========================================================
+   PÁGINA BLOG — PIXEL AND PORCELAIN
+========================================================= */
+
+.page-blog {
+    overflow-x: hidden;
+}
+
+/* HERO */
+
+.blog-hero {
+    min-height: 660px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 100px 9% 130px;
+    overflow: hidden;
+    background: var(--black, #050505);
+    color: var(--white, #F5F2F4);
+}
+
+.blog-hero-grid {
+    position: absolute;
+    inset: 0;
+    opacity: .18;
+    background-image:
+        linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px);
+    background-size: 55px 55px;
+    mask-image: linear-gradient(to right, black, transparent 90%);
+}
+
+.blog-hero::after {
+    content: "";
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    right: 4%;
+    top: 4%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,0,161,.22), transparent 68%);
+    pointer-events: none;
+}
+
+.blog-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+}
+
+.blog-eyebrow,
+.blog-section-label,
+.blog-hero-decoration,
+.blog-compose-header h3,
+.blog-wall-counter,
+.blog-feed-title h3,
+.blog-filters,
+.blog-compose label,
+.blog-compose-options label,
+.blog-publish-actions,
+.blog-cta-content > span {
+    font-family: 'Dela Gothic One', sans-serif;
+    letter-spacing: .06em;
+}
+
+.blog-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    color: var(--green, #70FF0D);
+    margin-bottom: 28px;
+}
+
+.blog-live-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--green, #70FF0D);
+    box-shadow: 0 0 12px var(--green, #70FF0D);
+}
+
+.blog-hero h1 {
+    font-family: 'Boldonse', sans-serif;
+    font-size: clamp(65px, 10vw, 142px);
+    line-height: .9;
+    letter-spacing: -.07em;
+    margin: 0;
+}
+
+.blog-hero h1 span {
+    color: var(--magenta, #FF00A1);
+}
+
+.blog-title-dot {
+    color: var(--green, #70FF0D) !important;
+}
+
+.blog-hero-content > p {
+    max-width: 440px;
+    margin: 30px 0;
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255,255,255,.72);
+}
+
+.blog-hero-content .button {
+    display: inline-flex;
+    text-decoration: none;
+}
+
+.blog-hero-decoration {
+    position: absolute;
+    z-index: 2;
+    right: 8%;
+    bottom: 105px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 18px;
+    color: rgba(255,255,255,.5);
+    font-size: 9px;
+}
+
+.blog-decoration-cross {
+    font-size: 55px;
+    color: var(--green, #70FF0D);
+    line-height: 1;
+}
+
+.blog-decoration-circle {
+    width: 85px;
+    height: 85px;
+    border: 1px solid var(--magenta, #FF00A1);
+    border-radius: 50%;
+    box-shadow: inset 0 0 25px rgba(255,0,161,.2), 0 0 25px rgba(255,0,161,.2);
+}
+
+.blog-hero-marquee {
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    padding: 15px 0;
+    background: var(--magenta, #FF00A1);
+    color: var(--black, #050505);
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 12px;
+}
+
+.blog-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: blogMarquee 25s linear infinite;
+}
+
+.blog-marquee-track span {
+    white-space: nowrap;
+    padding-right: 35px;
+}
+
+@keyframes blogMarquee {
+    to { transform: translateX(-50%); }
+}
+
+
+/* INTRODUCCIÓN */
+
+.blog-intro {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    padding: 110px 9%;
+}
+
+.blog-section-label {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    color: var(--magenta, #FF00A1);
+    font-size: 10px;
+}
+
+.blog-section-label span:first-child {
+    color: var(--green, #70FF0D);
+}
+
+.blog-intro h2,
+.blog-wall-heading h2,
+.blog-cta h2 {
+    font-family: 'Boldonse', sans-serif;
+    font-size: clamp(34px, 5vw, 65px);
+    line-height: 1.05;
+    letter-spacing: -.055em;
+    margin: 0;
+}
+
+.blog-intro h2 span,
+.blog-wall-heading h2 span {
+    color: var(--magenta, #FF00A1);
+}
+
+.blog-intro-content > p {
+    max-width: 500px;
+    font-size: 15px;
+    line-height: 1.8;
+    opacity: .75;
+}
+
+.blog-intro-sticker {
+    position: absolute;
+    right: 10%;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 125px;
+    height: 125px;
+    transform: rotate(10deg);
+    border-radius: 50%;
+    background: var(--green, #70FF0D);
+    color: var(--black, #050505);
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 9px;
+    line-height: 1.5;
+}
+
+.blog-intro-sticker strong {
+    font-size: 19px;
+}
+
+
+/* MURO DE PUBLICACIONES */
+
+.blog-community {
+    padding: 100px 9%;
+    background: rgba(128,128,128,.045);
+}
+
+.blog-wall-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin: 35px 0 55px;
+}
+
+.blog-wall-heading h2 span {
+    color: var(--magenta, #FF00A1);
+}
+
+.blog-wall-heading p {
+    margin: 18px 0 0;
+    opacity: .65;
+    font-size: 14px;
+}
+
+.blog-wall-counter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+    font-size: 10px;
+    opacity: .7;
+}
+
+
+/* FORMULARIO */
+
+.blog-compose {
+    max-width: 850px;
+    margin: 0 auto 65px;
+    padding: 30px;
+    border: 1px solid rgba(255,0,161,.5);
+    background: var(--black, #050505);
+    color: var(--white, #F5F2F4);
+    box-shadow: 8px 8px 0 var(--magenta, #FF00A1);
+}
+
+.blog-compose-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 28px;
+}
+
+.blog-compose-icon {
+    display: grid;
+    place-items: center;
+    width: 45px;
+    height: 45px;
+    background: var(--green, #70FF0D);
+    color: var(--black, #050505);
+    font-size: 26px;
+}
+
+.blog-compose-header h3 {
+    margin: 0;
+    font-size: 13px;
+}
+
+.blog-compose-header p {
+    margin: 5px 0 0;
+    color: rgba(255,255,255,.55);
+    font-size: 12px;
+}
+
+.blog-compose label {
+    display: block;
+    margin: 18px 0 9px;
+    font-size: 9px;
+    color: var(--green, #70FF0D);
+}
+
+.blog-compose input,
+.blog-compose textarea,
+.blog-compose select {
+    width: 100%;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 0;
+    outline: none;
+    padding: 13px 15px;
+    background: #111;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.blog-compose textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.blog-compose input:focus,
+.blog-compose textarea:focus,
+.blog-compose select:focus {
+    border-color: var(--magenta, #FF00A1);
+    box-shadow: 0 0 0 2px rgba(255,0,161,.15);
+}
+
+.blog-compose input::placeholder,
+.blog-compose textarea::placeholder {
+    color: rgba(255,255,255,.35);
+}
+
+.blog-compose-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.blog-compose-options {
+    flex: 1;
+    max-width: 250px;
+}
+
+.blog-compose-options label {
+    margin-top: 0;
+}
+
+.blog-publish-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-size: 9px;
+    color: rgba(255,255,255,.5);
+}
+
+.blog-publish-actions .button {
+    border: 0;
+    cursor: pointer;
+}
+
+.blog-publish-actions .button span {
+    margin-left: 8px;
+}
+
+.blog-form-feedback {
+    min-height: 16px;
+    margin: 12px 0 0;
+    font-size: 11px;
+    color: var(--green, #70FF0D);
+}
+
+
+/* FILTROS */
+
+.blog-feed-toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(128,128,128,.25);
+    padding-bottom: 20px;
+}
+
+.blog-feed-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.blog-feed-title h3 {
+    margin: 0;
+    font-size: 13px;
+}
+
+.blog-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.blog-filter {
+    padding: 9px 13px;
+    border: 1px solid rgba(128,128,128,.4);
+    background: transparent;
+    color: inherit;
+    font-size: 9px;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.blog-filter:hover,
+.blog-filter.active {
+    background: var(--green, #70FF0D);
+    border-color: var(--green, #70FF0D);
+    color: var(--black, #050505);
+    box-shadow: 3px 3px 0 var(--magenta, #FF00A1);
+}
+
+
+/* TARJETAS DE PUBLICACIÓN */
+
+.blog-feed {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.blog-post {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 25px;
+    border: 1px solid rgba(128,128,128,.3);
+    background: var(--white, #F5F2F4);
+    color: var(--black, #050505);
+    transition: transform .25s, border-color .25s, box-shadow .25s;
+}
+
+.blog-post:hover {
+    transform: translateY(-5px);
+    border-color: var(--magenta, #FF00A1);
+    box-shadow: 5px 5px 0 var(--magenta, #FF00A1);
+}
+
+.blog-post-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.blog-post-user {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-width: 0;
+}
+
+.blog-post-avatar {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--magenta, #FF00A1);
+    color: white;
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 13px;
+}
+
+.blog-post-author {
+    overflow: hidden;
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 10px;
+    text-overflow: ellipsis;
+}
+
+.blog-post-date {
+    margin-top: 4px;
+    font-size: 10px;
+    opacity: .55;
+}
+
+.blog-post-category {
+    padding: 7px 9px;
+    background: var(--green, #70FF0D);
+    color: var(--black, #050505);
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 8px;
+    text-align: center;
+}
+
+.blog-post-text {
+    flex: 1;
+    margin: 25px 0;
+    font-size: 14px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
+.blog-post-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-top: 1px solid rgba(0,0,0,.12);
+    padding-top: 15px;
+}
+
+.blog-post-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 9px;
+    cursor: pointer;
+    transition: color .2s;
+}
+
+.blog-post-action:hover,
+.blog-post-action.liked {
+    color: #FF00A1;
+}
+
+.blog-post-action:disabled {
+    opacity: .5;
+    cursor: default;
+}
+
+.blog-post-delete {
+    margin-left: auto;
+    color: #D52D52;
+}
+
+.blog-comments {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(0,0,0,.2);
+}
+
+.blog-comments-list {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.blog-comment {
+    padding: 10px;
+    background: rgba(0,0,0,.045);
+    font-size: 11px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.blog-comment strong {
+    display: block;
+    margin-bottom: 3px;
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 9px;
+}
+
+.blog-comment-form {
+    display: flex;
+    gap: 8px;
+}
+
+.blog-comment-form input {
+    flex: 1;
+    min-width: 0;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,.2);
+    background: transparent;
+    color: inherit;
+    font-size: 11px;
+}
+
+.blog-comment-form button {
+    padding: 0 13px;
+    border: 0;
+    background: var(--black, #050505);
+    color: white;
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 9px;
+    cursor: pointer;
+}
+
+.blog-empty-state {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.blog-empty-state[hidden] {
+    display: none;
+}
+
+.blog-empty-state > span {
+    color: var(--magenta, #FF00A1);
+    font-family: 'Boldonse', sans-serif;
+    font-size: 60px;
+}
+
+.blog-empty-state h3 {
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 15px;
+}
+
+.blog-empty-state p {
+    font-size: 13px;
+    opacity: .65;
+}
+
+
+/* CTA FINAL */
+
+.blog-cta {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 480px;
+    padding: 90px 9%;
+    overflow: hidden;
+    background: var(--magenta, #FF00A1);
+    color: var(--black, #050505);
+}
+
+.blog-cta-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.blog-cta-content > span {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 10px;
+}
+
+.blog-cta h2 {
+    font-size: clamp(40px, 7vw, 85px);
+}
+
+.blog-cta h2 span {
+    color: var(--white, #F5F2F4);
+}
+
+.blog-cta .button {
+    display: inline-flex;
+    margin-top: 30px;
+    text-decoration: none;
+}
+
+.blog-cta-symbol {
+    position: absolute;
+    right: 7%;
+    bottom: -90px;
+    color: rgba(255,255,255,.18);
+    font-size: 350px;
+    line-height: 1;
+}
+
+
+/* MODO CLARO */
+
+body.light-mode .blog-community {
+    background: rgba(0,0,0,.035);
+}
+
+body.light-mode .blog-post {
+    background: #fff;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .blog-hero {
+        min-height: 610px;
+        padding: 90px 7% 120px;
+    }
+
+    .blog-hero h1 {
+        font-size: clamp(58px, 15vw, 95px);
+    }
+
+    .blog-hero-decoration {
+        right: 7%;
+        bottom: 105px;
+        transform: scale(.75);
+        transform-origin: bottom right;
+    }
+
+    .blog-intro {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 75px 7%;
+    }
+
+    .blog-intro-sticker {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 100px;
+        height: 100px;
+        margin-left: auto;
+    }
+
+    .blog-community {
+        padding: 75px 7%;
+    }
+
+    .blog-wall-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 35px;
+    }
+
+    .blog-compose {
+        padding: 22px;
+        box-shadow: 5px 5px 0 var(--magenta, #FF00A1);
+    }
+
+    .blog-compose-bottom {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .blog-compose-options {
+        max-width: none;
+    }
+
+    .blog-publish-actions {
+        justify-content: space-between;
+    }
+
+    .blog-feed {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-cta {
+        min-height: 400px;
+        padding: 75px 7%;
+    }
+
+    .blog-cta-symbol {
+        right: -40px;
+        font-size: 230px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .blog-hero {
+        min-height: 560px;
+    }
+
+    .blog-eyebrow {
+        font-size: 8px;
+    }
+
+    .blog-hero-content > p {
+        font-size: 13px;
+    }
+
+    .blog-hero-decoration {
+        display: none;
+    }
+
+    .blog-section-label {
+        font-size: 8px;
+    }
+
+    .blog-intro h2,
+    .blog-wall-heading h2 {
+        font-size: 35px;
+    }
+
+    .blog-filters {
+        gap: 7px;
+    }
+
+    .blog-filter {
+        padding: 8px 10px;
+        font-size: 8px;
+    }
+
+    .blog-post {
+        padding: 19px;
+    }
+
+    .blog-post-category {
+        max-width: 115px;
+        font-size: 7px;
+    }
+
+    .blog-post-text {
+        font-size: 13px;
+    }
+
+    .blog-publish-actions .button {
+        padding: 12px;
+        font-size: 9px;
+    }
+
+    .blog-cta h2 {
+        font-size: 42px;
+    }
+}
+
+
+/* ACCESIBILIDAD */
+
+@media (prefers-reduced-motion: reduce) {
+    .blog-marquee-track {
+        animation: none;
+    }
+
+    .blog-post,
+    .blog-filter,
+    .blog-compose input,
+    .blog-compose textarea {
+        transition: none;
+    }
+}
+
+
+
