@@ -2,461 +2,468 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Descubre el universo del cómic en Pixel and Porcelain.">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Descubre el universo del cómic en Pixel and Porcelain.">
 
-    <title>Cómic | Pixel and Porcelain</title>
+        <title>Cómic | Pixel and Porcelain</title>
 
-    <!-- TIPOGRAFÍAS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Dela+Gothic+One&display=swap" rel="stylesheet">
+        <!-- TIPOGRAFÍAS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Dela+Gothic+One&display=swap" rel="stylesheet">
 
-    <!-- TAILWIND CSS 4 -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <!-- TAILWIND CSS 4 -->
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <!-- COLORES Y TIPOGRAFÍAS PERSONALIZADOS -->
-    <style type="text/tailwindcss">
-        @theme {
-            --color-neon: #FF00A1;
-            --color-lima: #70FF0D;
-            --color-tinta: #000000;
-            --color-papel: #ffffff;
+        <!-- COLORES Y TIPOGRAFÍAS PERSONALIZADOS -->
+        <style type="text/tailwindcss">
+            @theme {
+                --color-neon: #FF00A1;
+                --color-lima: #70FF0D;
+                --color-tinta: #000000;
+                --color-papel: #ffffff;
 
-            --font-titulo: "Boldonse", sans-serif;
-            --font-sans: "Inter", Arial, sans-serif;
-        }
-    </style>
+                --font-titulo: "Boldonse", sans-serif;
+                --font-sans: "Inter", Arial, sans-serif;
+            }
+        </style>
 
-    <!-- CSS GLOBAL Y CSS DE CÓMIC -->
-    <link rel="stylesheet" href="css/styles.css">
+        <!-- CSS GLOBAL Y CSS DE CÓMIC -->
+        <link rel="stylesheet" href="css/styles.css">
 
-    <!-- AOS -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
-</head>
+        <!-- AOS -->
+        <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    </head>
 
-<body id="inicio" class="min-h-screen overflow-x-hidden bg-tinta font-sans text-papel antialiased">
+    <body id="inicio" class="min-h-screen overflow-x-hidden bg-tinta font-sans text-papel antialiased">
 
-    <!-- ================= HEADER ================= -->
+        <!-- ================= HEADER ================= -->
 
-    <header class="header sticky top-0 z-[1000] w-full">
+        <header class="header sticky top-0 z-[1000] w-full">
 
-        <div class="header-container mx-auto flex w-[92%] max-w-[1440px] min-h-[76px] items-center justify-between">
+            <div class="header-container mx-auto flex w-[92%] max-w-[1440px] min-h-[76px] items-center justify-between">
 
-            <a href="index.html" class="logo">
-                <img src="media/img/logo pixel and porcelain blanco.png"
-                     alt="Pixel and Porcelain" class="logo-dark">
+                <a href="index.html" class="logo">
+                    <img src="media/img/logo pixel and porcelain blanco.png"
+                        alt="Pixel and Porcelain" class="logo-dark">
 
-                <img src="media/img/logo pixel and porcelain negro.png"
-                     alt="Pixel and Porcelain" class="logo-light">
-            </a>
+                    <img src="media/img/logo pixel and porcelain negro.png"
+                        alt="Pixel and Porcelain" class="logo-light">
+                </a>
 
-            <!-- MENÚ MÓVIL -->
+                <!-- MENÚ MÓVIL -->
 
-            <button
-                class="menu-toggle md:hidden flex flex-col items-center justify-center gap-[5px] w-11 h-11 p-2.5"
-                id="menuToggle"
-                aria-label="Abrir menú"
-                aria-expanded="false"
-                aria-controls="navigation">
-
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <!-- NAVEGACIÓN -->
-
-            <nav
-                class="navigation absolute md:static top-full left-0 right-0 flex flex-col md:flex-row items-stretch md:items-center gap-0 md:gap-[35px] px-[5%] md:px-0"
-                id="navigation">
-
-                <a href="superheroes.html">SUPERHÉROES</a>
-                <a href="comic.html" aria-current="page">CÓMIC</a>
-                <a href="manga.html">MANGA</a>
-                <a href="culture.html">CULTURA</a>
-                <a href="blog.html">BLOG</a>
-
-                <button class="theme-toggle self-start md:self-auto mt-4 md:mt-0"
-                        id="themeToggle">
-                    ◐ MODO OSCURO
-                </button>
-
-            </nav>
-
-        </div>
-    </header>
-
-
-<main class="comic-page">
-
-    <!-- HERO -->
-    <section class="comic-hero">
-        <div class="comic-hero-content">
-            <p class="comic-eyebrow">¿QUÉ LEEMOS HOY?</p>
-            <h1>CÓMIC</h1>
-        </div>
-    </section>
-
-
-    <!-- CATEGORÍAS -->
-    <section class="comic-categories section-container" aria-label="Explora el cómic">
-
-        <article class="comic-category">
-            <h2>NOVELA<br>GRÁFICA</h2>
-            <a href="#epocas" class="button button-green comic-explore">EXPLORAR</a>
-        </article>
-
-        <article class="comic-category">
-            <h2>EUROPEO<br>E INDIE</h2>
-            <a href="#epocas" class="button button-green comic-explore">EXPLORAR</a>
-        </article>
-
-        <article class="comic-category">
-            <h2>HUMOR Y<br>TEBEO<br>CLÁSICO</h2>
-            <a href="#epocas" class="button button-green comic-explore">EXPLORAR</a>
-        </article>
-
-    </section>
-
-
-    <!-- ELIGE UNA ÉPOCA -->
-    <section class="comic-eras section-container" id="epocas">
-
-        <h2 class="comic-section-title">ELIGE UNA ÉPOCA</h2>
-
-        <div class="era-layout">
-
-            <div class="era-books" role="group" aria-label="Selecciona una época">
-
-                <button class="era-book era-book-1 is-active"
-                    type="button"
-                    aria-expanded="true"
-                    aria-controls="eraPanel"
-                    data-era="0">
-                    <span class="era-number">1</span>
-                    <span class="era-book-title">LOS PIONEROS</span>
-                </button>
-
-                <button class="era-book era-book-2"
-                    type="button"
+                <button
+                    class="menu-toggle md:hidden flex flex-col items-center justify-center gap-[5px] w-11 h-11 p-2.5"
+                    id="menuToggle"
+                    aria-label="Abrir menú"
                     aria-expanded="false"
-                    aria-controls="eraPanel"
-                    data-era="1">
-                    <span class="era-number">2</span>
-                    <span class="era-book-title">LA EDAD DEL TEBEO</span>
+                    aria-controls="navigation">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
 
-                <button class="era-book era-book-3"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="eraPanel"
-                    data-era="2">
-                    <span class="era-number">3</span>
-                    <span class="era-book-title">UNDERGROUND</span>
-                </button>
+                <!-- NAVEGACIÓN -->
 
-                <button class="era-book era-book-4"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="eraPanel"
-                    data-era="3">
-                    <span class="era-number">4</span>
-                    <span class="era-book-title">1900 - HOY</span>
-                </button>
+                <nav
+                    class="navigation absolute md:static top-full left-0 right-0 flex flex-col md:flex-row items-stretch md:items-center gap-0 md:gap-[35px] px-[5%] md:px-0"
+                    id="navigation">
+
+                    <a href="superheroes.html">SUPERHÉROES</a>
+                    <a href="comic.html" aria-current="page">CÓMIC</a>
+                    <a href="manga.html">MANGA</a>
+                    <a href="blog.html">BLOG</a>
+
+                    <button class="theme-toggle self-start md:self-auto mt-4 md:mt-0"
+                            id="themeToggle">
+                        ◐ MODO OSCURO
+                    </button>
+
+                </nav>
 
             </div>
+        </header>
 
 
-            <!-- PANEL DINÁMICO -->
-            <div class="era-panel" id="eraPanel" aria-live="polite">
+        <main class="comic-page">
 
-                <div class="era-panel-content">
-
-                    <p class="era-period" id="eraPeriod">1900 - 1930</p>
-
-                    <h3 id="eraTitle">LOS PIONEROS</h3>
-
-                    <p id="eraDescription">
-                        Los primeros pasos del cómic moderno. Tiras cómicas,
-                        prensa ilustrada y personajes que sentaron las bases
-                        del lenguaje secuencial.
-                    </p>
-
-                    <div class="era-examples" id="eraExamples">
-
-                        <article class="era-example">
-                            <div class="era-cover-placeholder">
-                                <img src="media/img/productos/comics/varios/la-guerra-de-audrey-nueva-edicion.webp" alt="la-guerra-de-audrey-nueva-edicion">
-                            </div>
-                            <h4>PRENSA ILUSTRADA</h4>
-                        </article>
-
-                        <article class="era-example">
-                            <div class="era-cover-placeholder">
-                                <img src="media/img/productos/comics/varios/la-cancion-del-fiordo.webp" alt="la-cancion-del-fiordo">
-                            </div>
-                            <h4>PRIMERAS SERIES</h4>
-                        </article>
-
-                        <article class="era-example">
-                            <div class="era-cover-placeholder">
-                                <img src="media/img/productos/comics/varios/la-sabiduria-de-los-mitos-09-zeus-y-las-guerras-de-los-dioses.webp" alt="la-sabiduria-de-los-mitos-09-zeus-y-las-guerras-de-los-dioses">
-                            </div>
-                            <h4>TIRAS CÓMICAS</h4>
-                        </article>
-
-                    </div>
-
+            <!-- HERO -->
+            <section class="comic-hero">
+                <div class="comic-hero-content">
+                    <p class="comic-eyebrow">¿QUÉ LEEMOS HOY?</p>
+                    <h1>CÓMIC</h1>
                 </div>
-
-            </div>
-
-        </div>
-
-    </section>
+            </section>
 
 
-    <!-- CLUB DE LECTURA -->
-    <section class="comic-reading-club" id="club">
+            <!-- CATEGORÍAS -->
+            <section class="comic-categories section-container" aria-label="Explora el cómic">
 
-        <div class="reading-club-container">
-
-            <!-- COLUMNA IZQUIERDA -->
-            <div class="club-conversation">
-
-                <h2>CLUB DE<br>LECTURA</h2>
-
-                <p class="club-subtitle">
-                    LA ÚLTIMA SESIÓN, EN CUATRO BOCADILLOS:
-                </p>
-
-                <div class="speech-bubbles">
-
-                    <p class="speech-bubble bubble-left">
-                        <strong>MATEO:</strong> El final me dejó sin palabras.
-                        ¿Lo habíais visto venir?
-                    </p>
-
-                    <p class="speech-bubble bubble-right">
-                        <strong>LUCÍA:</strong> Para nada. Y las páginas sin
-                        texto del capítulo tres… brutales.
-                    </p>
-
-                    <p class="speech-bubble bubble-left">
-                        <strong>SARA:</strong> Yo vengo por los debates y
-                        me llevo siempre tres cómics más.
-                    </p>
-
-                    <p class="speech-bubble bubble-right bubble-green">
-                        <strong>NOSOTROS:</strong> ¿Te sumas a la próxima?
-                        Hay sitio para ti.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- COLUMNA DERECHA -->
-            <div class="club-activities">
-
-                <!-- PRÓXIMA SESIÓN -->
-                <article class="club-card next-session">
-
-                    <p class="club-card-label">PRÓXIMA SESIÓN</p>
-
-                    <h3>TÍTULO DEL MES</h3>
-
-                    <div class="session-details">
-                        <span>[DD/MM]</span>
-                        <span>[HORA]</span>
-                        <span>[PLAZAS]</span>
-                    </div>
-
-                    <a href="mailto:hola@pixelandporcelain.com?subject=Reserva%20club%20de%20lectura"
-                        class="button button-pink comic-reserve">
-                        RESERVAR MI SITIO
-                    </a>
-
+                <article class="comic-category">
+                    <h2>NOVELA<br>GRÁFICA</h2>
+                    <a href="#epocas" class="button button-green comic-explore">EXPLORAR</a>
                 </article>
 
+                <article class="comic-category">
+                    <h2>EUROPEO<br>E INDIE</h2>
+                    <a href="#epocas" class="button button-green comic-explore">EXPLORAR</a>
+                </article>
 
-                <!-- ENCUESTA -->
-                <article class="club-card reading-poll">
+                <article class="comic-category">
+                    <h2>HUMOR Y<br>TEBEO<br>CLÁSICO</h2>
+                    <a href="#epocas" class="button button-green comic-explore">EXPLORAR</a>
+                </article>
 
-                    <h3>¿QUÉ LEEMOS EL<br>MES QUE VIENE?</h3>
+            </section>
 
-                    <form id="comicPollForm">
 
-                        <fieldset class="poll-options">
+            <!-- ELIGE UNA ÉPOCA -->
+            <section class="comic-eras section-container" id="epocas">
 
-                            <legend class="sr-only">Elige tu próxima lectura</legend>
+                <h2 class="comic-section-title">ELIGE UNA ÉPOCA</h2>
 
-                            <label class="poll-option">
-                                <input type="radio" name="comicVote" value="0" required>
-                                <span class="poll-option-content">
-                                    <span class="poll-option-name">OPCIÓN A · NOVELA GRÁFICA</span>
-                                    <span class="poll-result">
-                                        <span class="poll-result-bar"></span>
-                                        <span class="poll-percentage">0%</span>
-                                    </span>
-                                </span>
-                            </label>
+                <div class="era-layout">
 
-                            <label class="poll-option">
-                                <input type="radio" name="comicVote" value="1">
-                                <span class="poll-option-content">
-                                    <span class="poll-option-name">OPCIÓN B · CÓMIC EUROPEO</span>
-                                    <span class="poll-result">
-                                        <span class="poll-result-bar"></span>
-                                        <span class="poll-percentage">0%</span>
-                                    </span>
-                                </span>
-                            </label>
+                    <div class="era-books" role="group" aria-label="Selecciona una época">
 
-                            <label class="poll-option">
-                                <input type="radio" name="comicVote" value="2">
-                                <span class="poll-option-content">
-                                    <span class="poll-option-name">OPCIÓN C · AUTORÍA LOCAL</span>
-                                    <span class="poll-result">
-                                        <span class="poll-result-bar"></span>
-                                        <span class="poll-percentage">0%</span>
-                                    </span>
-                                </span>
-                            </label>
-
-                        </fieldset>
-
-                        <button type="submit" class="button button-green poll-submit">
-                            VOTAR
+                        <button class="era-book era-book-1 is-active"
+                            type="button"
+                            aria-expanded="true"
+                            aria-controls="eraPanel"
+                            data-era="0">
+                            <span class="era-number">1</span>
+                            <span class="era-book-title">LOS PIONEROS</span>
                         </button>
 
-                        <p class="poll-feedback" id="pollFeedback" aria-live="polite">
-                            Selecciona una opción para votar.
+                        <button class="era-book era-book-2"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="eraPanel"
+                            data-era="1">
+                            <span class="era-number">2</span>
+                            <span class="era-book-title">LA EDAD DEL TEBEO</span>
+                        </button>
+
+                        <button class="era-book era-book-3"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="eraPanel"
+                            data-era="2">
+                            <span class="era-number">3</span>
+                            <span class="era-book-title">UNDERGROUND</span>
+                        </button>
+
+                        <button class="era-book era-book-4"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="eraPanel"
+                            data-era="3">
+                            <span class="era-number">4</span>
+                            <span class="era-book-title">1900 - HOY</span>
+                        </button>
+
+                    </div>
+
+
+                    <!-- PANEL DINÁMICO -->
+                    <div class="era-panel" id="eraPanel" aria-live="polite">
+
+                        <div class="era-panel-content">
+
+                            <p class="era-period" id="eraPeriod">1900 - 1930</p>
+
+                            <h3 id="eraTitle">LOS PIONEROS</h3>
+
+                            <p id="eraDescription">
+                                Los primeros pasos del cómic moderno. Tiras cómicas,
+                                prensa ilustrada y personajes que sentaron las bases
+                                del lenguaje secuencial.
+                            </p>
+
+                            <div class="era-examples" id="eraExamples">
+
+                                <article class="era-example">
+                                    <div class="era-cover-placeholder">
+                                        <img src="media/img/productos/comics/varios/la-guerra-de-audrey-nueva-edicion.webp" alt="la-guerra-de-audrey-nueva-edicion">
+                                    </div>
+                                    <h4>PRENSA ILUSTRADA</h4>
+                                </article>
+
+                                <article class="era-example">
+                                    <div class="era-cover-placeholder">
+                                        <img src="media/img/productos/comics/varios/la-cancion-del-fiordo.webp" alt="la-cancion-del-fiordo">
+                                    </div>
+                                    <h4>PRIMERAS SERIES</h4>
+                                </article>
+
+                                <article class="era-example">
+                                    <div class="era-cover-placeholder">
+                                        <img src="media/img/productos/comics/varios/la-sabiduria-de-los-mitos-09-zeus-y-las-guerras-de-los-dioses.webp" alt="la-sabiduria-de-los-mitos-09-zeus-y-las-guerras-de-los-dioses">
+                                    </div>
+                                    <h4>TIRAS CÓMICAS</h4>
+                                </article>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- CLUB DE LECTURA -->
+            <section class="comic-reading-club" id="club">
+
+                <div class="reading-club-container">
+
+                    <!-- COLUMNA IZQUIERDA -->
+                    <div class="club-conversation">
+
+                        <h2>CLUB DE<br>LECTURA</h2>
+
+                        <p class="club-subtitle">
+                            LA ÚLTIMA SESIÓN, EN CUATRO BOCADILLOS:
                         </p>
 
-                    </form>
+                        <div class="speech-bubbles">
 
-                </article>
+                            <p class="speech-bubble bubble-left">
+                                <strong>MATEO:</strong> El final me dejó sin palabras.
+                                ¿Lo habíais visto venir?
+                            </p>
 
-            </div>
+                            <p class="speech-bubble bubble-right">
+                                <strong>LUCÍA:</strong> Para nada. Y las páginas sin
+                                texto del capítulo tres… brutales.
+                            </p>
 
-        </div>
+                            <p class="speech-bubble bubble-left">
+                                <strong>SARA:</strong> Yo vengo por los debates y
+                                me llevo siempre tres cómics más.
+                            </p>
 
-    </section>
+                            <p class="speech-bubble bubble-right bubble-green">
+                                <strong>NOSOTROS:</strong> ¿Te sumas a la próxima?
+                                Hay sitio para ti.
+                            </p>
 
-</main>
+                        </div>
 
-    <!-- ================= FOOTER ================= -->
+                    </div>
 
-    <footer class="footer relative px-[5%] pt-[60px] pb-5" id="footer">
 
-        <div class="footer-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[0.8fr_0.8fr_1.4fr] gap-[30px] pb-[50px]">
+                    <!-- COLUMNA DERECHA -->
+                    <div class="club-activities">
 
-            <a href="index.html" class="logo">
-                <img src="media/img/logo pixel and porcelain blanco.png"
-                     alt="Pixel and Porcelain" class="logo-dark">
+                        <!-- PRÓXIMA SESIÓN -->
+                        <article class="club-card next-session">
 
-                <img src="media/img/logo pixel and porcelain negro.png"
-                     alt="Pixel and Porcelain" class="logo-light">
+                            <p class="club-card-label">PRÓXIMA SESIÓN</p>
+
+                            <h3>TÍTULO DEL MES</h3>
+
+                            <div class="session-details">
+                                <span>[DD/MM]</span>
+                                <span>[HORA]</span>
+                                <span>[PLAZAS]</span>
+                            </div>
+
+                            <a href="mailto:hola@pixelandporcelain.com?subject=Reserva%20club%20de%20lectura"
+                                class="button button-pink comic-reserve">
+                                RESERVAR MI SITIO
+                            </a>
+
+                        </article>
+
+
+                        <!-- ENCUESTA -->
+                        <article class="club-card reading-poll">
+
+                            <h3>¿QUÉ LEEMOS EL<br>MES QUE VIENE?</h3>
+
+                            <form id="comicPollForm">
+
+                                <fieldset class="poll-options">
+
+                                    <legend class="sr-only">Elige tu próxima lectura</legend>
+
+                                    <label class="poll-option">
+                                        <input type="radio" name="comicVote" value="0" required>
+                                        <span class="poll-option-content">
+                                            <span class="poll-option-name">OPCIÓN A · NOVELA GRÁFICA</span>
+                                            <span class="poll-result">
+                                                <span class="poll-result-bar"></span>
+                                                <span class="poll-percentage">0%</span>
+                                            </span>
+                                        </span>
+                                    </label>
+
+                                    <label class="poll-option">
+                                        <input type="radio" name="comicVote" value="1">
+                                        <span class="poll-option-content">
+                                            <span class="poll-option-name">OPCIÓN B · CÓMIC EUROPEO</span>
+                                            <span class="poll-result">
+                                                <span class="poll-result-bar"></span>
+                                                <span class="poll-percentage">0%</span>
+                                            </span>
+                                        </span>
+                                    </label>
+
+                                    <label class="poll-option">
+                                        <input type="radio" name="comicVote" value="2">
+                                        <span class="poll-option-content">
+                                            <span class="poll-option-name">OPCIÓN C · AUTORÍA LOCAL</span>
+                                            <span class="poll-result">
+                                                <span class="poll-result-bar"></span>
+                                                <span class="poll-percentage">0%</span>
+                                            </span>
+                                        </span>
+                                    </label>
+
+                                </fieldset>
+
+                                <button type="submit" class="button button-green poll-submit">
+                                    VOTAR
+                                </button>
+
+                                <p class="poll-feedback" id="pollFeedback" aria-live="polite">
+                                    Selecciona una opción para votar.
+                                </p>
+
+                            </form>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer
+            class="site-footer border-t border-papel/15 bg-tinta px-4 py-12 sm:px-6 lg:px-8"
+        >
+
+            <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-3 md:items-start">
+
+            <!-- LOGO -->
+
+            <a
+                href="index.html"
+                class="inline-flex"
+                aria-label="Pixel and Porcelain, volver al inicio"
+            >
+
+                <img
+                    src="media/img/logo pixel and porcelain blanco.png"
+                    alt="Pixel and Porcelain"
+                    class="footer-logo-dark h-12 w-auto object-contain"
+                >
+
+                <img
+                    src="media/img/logo pixel and porcelain negro.png"
+                    alt="Pixel and Porcelain"
+                    class="footer-logo-light h-12 w-auto object-contain"
+                >
+
             </a>
 
 
             <!-- ENLACES -->
 
-            <div class="footer-links flex flex-col gap-[15px]">
+            <nav
+                class="footer-links flex flex-wrap gap-x-6 gap-y-3 text-xs"
+                aria-label="Enlaces legales"
+            >
 
                 <a href="#">Política de privacidad</a>
                 <a href="#">Términos de uso</a>
                 <a href="#">Cookies</a>
 
-            </div>
+            </nav>
 
 
             <!-- NEWSLETTER -->
 
-            <form class="newsletter flex flex-col gap-3 md:col-span-2 lg:col-span-1"
-                  id="newsletterForm">
+            <form id="newsletterForm" class="newsletter-form">
 
-                <label for="newsletterEmail">
-                    SUSCRÍBETE PARA NO PERDERTE NADA
+                <label
+                for="newsletterEmail"
+                class="mb-3 block text-[10px] font-bold uppercase tracking-wider"
+                >
+                Suscríbete para no perderte nada
                 </label>
 
-                <div class="newsletter-input flex flex-col sm:flex-row gap-2">
+                <div class="flex flex-col gap-2 sm:flex-row">
 
-                    <input
-                        type="email"
-                        id="newsletterEmail"
-                        placeholder="Tu correo electrónico"
-                        required
-                        class="min-w-0 flex-1">
+                <input
+                    id="newsletterEmail"
+                    name="email"
+                    type="email"
+                    placeholder="Tu correo electrónico"
+                    required
+                    class="min-h-11 min-w-0 flex-1 border border-papel/40 bg-transparent px-3 text-sm text-papel outline-none focus:border-lima"
+                >
 
-                    <button type="submit" class="button button-green">
-                        UNIRME
-                    </button>
+                <button
+                    type="submit"
+                    class="min-h-11 bg-lima px-5 text-xs font-bold uppercase text-tinta transition hover:bg-neon"
+                >
+                    Unirme
+                </button>
 
                 </div>
 
-                <small id="formFeedback" aria-live="polite"></small>
+                <small
+                id="formFeedback"
+                class="mt-2 block text-xs text-lima"
+                aria-live="polite"
+                ></small>
 
             </form>
 
-        </div>
-
-
-        <!-- INFORMACIÓN DE CONTACTO -->
-
-        <div class="comic-contact grid grid-cols-1 sm:grid-cols-3 gap-5 py-6">
-
-            <div>
-                <small>UBICACIÓN TIENDA FÍSICA</small>
-                <p>Próximamente</p>
             </div>
 
-            <div>
-                <small>CORREO ELECTRÓNICO</small>
-                <a href="mailto:hola@pixelandporcelain.com">
-                    hola@pixelandporcelain.com
-                </a>
-            </div>
 
-            <div>
-                <small>NÚMERO DE TELÉFONO</small>
-                <p>Próximamente</p>
-            </div>
+            <!-- PIE INFERIOR -->
 
-        </div>
+            <div class="footer-bottom-text mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-papel/15 pt-5 text-[10px] uppercase tracking-wider text-papel/60 sm:flex-row sm:items-center sm:justify-between">
 
-
-        <!-- PIE INFERIOR -->
-
-        <div class="footer-bottom flex flex-col sm:flex-row justify-between gap-4 pt-5">
-
-            <span>© 2026 PIXEL AND PORCELAIN</span>
+            <span>
+                © 2026 Pixel and Porcelain
+            </span>
 
             <a href="mailto:hola@pixelandporcelain.com">
-                CONTACTO
+                Contacto
             </a>
 
             <a href="#inicio">
-                VOLVER ARRIBA ↑
+                Volver arriba ↑
             </a>
 
-        </div>
+            </div>
 
-    </footer>
+        </footer>
 
 
-    <!-- AOS -->
+        <!-- AOS -->
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+        <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-    <!-- JAVASCRIPT -->
+        <!-- JAVASCRIPT -->
 
-    <script src="js/script.js"></script>
+        <script src="js/script.js"></script>
 
-</body>
+    </body>
 </html>
