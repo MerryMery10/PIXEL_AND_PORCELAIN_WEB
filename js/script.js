@@ -727,109 +727,88 @@ document.addEventListener("DOMContentLoaded", function () {
 
         });
 
-    }
+    
 
 
-    /* ======================================
-       9. PÁGINA MANGA
-    ====================================== */
+
+/* ======================================
+   9.1. SELECCIÓN DE DEMOGRAFÍAS
+====================================== */
+
+const mangaSection = document.querySelector("#demografias");
+
+if (mangaSection) {
+
+    const mangaBooks = mangaSection.querySelectorAll(".manga-book");
+
+    const mangaAudience = mangaSection.querySelector("#mangaAudience");
+    const mangaTypeTitle = mangaSection.querySelector("#mangaTypeTitle");
+    const mangaTypeDescription = mangaSection.querySelector("#mangaTypeDescription");
+    const mangaFeaturedGrid = mangaSection.querySelector("#mangaFeaturedGrid");
 
 
-    /* ======================================
-       9.1. SELECCIÓN DE DEMOGRAFÍAS
-    ====================================== */
+    // Información de las cuatro demografías
 
-    const mangaPage = document.querySelector(".manga-page");
+    const mangaTypes = [
 
-    if (mangaPage) {
+        {
+            audience: "PARA UN PÚBLICO JOVEN",
+            title: "SHONEN",
+            description: "Historias de acción, aventura, amistad y superación. Protagonistas que crecen, se enfrentan a desafíos y persiguen sus sueños.",
+            featured: [
+                "ONE PIECE",
+                "HAIKYUU!!",
+                "MY HERO ACADEMIA"
+            ]
+        },
 
-        const mangaBooks = mangaPage.querySelectorAll(".manga-book");
+        {
+            audience: "PARA UN PÚBLICO JOVEN FEMENINO",
+            title: "SHOJO",
+            description: "Historias centradas en las emociones, las relaciones personales y el crecimiento. Romance, amistad y personajes que descubren quiénes son.",
+            featured: [
+                "FRUITS BASKET",
+                "SAILOR MOON",
+                "NANA"
+            ]
+        },
 
-        const mangaAudience = mangaPage.querySelector("#mangaAudience");
+        {
+            audience: "PARA UN PÚBLICO ADULTO",
+            title: "SEINEN",
+            description: "Narrativas de mayor complejidad temática. Conflictos psicológicos, dilemas morales, violencia, crítica social y mundos llenos de matices.",
+            featured: [
+                "MONSTER",
+                "BERSERK",
+                "VINLAND SAGA"
+            ]
+        },
 
-        const mangaTypeTitle = mangaPage.querySelector("#mangaTypeTitle");
+        {
+            audience: "PARA UN PÚBLICO ADULTO FEMENINO",
+            title: "JOSEI",
+            description: "Relatos sobre la vida adulta, las relaciones y la identidad. Historias más cotidianas, íntimas y realistas, con personajes complejos.",
+            featured: [
+                "PARADISE KISS",
+                "CHIHAYAFURU",
+                "PRINCESS JELLYFISH"
+            ]
+        }
 
-        const mangaTypeDescription = mangaPage.querySelector(
-            "#mangaTypeDescription"
-        );
-
-        const mangaFeaturedGrid = mangaPage.querySelector(
-            "#mangaFeaturedGrid"
-        );
-
-
-        // Información de las cuatro demografías
-
-        const mangaTypes = [
-
-            {
-                audience: "PARA UN PÚBLICO JOVEN",
-
-                title: "SHONEN",
-
-                description:
-                    "Historias de acción, aventura, amistad y superación. Protagonistas que crecen, se enfrentan a desafíos y persiguen sus sueños.",
-
-                featured: [
-                    "ONE PIECE",
-                    "HAIKYUU!!",
-                    "MY HERO ACADEMIA"
-                ]
-
-            },
-
-            {
-                audience: "PARA UN PÚBLICO JOVEN FEMENINO",
-
-                title: "SHOJO",
-
-                description:
-                    "Historias centradas en las emociones, las relaciones personales y el crecimiento. Romance, amistad y personajes que descubren quiénes son.",
-
-                featured: [
-                    "FRUITS BASKET",
-                    "SAILOR MOON",
-                    "NANA"
-                ]
-
-            },
-
-            {
-                audience: "PARA UN PÚBLICO ADULTO",
-
-                title: "SEINEN",
-
-                description:
-                    "Narrativas de mayor complejidad temática. Conflictos psicológicos, dilemas morales, violencia, crítica social y mundos llenos de matices.",
-
-                featured: [
-                    "MONSTER",
-                    "BERSERK",
-                    "VINLAND SAGA"
-                ]
-
-            },
-
-            {
-                audience: "PARA UN PÚBLICO ADULTO FEMENINO",
-
-                title: "JOSEI",
-
-                description:
-                    "Relatos sobre la vida adulta, las relaciones y la identidad. Historias más cotidianas, íntimas y realistas, con personajes complejos.",
-
-                featured: [
-                    "PARADISE KISS",
-                    "CHIHAYAFURU",
-                    "PRINCESS JELLYFISH"
-                ]
-
-            }
-
-        ];
+    ];
 
 
-        // Actualizar el panel de información
+    // Comprobar que existen todos los elementos necesarios
+
+    if (
+        mangaBooks.length === 4 &&
+        mangaAudience &&
+        mangaTypeTitle &&
+        mangaTypeDescription &&
+        mangaFeaturedGrid
+    ) {
+
+        // Mostrar una demografía
 
         function showMangaType(index) {
 
@@ -838,97 +817,87 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!selectedType) return;
 
 
+            // Actualizar información
+
             mangaAudience.textContent = selectedType.audience;
-
             mangaTypeTitle.textContent = selectedType.title;
-
-            mangaTypeDescription.textContent =
-                selectedType.description;
+            mangaTypeDescription.textContent = selectedType.description;
 
 
-            // Crear los mangas destacados
+            // Actualizar mangas destacados sin imágenes
 
-            mangaFeaturedGrid.innerHTML = "";
+            mangaFeaturedGrid.replaceChildren();
 
-
-            selectedType.featured.forEach(function (manga) {
+            selectedType.featured.forEach(function (manga, mangaIndex) {
 
                 const article = document.createElement("article");
-
                 article.classList.add("manga-featured-item");
 
-
-                const cover = document.createElement("div");
-
-                cover.classList.add("manga-cover-placeholder");
-
-                cover.textContent = "(PORTADA)";
-
+                const number = document.createElement("span");
+                number.classList.add("manga-featured-number");
+                number.textContent = String(mangaIndex + 1).padStart(2, "0");
 
                 const heading = document.createElement("h4");
-
                 heading.textContent = manga;
 
-
-                article.appendChild(cover);
-
-                article.appendChild(heading);
-
+                article.append(number, heading);
                 mangaFeaturedGrid.appendChild(article);
+
+            });
+
+
+            // Actualizar estado visual y accesible de los lomos
+
+            mangaBooks.forEach(function (button, buttonIndex) {
+
+                const isSelected = buttonIndex === index;
+
+                button.classList.toggle("is-active", isSelected);
+                button.setAttribute("aria-expanded", String(isSelected));
 
             });
 
         }
 
 
-        // Activar un solo lomo cada vez
+        // Eventos de los cuatro lomos
 
-        mangaBooks.forEach(function (button) {
+        mangaBooks.forEach(function (button, index) {
 
             button.addEventListener("click", function () {
 
-                const selectedIndex = Number(button.dataset.mangaType);
-
-
-                mangaBooks.forEach(function (otherButton) {
-
-                    const isSelected = otherButton === button;
-
-                    otherButton.classList.toggle(
-                        "is-active",
-                        isSelected
-                    );
-
-                    otherButton.setAttribute(
-                        "aria-expanded",
-                        String(isSelected)
-                    );
-
-                });
-
-
-                showMangaType(selectedIndex);
+                showMangaType(index);
 
             });
 
         });
 
 
-        // Inicializar la primera demografía
+        // Inicializar con SHONEN
 
-        if (
-            mangaBooks.length &&
-            mangaAudience &&
-            mangaTypeTitle &&
-            mangaTypeDescription &&
-            mangaFeaturedGrid
-        ) {
-
-            showMangaType(0);
-
-        }
+        showMangaType(0);
 
     }
+
+}
+
+
+    // Inicializar la primera demografía
+
+    if (
+        mangaBooks.length &&
+        mangaAudience &&
+        mangaTypeTitle &&
+        mangaTypeDescription &&
+        mangaFeaturedGrid
+    ) {
+
+        showMangaType(0);
+
+    }
+
+}
+
 
 
 

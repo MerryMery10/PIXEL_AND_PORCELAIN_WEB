@@ -2688,9 +2688,10 @@ body.light-mode .comic-reading-club {
 }
 
 
-/* ==========================================
+
+/* ========================================
    4. DEMOGRAFÍAS MANGA
-========================================== */
+======================================== */
 
 .manga-demographics {
     padding-block: 5px 75px;
@@ -2704,16 +2705,16 @@ body.light-mode .comic-reading-club {
     text-transform: uppercase;
 }
 
+/* DISTRIBUCIÓN PRINCIPAL */
+
 .manga-demographic-layout {
     display: grid;
     grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
     gap: 15px;
     align-items: stretch;
-    min-height: 260px;
 }
 
-
-/* Lomos */
+/* SELECTOR DE DEMOGRAFÍAS */
 
 .manga-books {
     display: grid;
@@ -2725,21 +2726,15 @@ body.light-mode .comic-reading-club {
 .manga-book {
     position: relative;
     min-width: 0;
-    min-height: 260px;
-
+    min-height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
-
     padding: 15px 8px;
     border: 0;
-
     color: var(--manga-black);
     cursor: pointer;
-
-    transition:
-        filter 0.25s ease,
-        transform 0.25s ease;
+    transition: filter 0.25s ease, transform 0.25s ease;
 }
 
 .manga-book-1 {
@@ -2760,6 +2755,11 @@ body.light-mode .comic-reading-club {
 
 .manga-book:hover {
     filter: brightness(0.88);
+    transform: translateY(-4px);
+}
+
+.manga-book.is-active {
+    transform: translateY(-7px);
 }
 
 .manga-book:focus-visible {
@@ -2771,13 +2771,10 @@ body.light-mode .comic-reading-club {
     position: absolute;
     top: 10px;
     left: 10px;
-
     min-width: 25px;
     padding: 2px 5px;
-
     background: var(--manga-black);
     color: var(--manga-white);
-
     font-family: "Dela Gothic One", sans-serif;
     font-size: 13px;
     text-align: center;
@@ -2786,25 +2783,23 @@ body.light-mode .comic-reading-club {
 .manga-book-title {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-
     font-family: "Dela Gothic One", sans-serif;
     font-size: clamp(12px, 1.2vw, 16px);
     line-height: 1;
     text-align: center;
 }
 
-
-/* Panel informativo */
+/* PANEL DE INFORMACIÓN */
 
 .manga-info-panel {
     min-width: 0;
+    min-height: 300px;
+    padding: clamp(20px, 3vw, 35px);
     display: flex;
     align-items: center;
-
-    padding: 25px;
-
-    background: var(--manga-white);
-    color: var(--manga-black);
+    background: var(--manga-black);
+    color: var(--manga-white);
+    border: 1px solid var(--manga-pink);
 }
 
 .manga-info-content {
@@ -2812,67 +2807,125 @@ body.light-mode .comic-reading-club {
 }
 
 .manga-demographic-label {
-    margin: 0 0 5px;
-    color: #333;
-
+    margin: 0 0 10px;
+    color: var(--manga-green);
     font-family: "Dela Gothic One", sans-serif;
-    font-size: 11px;
+    font-size: 12px;
+    letter-spacing: 1px;
 }
 
-.manga-info-panel h3 {
-    margin: 0 0 8px;
-
+.manga-info-content h3 {
+    margin: 0 0 15px;
+    color: var(--manga-pink);
     font-family: "Boldonse", sans-serif;
-    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
     line-height: 1.1;
 }
 
 .manga-info-content > p:not(.manga-demographic-label) {
     max-width: 650px;
-    margin: 0 0 18px;
-
+    margin: 0 0 30px;
     font-family: "Dela Gothic One", sans-serif;
-    font-size: 11px;
-    line-height: 1.6;
+    font-size: 13px;
+    line-height: 1.7;
 }
 
-
-/* Mangas destacados */
+/* MANGAS DESTACADOS: SOLO TEXTO */
 
 .manga-featured-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
+    gap: 10px;
 }
 
 .manga-featured-item {
     min-width: 0;
+    min-height: 90px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+    background: var(--manga-white);
+    color: var(--manga-black);
+    transition: background 0.25s ease, color 0.25s ease;
 }
 
-.manga-cover-placeholder {
-    aspect-ratio: 1.25 / 1;
+.manga-featured-item:hover {
+    background: var(--manga-pink);
+    color: var(--manga-black);
+}
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 8px;
-    color: var(--manga-white);
-
+.manga-featured-number {
     font-family: "Dela Gothic One", sans-serif;
-    font-size: 10px;
-    text-align: center;
+    font-size: 11px;
+    opacity: 0.65;
 }
 
 .manga-featured-item h4 {
-    margin: 7px 0 0;
-
+    margin: 0;
     font-family: "Dela Gothic One", sans-serif;
-    font-size: 10px;
-    line-height: 1.2;
-    text-transform: uppercase;
+    font-size: clamp(11px, 1vw, 14px);
+    line-height: 1.4;
+    overflow-wrap: anywhere;
 }
 
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .manga-demographic-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .manga-book {
+        min-height: 180px;
+    }
+
+    .manga-info-panel {
+        min-height: auto;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .manga-books {
+        gap: 7px;
+    }
+
+    .manga-book {
+        min-height: 150px;
+        padding: 10px 5px;
+    }
+
+    .manga-book-number {
+        top: 7px;
+        left: 7px;
+        font-size: 11px;
+    }
+
+    .manga-info-panel {
+        padding: 22px 17px;
+    }
+
+    .manga-featured-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .manga-featured-item {
+        min-height: 65px;
+    }
+
+}
+
+@media (max-width: 380px) {
+
+    .manga-book-title {
+        font-size: 10px;
+    }
+
+}
 
 /* ==========================================
    5. GÉNEROS

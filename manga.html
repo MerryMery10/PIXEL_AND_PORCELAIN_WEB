@@ -215,155 +215,90 @@
 
 
 
-        <!-- ELIGE TU DEMOGRAFÍA -->
+<!-- 4. DEMOGRAFÍAS MANGA -->
+<section class="manga-demographics section-container" id="demografias">
 
-        <section class="manga-demographics section-container"
-            id="demografias">
+    <h2 class="manga-section-title">ELIGE TU MANGA</h2>
 
-            <h2 class="manga-section-title">
-                ELIGE TU DEMOGRAFÍA
-            </h2>
+    <div class="manga-demographic-layout">
 
+        <!-- SELECTOR DE DEMOGRAFÍAS -->
+        <div class="manga-books" role="group" aria-label="Selecciona una demografía manga">
 
-            <div class="manga-demographic-layout">
+            <button class="manga-book manga-book-1 is-active"
+                type="button" data-manga-type="0"
+                aria-expanded="true" aria-controls="mangaInfoPanel">
+                <span class="manga-book-number">1</span>
+                <span class="manga-book-title">SHONEN</span>
+            </button>
 
+            <button class="manga-book manga-book-2"
+                type="button" data-manga-type="1"
+                aria-expanded="false" aria-controls="mangaInfoPanel">
+                <span class="manga-book-number">2</span>
+                <span class="manga-book-title">SHOJO</span>
+            </button>
 
-                <!-- LOMOS INTERACTIVOS -->
+            <button class="manga-book manga-book-3"
+                type="button" data-manga-type="2"
+                aria-expanded="false" aria-controls="mangaInfoPanel">
+                <span class="manga-book-number">3</span>
+                <span class="manga-book-title">SEINEN</span>
+            </button>
 
-                <div class="manga-books"
-                    role="group"
-                    aria-label="Selecciona una demografía manga">
+            <button class="manga-book manga-book-4"
+                type="button" data-manga-type="3"
+                aria-expanded="false" aria-controls="mangaInfoPanel">
+                <span class="manga-book-number">4</span>
+                <span class="manga-book-title">JOSEI</span>
+            </button>
 
+        </div>
 
-                    <button
-                        class="manga-book manga-book-1 is-active"
-                        type="button"
-                        data-manga-type="0"
-                        aria-expanded="true"
-                        aria-controls="mangaInfoPanel">
+        <!-- INFORMACIÓN DE LA DEMOGRAFÍA -->
+        <div class="manga-info-panel" id="mangaInfoPanel" aria-live="polite">
 
-                        <span class="manga-book-number">1</span>
+            <div class="manga-info-content">
 
-                        <span class="manga-book-title">SHONEN</span>
+                <p class="manga-demographic-label" id="mangaAudience">
+                    PARA UN PÚBLICO JOVEN
+                </p>
 
-                    </button>
+                <h3 id="mangaTypeTitle">SHONEN</h3>
 
+                <p id="mangaTypeDescription">
+                    Historias de acción, aventura, amistad y superación.
+                    Protagonistas que crecen, se enfrentan a desafíos
+                    y persiguen sus sueños.
+                </p>
 
-                    <button
-                        class="manga-book manga-book-2"
-                        type="button"
-                        data-manga-type="1"
-                        aria-expanded="false"
-                        aria-controls="mangaInfoPanel">
+                <!-- MANGAS DESTACADOS -->
+                <div class="manga-featured-grid" id="mangaFeaturedGrid">
 
-                        <span class="manga-book-number">2</span>
+                    <article class="manga-featured-item">
+                        <span class="manga-featured-number">01</span>
+                        <h4>ONE PIECE</h4>
+                    </article>
 
-                        <span class="manga-book-title">SHOJO</span>
+                    <article class="manga-featured-item">
+                        <span class="manga-featured-number">02</span>
+                        <h4>HAIKYUU!!</h4>
+                    </article>
 
-                    </button>
-
-
-                    <button
-                        class="manga-book manga-book-3"
-                        type="button"
-                        data-manga-type="2"
-                        aria-expanded="false"
-                        aria-controls="mangaInfoPanel">
-
-                        <span class="manga-book-number">3</span>
-
-                        <span class="manga-book-title">SEINEN</span>
-
-                    </button>
-
-
-                    <button
-                        class="manga-book manga-book-4"
-                        type="button"
-                        data-manga-type="3"
-                        aria-expanded="false"
-                        aria-controls="mangaInfoPanel">
-
-                        <span class="manga-book-number">4</span>
-
-                        <span class="manga-book-title">JOSEI</span>
-
-                    </button>
-
-                </div>
-
-
-
-                <!-- PANEL INFORMATIVO -->
-
-                <div class="manga-info-panel"
-                    id="mangaInfoPanel"
-                    aria-live="polite">
-
-                    <div class="manga-info-content">
-
-                        <p class="manga-demographic-label"
-                            id="mangaAudience">
-                            PARA UN PÚBLICO JOVEN
-                        </p>
-
-                        <h3 id="mangaTypeTitle">
-                            SHONEN
-                        </h3>
-
-                        <p id="mangaTypeDescription">
-                            Historias de acción, aventura, amistad y
-                            superación. Protagonistas que crecen,
-                            se enfrentan a desafíos y persiguen sus sueños.
-                        </p>
-
-
-                        <div class="manga-featured-grid"
-                            id="mangaFeaturedGrid">
-
-
-                            <article class="manga-featured-item">
-
-                                <div class="manga-cover-placeholder">
-                                    (PORTADA)
-                                </div>
-
-                                <h4>ONE PIECE</h4>
-
-                            </article>
-
-
-                            <article class="manga-featured-item">
-
-                                <div class="manga-cover-placeholder">
-                                    (PORTADA)
-                                </div>
-
-                                <h4>HAIKYUU!!</h4>
-
-                            </article>
-
-
-                            <article class="manga-featured-item">
-
-                                <div class="manga-cover-placeholder">
-                                    (PORTADA)
-                                </div>
-
-                                <h4>MY HERO ACADEMIA</h4>
-
-                            </article>
-
-
-                        </div>
-
-                    </div>
+                    <article class="manga-featured-item">
+                        <span class="manga-featured-number">03</span>
+                        <h4>MY HERO ACADEMIA</h4>
+                    </article>
 
                 </div>
 
             </div>
 
-        </section>
+        </div>
+
+    </div>
+
+</section>
 
 
 
