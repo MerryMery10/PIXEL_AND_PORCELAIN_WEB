@@ -183,9 +183,6 @@ themeButtons.forEach(function(button) {
 });
 
 
-
-
-   
     /* ======================================
         4. FILTRO DE PRODUCTOS
     ====================================== */
@@ -457,191 +454,68 @@ themeButtons.forEach(function(button) {
 
 });
 
-    /* ======================================
-       8. PÁGINA CÓMIC
-    ====================================== */
 
 
-    /* ======================================
-       8.1. ELIGE UNA ÉPOCA
-    ====================================== */
+/* =========================================
+   CÓMIC — SELECTOR DE ÉPOCAS
+========================================= */
 
-    const comicPage = document.querySelector(".comic-page");
+document.addEventListener("DOMContentLoaded", function () {
 
-    if (comicPage) {
+  const eraButtons = document.querySelectorAll(".era-book");
+  const eraPanels = document.querySelectorAll(".era-panel-content");
 
-        const eraButtons = comicPage.querySelectorAll(".era-book");
+  // Comprobar que existe la sección
+  if (!eraButtons.length || !eraPanels.length) return;
 
-        const eraPeriod = comicPage.querySelector("#eraPeriod");
 
-        const eraTitle = comicPage.querySelector("#eraTitle");
+  // Seleccionar una época
+  function selectEra(index) {
 
-        const eraDescription = comicPage.querySelector("#eraDescription");
+    // Actualizar tarjetas
+    eraButtons.forEach((button, buttonIndex) => {
 
-        const eraExamples = comicPage.querySelector("#eraExamples");
+      const isActive = buttonIndex === index;
 
+      button.classList.toggle("is-active", isActive);
 
-        // Información de cada época
+      button.setAttribute(
+        "aria-expanded",
+        isActive ? "true" : "false"
+      );
 
-        const eras = [
+    });
 
-            {
-                period: "1900 - 1930",
-                title: "LOS PIONEROS",
 
-                description:
-                    "Los primeros pasos del cómic moderno. Tiras cómicas, prensa ilustrada y personajes que sentaron las bases del lenguaje secuencial.",
+    // Actualizar panel dinámico
+    eraPanels.forEach((panel, panelIndex) => {
 
-                examples: [
-                    "PRENSA ILUSTRADA",
-                    "PRIMERAS SERIES",
-                    "TIRAS CÓMICAS"
-                ]
+      panel.classList.toggle(
+        "is-active",
+        panelIndex === index
+      );
 
-            },
+    });
 
-            {
-                period: "1930 - 1950",
-                title: "LA EDAD DEL TEBEO",
+  }
 
-                description:
-                    "La expansión del cómic popular. Aparecen grandes personajes, revistas y publicaciones que consolidan el medio.",
 
-                examples: [
-                    "AVENTURAS",
-                    "SUPERHÉROES",
-                    "REVISTAS"
-                ]
+  // Eventos de selección
+  eraButtons.forEach((button, index) => {
 
-            },
+    button.addEventListener("click", function () {
 
-            {
-                period: "1960 - 1980",
-                title: "UNDERGROUND",
+      selectEra(index);
 
-                description:
-                    "Una generación de autores explora nuevas formas de expresión. Historias alternativas, experimentación gráfica y cómic independiente.",
+    });
 
-                examples: [
-                    "CONTRACULTURA",
-                    "CÓMIC ALTERNATIVO",
-                    "AUTOEDICIÓN"
-                ]
+  });
 
-            },
 
-            {
-                period: "1900 - HOY",
-                title: "NOVELA GRÁFICA",
+  // Estado inicial
+  selectEra(0);
 
-                description:
-                    "Memorias, no ficción y obras de autor que se leen como novelas. Lo que debatimos cada mes en el club.",
-
-                examples: [
-                    "MEMORIAS",
-                    "NO FICCIÓN",
-                    "DEBUT"
-                ]
-
-            }
-
-        ];
-
-
-        // Cambiar la información del panel
-
-        function showEra(index) {
-
-            const selectedEra = eras[index];
-
-            if (!selectedEra) return;
-
-
-            eraPeriod.textContent = selectedEra.period;
-
-            eraTitle.textContent = selectedEra.title;
-
-            eraDescription.textContent = selectedEra.description;
-
-
-            // Actualizar las portadas de ejemplo
-
-            eraExamples.innerHTML = "";
-
-
-            selectedEra.examples.forEach(function (example) {
-
-                const article = document.createElement("article");
-
-                article.classList.add("era-example");
-
-
-                const cover = document.createElement("div");
-
-                cover.classList.add("era-cover-placeholder");
-
-                cover.textContent = "(PORTADA)";
-
-
-                const heading = document.createElement("h4");
-
-                heading.textContent = example;
-
-
-                article.appendChild(cover);
-
-                article.appendChild(heading);
-
-                eraExamples.appendChild(article);
-
-            });
-
-        }
-
-
-        // Solo puede haber una época seleccionada
-
-        eraButtons.forEach(function (button) {
-
-            button.addEventListener("click", function () {
-
-                const selectedIndex = Number(button.dataset.era);
-
-
-                eraButtons.forEach(function (otherButton) {
-
-                    const isSelected = otherButton === button;
-
-                    otherButton.classList.toggle(
-                        "is-active",
-                        isSelected
-                    );
-
-                    otherButton.setAttribute(
-                        "aria-expanded",
-                        String(isSelected)
-                    );
-
-                });
-
-
-                showEra(selectedIndex);
-
-            });
-
-        });
-
-
-        // Inicializar con la primera época
-
-        if (eraButtons.length && eraPeriod && eraTitle &&
-            eraDescription && eraExamples) {
-
-            showEra(0);
-
-        }
-
-    }
+});
 
 
 

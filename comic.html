@@ -153,128 +153,329 @@
             <!-- HERO -->
             <section class="comic-hero">
                 <div class="comic-hero-content">
-                    <p class="comic-eyebrow">¿QUÉ LEEMOS HOY?</p>
+                    <p class="comic-eyebrow mb-12">¿QUÉ LEEMOS HOY?</p>
                     <h1>CÓMIC</h1>
                 </div>
             </section>
 
 
+          
+            
+            
             <!-- CATEGORÍAS -->
             <section class="comic-categories section-container" aria-label="Explora el cómic">
 
-                <article class="comic-category">
+                <article class="comic-category flex flex-col items-center">
+
+                    <div class="w-full aspect-[2/3] overflow-hidden">
+                        <img
+                            src="media/img/productos/comics/varios/la-guerra-de-audrey-nueva-edicion.webp"
+                            alt="Portada de novela gráfica"
+                            class="w-full h-full object-contain transition-transform duration-500 hover:scale-105">
+                    </div>
+
                     <h2>NOVELA<br>GRÁFICA</h2>
                     <a href="#epocas" class="button button-green comic-explore">EXPLORAR</a>
+
                 </article>
 
-                <article class="comic-category">
+                <article class="comic-category flex flex-col items-center">
+
+                    <div class="w-full aspect-[2/3] overflow-hidden">
+                        <img
+                            src="media/img/productos/comics/varios/la-cancion-del-fiordo.webp"
+                            alt="Portada de cómic europeo"
+                            class="w-full h-full object-contain transition-transform duration-500 hover:scale-105">
+                    </div>
+
                     <h2>EUROPEO<br>E INDIE</h2>
                     <a href="#epocas" class="button button-green comic-explore">EXPLORAR</a>
+
                 </article>
 
-                <article class="comic-category">
+                <article class="comic-category flex flex-col items-center">
+
+                    <div class="w-full aspect-[2/3] overflow-hidden">
+                        <img
+                            src="media/img/productos/comics/varios/la-sabiduria-de-los-mitos-09-zeus-y-las-guerras-de-los-dioses.webp"
+                            alt="Portada de tebeo clásico"
+                            class="w-full h-full object-contain transition-transform duration-500 hover:scale-105">
+                    </div>
+
                     <h2>HUMOR Y<br>TEBEO<br>CLÁSICO</h2>
                     <a href="#epocas" class="button button-green comic-explore">EXPLORAR</a>
+
                 </article>
 
             </section>
 
 
-            <!-- ELIGE UNA ÉPOCA -->
-            <section class="comic-eras section-container" id="epocas">
+            
 
-                <h2 class="comic-section-title">ELIGE UNA ÉPOCA</h2>
+<!-- =========================================
+     CÓMIC — ELIGE UNA ÉPOCA
+========================================= -->
 
-                <div class="era-layout">
+<section class="comic-eras section-container" id="epocas">
 
-                    <div class="era-books" role="group" aria-label="Selecciona una época">
+  <h2 class="comic-section-title">ELIGE UNA ÉPOCA</h2>
 
-                        <button class="era-book era-book-1 is-active"
-                            type="button"
-                            aria-expanded="true"
-                            aria-controls="eraPanel"
-                            data-era="0">
-                            <span class="era-number">1</span>
-                            <span class="era-book-title">LOS PIONEROS</span>
-                        </button>
+  <!-- TARJETAS EXPANSIBLES -->
+  <div class="era-books flex flex-col md:flex-row gap-3 w-full"
+       role="group"
+       aria-label="Selecciona una época">
 
-                        <button class="era-book era-book-2"
-                            type="button"
-                            aria-expanded="false"
-                            aria-controls="eraPanel"
-                            data-era="1">
-                            <span class="era-number">2</span>
-                            <span class="era-book-title">LA EDAD DEL TEBEO</span>
-                        </button>
+    <button class="era-book era-book-1 is-active"
+            type="button"
+            aria-expanded="true"
+            aria-controls="eraPanel"
+            data-era="0">
 
-                        <button class="era-book era-book-3"
-                            type="button"
-                            aria-expanded="false"
-                            aria-controls="eraPanel"
-                            data-era="2">
-                            <span class="era-number">3</span>
-                            <span class="era-book-title">UNDERGROUND</span>
-                        </button>
+      <span class="era-number">01</span>
+      <span class="era-book-title">LOS PIONEROS</span>
+      <span class="era-book-cta">EXPLORAR ÉPOCA ↗</span>
 
-                        <button class="era-book era-book-4"
-                            type="button"
-                            aria-expanded="false"
-                            aria-controls="eraPanel"
-                            data-era="3">
-                            <span class="era-number">4</span>
-                            <span class="era-book-title">1900 - HOY</span>
-                        </button>
+    </button>
 
-                    </div>
+    <button class="era-book era-book-2"
+            type="button"
+            aria-expanded="false"
+            aria-controls="eraPanel"
+            data-era="1">
+
+      <span class="era-number">02</span>
+      <span class="era-book-title">LA EDAD DEL TEBEO</span>
+      <span class="era-book-cta">EXPLORAR ÉPOCA ↗</span>
+
+    </button>
+
+    <button class="era-book era-book-3"
+            type="button"
+            aria-expanded="false"
+            aria-controls="eraPanel"
+            data-era="2">
+
+      <span class="era-number">03</span>
+      <span class="era-book-title">UNDERGROUND</span>
+      <span class="era-book-cta">EXPLORAR ÉPOCA ↗</span>
+
+    </button>
+
+    <button class="era-book era-book-4"
+            type="button"
+            aria-expanded="false"
+            aria-controls="eraPanel"
+            data-era="3">
+
+      <span class="era-number">04</span>
+      <span class="era-book-title">1900 - HOY</span>
+      <span class="era-book-cta">EXPLORAR ÉPOCA ↗</span>
+
+    </button>
+
+  </div>
 
 
-                    <!-- PANEL DINÁMICO -->
-                    <div class="era-panel" id="eraPanel" aria-live="polite">
+  <!-- =====================================
+       PANEL DINÁMICO
+  ====================================== -->
 
-                        <div class="era-panel-content">
+  <div class="era-panel" id="eraPanel" aria-live="polite">
 
-                            <p class="era-period" id="eraPeriod">1900 - 1930</p>
 
-                            <h3 id="eraTitle">LOS PIONEROS</h3>
+    <!-- ÉPOCA 1: LOS PIONEROS -->
 
-                            <p id="eraDescription">
-                                Los primeros pasos del cómic moderno. Tiras cómicas,
-                                prensa ilustrada y personajes que sentaron las bases
-                                del lenguaje secuencial.
-                            </p>
+    <div class="era-panel-content is-active" data-era-panel="0">
 
-                            <div class="era-examples" id="eraExamples">
+      <p class="era-period">1900 - 1930</p>
 
-                                <article class="era-example">
-                                    <div class="era-cover-placeholder">
-                                        <img src="media/img/productos/comics/varios/la-guerra-de-audrey-nueva-edicion.webp" alt="la-guerra-de-audrey-nueva-edicion">
-                                    </div>
-                                    <h4>PRENSA ILUSTRADA</h4>
-                                </article>
+      <h3>LOS PIONEROS</h3>
 
-                                <article class="era-example">
-                                    <div class="era-cover-placeholder">
-                                        <img src="media/img/productos/comics/varios/la-cancion-del-fiordo.webp" alt="la-cancion-del-fiordo">
-                                    </div>
-                                    <h4>PRIMERAS SERIES</h4>
-                                </article>
+      <p class="era-description">
+        Los primeros pasos del cómic moderno. Tiras cómicas,
+        prensa ilustrada y personajes que sentaron las bases
+        del lenguaje secuencial.
+      </p>
 
-                                <article class="era-example">
-                                    <div class="era-cover-placeholder">
-                                        <img src="media/img/productos/comics/varios/la-sabiduria-de-los-mitos-09-zeus-y-las-guerras-de-los-dioses.webp" alt="la-sabiduria-de-los-mitos-09-zeus-y-las-guerras-de-los-dioses">
-                                    </div>
-                                    <h4>TIRAS CÓMICAS</h4>
-                                </article>
+      <div class="era-examples">
 
-                            </div>
+        <article class="era-example">
+          <div class="era-cover-placeholder">
+            <img
+              src="media/img/productos/comics/varios/la-guerra-de-audrey-nueva-edicion.webp"
+              alt="Portada de La guerra de Audrey"
+              class="era-cover-image">
+          </div>
+          <h4>PRENSA ILUSTRADA</h4>
+        </article>
 
-                        </div>
+        <article class="era-example">
+          <div class="era-cover-placeholder">
+            <img
+              src="media/img/productos/comics/varios/la-cancion-del-fiordo.webp"
+              alt="Portada de La canción del fiordo"
+              class="era-cover-image">
+          </div>
+          <h4>PRIMERAS SERIES</h4>
+        </article>
 
-                    </div>
+        <article class="era-example">
+          <div class="era-cover-placeholder">
+            <img
+              src="media/img/productos/comics/varios/la-sabiduria-de-los-mitos-09-zeus-y-las-guerras-de-los-dioses.webp"
+              alt="Portada de La sabiduría de los mitos"
+              class="era-cover-image">
+          </div>
+          <h4>TIRAS CÓMICAS</h4>
+        </article>
 
-                </div>
+      </div>
+    </div>
 
-            </section>
+
+    <!-- ÉPOCA 2: LA EDAD DEL TEBEO -->
+
+    <div class="era-panel-content" data-era-panel="1">
+
+      <p class="era-period">1930 - 1950</p>
+
+      <h3>LA EDAD DEL TEBEO</h3>
+
+      <p class="era-description">
+        El cómic se consolida como fenómeno popular. Aparecen
+        nuevas publicaciones, aventuras, héroes y personajes
+        que amplían las posibilidades del medio.
+      </p>
+
+      <div class="era-examples">
+
+        <article class="era-example">
+          <div class="era-cover-placeholder">
+            <img src=""
+                 alt="Portada de cómic de aventuras"
+                 class="era-cover-image">
+          </div>
+          <h4>AVENTURAS</h4>
+        </article>
+
+        <article class="era-example">
+          <div class="era-cover-placeholder">
+            <img src=""
+                 alt="Portada de cómic de héroes"
+                 class="era-cover-image">
+          </div>
+          <h4>HÉROES</h4>
+        </article>
+
+        <article class="era-example">
+          <div class="era-cover-placeholder">
+            <img src=""
+                 alt="Portada de publicación clásica"
+                 class="era-cover-image">
+          </div>
+          <h4>PUBLICACIONES</h4>
+        </article>
+
+      </div>
+    </div>
+
+
+    <!-- ÉPOCA 3: UNDERGROUND -->
+
+    <div class="era-panel-content" data-era-panel="2">
+
+      <p class="era-period">1960 - 1980</p>
+
+      <h3>UNDERGROUND</h3>
+
+      <p class="era-description">
+        Una generación de autores rompe con las convenciones.
+        El cómic explora nuevas temáticas, estilos gráficos
+        y formas de expresión independientes.
+      </p>
+
+      <div class="era-examples">
+
+        <article class="era-example">
+          <div class="era-cover-placeholder">
+            <img src=""
+                 alt="Portada de cómic alternativo"
+                 class="era-cover-image">
+          </div>
+          <h4>CÓMIC ALTERNATIVO</h4>
+        </article>
+
+        <article class="era-example">
+          <div class="era-cover-placeholder">
+            <img src=""
+                 alt="Portada de cómic underground"
+                 class="era-cover-image">
+          </div>
+          <h4>CONTRACULTURA</h4>
+        </article>
+
+        <article class="era-example">
+          <div class="era-cover-placeholder">
+            <img src=""
+                 alt="Portada de cómic independiente"
+                 class="era-cover-image">
+          </div>
+          <h4>AUTOEDICIÓN</h4>
+        </article>
+
+      </div>
+    </div>
+
+
+    <!-- ÉPOCA 4: CÓMIC CONTEMPORÁNEO -->
+
+    <div class="era-panel-content" data-era-panel="3">
+
+      <p class="era-period">1980 - HOY</p>
+
+      <h3>EL CÓMIC CONTEMPORÁNEO</h3>
+
+      <p class="era-description">
+        El lenguaje del cómic continúa evolucionando.
+        Conviven grandes universos editoriales, novela gráfica,
+        propuestas independientes y nuevas narrativas visuales.
+      </p>
+
+      <div class="era-examples">
+
+        <article class="era-example">
+          <div class="era-cover-placeholder">
+            <img src=""
+                 alt="Portada de novela gráfica"
+                 class="era-cover-image">
+          </div>
+          <h4>NOVELA GRÁFICA</h4>
+        </article>
+
+        <article class="era-example">
+          <div class="era-cover-placeholder">
+            <img src=""
+                 alt="Portada de cómic actual"
+                 class="era-cover-image">
+          </div>
+          <h4>CÓMIC ACTUAL</h4>
+        </article>
+
+        <article class="era-example">
+          <div class="era-cover-placeholder">
+            <img src=""
+                 alt="Portada de nuevas narrativas"
+                 class="era-cover-image">
+          </div>
+          <h4>NUEVAS NARRATIVAS</h4>
+        </article>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
 
 
             <!-- CLUB DE LECTURA -->

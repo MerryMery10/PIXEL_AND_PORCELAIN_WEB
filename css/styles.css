@@ -1610,7 +1610,6 @@ body.light-mode .footer-bottom-text {
 }
 
 .comic-eyebrow {
-    margin-bottom: 8px;
     color: var(--comic-green);
     font-family: "Dela Gothic One", sans-serif;
     font-size: 12px;
@@ -1676,174 +1675,379 @@ body.light-mode .footer-bottom-text {
 }
 
 
-/* ==========================================
-   3. ELIGE UNA ÉPOCA
-========================================== */
+
+
+
+/* =========================================
+   CÓMIC — SELECTOR DE ÉPOCAS
+========================================= */
+
+/* SECCIÓN GENERAL */
 
 .comic-eras {
-    padding-block: 5px 75px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .comic-section-title {
-    margin: 0 0 25px;
-    font-family: "Boldonse", sans-serif;
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    line-height: 1.1;
-    text-transform: uppercase;
-}
-
-.era-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-    gap: 15px;
-    align-items: stretch;
-    min-height: 260px;
+  margin-bottom: 35px;
 }
 
 
-/* Lomos */
+/* =========================================
+   TARJETAS EXPANSIBLES
+========================================= */
 
 .era-books {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-    min-width: 0;
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+  min-height: 340px;
+  margin-bottom: 35px;
 }
 
 .era-book {
-    position: relative;
-    min-width: 0;
-    min-height: 260px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 8px;
-    border: 0;
-    color: var(--comic-black);
-    cursor: pointer;
-    transition:
-        flex 0.35s ease,
-        filter 0.25s ease,
-        transform 0.25s ease;
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  min-width: 0;
+  overflow: hidden;
+  padding: 25px 20px;
+
+  border: 1px solid rgba(245, 242, 244, 0.25);
+  border-radius: 4px;
+
+  color: #F5F2F4;
+  text-align: left;
+  cursor: pointer;
+
+  transition:
+    flex 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.4s ease,
+    border-color 0.4s ease,
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
+/* FONDOS */
+
 .era-book-1 {
-    background: var(--comic-white);
+  background: linear-gradient(145deg, #292929, #080808);
 }
 
 .era-book-2 {
-    background: var(--comic-green);
+  background: linear-gradient(145deg, #302020, #080808);
 }
 
 .era-book-3 {
-    background: var(--comic-pink);
+  background: linear-gradient(145deg, #29202F, #080808);
 }
 
 .era-book-4 {
-    background: #A6A6A6;
+  background: linear-gradient(145deg, #202B2D, #080808);
 }
 
-.era-book:hover {
-    filter: brightness(0.88);
+/* ACTIVA */
+
+.era-book.is-active {
+  flex: 3;
+  border-color: #70FF0D;
+  box-shadow: inset 0 -5px 0 #70FF0D;
+}
+
+/* NÚMEROS */
+
+.era-number {
+  font-family: "Boldonse", sans-serif;
+  font-size: clamp(1.4rem, 3vw, 2.5rem);
+  color: #70FF0D;
+
+  transition: transform 0.4s ease;
+}
+
+.era-book.is-active .era-number {
+  transform: translateY(5px);
+}
+
+/* TÍTULOS */
+
+.era-book-title {
+  display: block;
+  max-width: 220px;
+
+  font-family: "Boldonse", sans-serif;
+  font-size: clamp(0.9rem, 1.5vw, 1.4rem);
+  line-height: 1.25;
+
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+
+  transition:
+    transform 0.4s ease,
+    color 0.4s ease,
+    font-size 0.4s ease;
+}
+
+.era-book.is-active .era-book-title {
+  writing-mode: horizontal-tb;
+  transform: none;
+  color: #70FF0D;
+  font-size: clamp(1.2rem, 2vw, 2rem);
+}
+
+/* CTA */
+
+.era-book-cta {
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+
+  opacity: 0;
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.era-book.is-active .era-book-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* HOVER */
+
+.era-book:not(.is-active):hover {
+  border-color: #FF00A1;
+  transform: translateY(-5px);
+}
+
+.era-book:not(.is-active):hover .era-number {
+  color: #FF00A1;
 }
 
 .era-book:focus-visible {
-    outline: 3px solid var(--comic-white);
-    outline-offset: 4px;
-}
-
-.era-number {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    min-width: 25px;
-    padding: 2px 5px;
-    background: var(--comic-black);
-    color: var(--comic-white);
-    font-family: "Dela Gothic One", sans-serif;
-    font-size: 13px;
-    text-align: center;
-}
-
-.era-book-title {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    font-family: "Dela Gothic One", sans-serif;
-    font-size: clamp(12px, 1.2vw, 16px);
-    line-height: 1;
-    text-transform: uppercase;
-    text-align: center;
+  outline: 2px solid #FF00A1;
+  outline-offset: 4px;
 }
 
 
-/* Panel de información */
+/* =========================================
+   PANEL DINÁMICO
+========================================= */
 
 .era-panel {
-    min-width: 0;
-    display: flex;
-    align-items: center;
-    padding: 25px;
-    background: var(--comic-white);
-    color: var(--comic-black);
+  width: 100%;
+  padding: clamp(22px, 4vw, 45px);
+
+  background: #111;
+  border: 1px solid rgba(245, 242, 244, 0.2);
+  border-radius: 4px;
+
+  color: #F5F2F4;
 }
+
+/* Ocultar paneles no seleccionados */
 
 .era-panel-content {
-    width: 100%;
+  display: none;
+  width: 100%;
 }
+
+/* Mostrar panel activo */
+
+.era-panel-content.is-active {
+  display: block;
+  animation: eraPanelIn 0.4s ease both;
+}
+
+/* INFORMACIÓN */
 
 .era-period {
-    margin: 0 0 5px;
-    color: #333;
-    font-family: "Dela Gothic One", sans-serif;
-    font-size: 11px;
+  margin-bottom: 12px;
+
+  color: #70FF0D;
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
 }
 
-.era-panel h3 {
-    margin: 0 0 8px;
-    font-family: "Boldonse", sans-serif;
-    font-size: clamp(1.2rem, 2vw, 1.8rem);
-    line-height: 1.1;
-    text-transform: uppercase;
+.era-panel-content h3 {
+  margin-bottom: 15px;
+
+  color: #F5F2F4;
+  font-family: "Boldonse", sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.2;
 }
 
-.era-panel-content > p:not(.era-period) {
-    max-width: 650px;
-    margin: 0 0 18px;
-    font-family: "Dela Gothic One", sans-serif;
-    font-size: 11px;
-    line-height: 1.6;
+.era-description {
+  max-width: 750px;
+  margin-bottom: 30px;
+
+  color: rgba(245, 242, 244, 0.8);
+  line-height: 1.7;
 }
+
+
+/* =========================================
+   PORTADAS
+========================================= */
 
 .era-examples {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  width: 100%;
 }
 
 .era-example {
-    min-width: 0;
+  min-width: 0;
 }
+
+/* MARCO DE IMAGEN */
 
 .era-cover-placeholder {
-    aspect-ratio: 1.25 / 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
-    background: #D4D4D4;
-    color: var(--comic-white);
-    font-family: "Dela Gothic One", sans-serif;
-    font-size: 10px;
-    text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+
+  background: #202020;
+  border: 1px solid rgba(245, 242, 244, 0.15);
+  border-radius: 3px;
 }
 
-.era-example h4 {
-    margin: 7px 0 0;
-    font-family: "Dela Gothic One", sans-serif;
-    font-size: 10px;
-    line-height: 1.2;
-    text-transform: uppercase;
+/* IMAGEN */
+
+.era-cover-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  transition: transform 0.4s ease;
 }
+
+/* HOVER DE PORTADAS */
+
+.era-example:hover .era-cover-image {
+  transform: scale(1.05);
+}
+
+/* TÍTULOS DE PORTADAS */
+
+.era-example h4 {
+  margin-top: 14px;
+
+  color: #70FF0D;
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
+@keyframes eraPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 767px) {
+
+  .era-books {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .era-book,
+  .era-book.is-active {
+    flex: none;
+    width: 100%;
+    min-height: 90px;
+    padding: 18px;
+  }
+
+  .era-book.is-active {
+    min-height: 150px;
+  }
+
+  .era-book-title,
+  .era-book.is-active .era-book-title {
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 1rem;
+  }
+
+  .era-book-cta {
+    display: none;
+  }
+
+  .era-book.is-active .era-book-cta {
+    display: block;
+    opacity: 1;
+    transform: none;
+  }
+
+  .era-examples {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+
+}
+
+@media (max-width: 420px) {
+
+  .era-examples {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================================
+   ACCESIBILIDAD
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .era-book,
+  .era-number,
+  .era-book-title,
+  .era-book-cta,
+  .era-cover-image,
+  .era-panel-content {
+    transition: none;
+    animation: none;
+  }
+
+}
+
 
 
 /* ==========================================
