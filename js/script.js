@@ -26,95 +26,162 @@ document.addEventListener("DOMContentLoaded", function () {
     const formFeedback = document.getElementById("formFeedback");
 
 
-    /* ======================================
-       2. MENÚ HAMBURGUESA
-    ====================================== */
+ 
+/* ======================================
+   2. MENÚ HAMBURGUESA
+====================================== */
 
-    if (menuToggle && navigation) {
+if (menuToggle && navigation) {
 
-        function closeMenu() {
+    function closeMenu() {
 
-            menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Abrir menú");
 
-            menuToggle.setAttribute("aria-label", "Abrir menú");
+        navigation.classList.remove("is-open");
 
-            navigation.classList.remove("is-open");
+        document.body.classList.remove("menu-open");
 
+    }
+
+
+    menuToggle.addEventListener("click", function () {
+
+        const isOpen =
+            menuToggle.getAttribute("aria-expanded") === "true";
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            String(!isOpen)
+        );
+
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Abrir menú" : "Cerrar menú"
+        );
+
+        navigation.classList.toggle("is-open", !isOpen);
+
+        document.body.classList.toggle("menu-open", !isOpen);
+
+    });
+
+
+    // Cerrar al seleccionar una sección
+
+    const menuLinks = navigation.querySelectorAll("a");
+
+    menuLinks.forEach(function (link) {
+
+        link.addEventListener("click", closeMenu);
+
+    });
+
+
+    // Cerrar pulsando Escape
+
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+            closeMenu();
         }
 
-
-        menuToggle.addEventListener("click", function () {
-
-            const isOpen =
-                menuToggle.getAttribute("aria-expanded") === "true";
+    });
 
 
-            menuToggle.setAttribute(
-                "aria-expanded",
-                String(!isOpen)
-            );
+    // Cerrar al cambiar a escritorio
+
+    window.addEventListener("resize", function () {
+
+        if (window.innerWidth >= 768) {
+            closeMenu();
+        }
+
+    });
+
+}
 
 
-            menuToggle.setAttribute(
-                "aria-label",
-                isOpen ? "Abrir menú" : "Cerrar menú"
-            );
+    
+/* ======================================
+   3. MODO CLARO / OSCURO PERSISTENTE
+====================================== */
+
+// Recuperar los botones
+
+const themeButtons = [
+    themeToggle,
+    themeToggleDesktop
+].filter(Boolean);
 
 
-            navigation.classList.toggle("is-open", !isOpen);
+// Recuperar el tema guardado
 
-        });
-
-
-        // Cerrar al seleccionar una sección
-
-        const menuLinks = navigation.querySelectorAll("a");
-
-        menuLinks.forEach(function (link) {
-
-            link.addEventListener("click", closeMenu);
-
-        });
+const savedTheme = localStorage.getItem("pp-theme");
 
 
-        // Cerrar al cambiar a escritorio
+// Aplicar el tema guardado
+// Si no existe ninguna preferencia, utilizar modo oscuro
 
-        window.addEventListener("resize", function () {
-
-            if (window.innerWidth >= 768) {
-
-                closeMenu();
-
-            }
-
-        });
-
-    }
+if (savedTheme === "light") {
+    document.body.classList.add("light-mode");
+} else {
+    document.body.classList.remove("light-mode");
+}
 
 
+// Actualizar los textos de ambos botones
 
-    /* ======================================
-       3. MODO CLARO / OSCURO
-    ====================================== */
+function updateThemeButtons() {
 
-    if (themeToggle) {
+    const isLight = document.body.classList.contains("light-mode");
 
-        themeToggle.addEventListener("click", function () {
+    themeButtons.forEach(function(button) {
 
-            document.body.classList.toggle("light-mode");
+        button.textContent = isLight
+            ? "◐ MODO OSCURO"
+            : "☀ MODO CLARO";
+
+        button.setAttribute(
+            "aria-label",
+            isLight
+                ? "Cambiar a modo oscuro"
+                : "Cambiar a modo claro"
+        );
+
+    });
+
+}
 
 
-            const isLight =
-                document.body.classList.contains("light-mode");
+// Inicializar los botones
+
+updateThemeButtons();
 
 
-            themeToggle.textContent = isLight
-                ? "☀ MODO CLARO"
-                : "◐ MODO OSCURO";
+// Cambiar y guardar el tema
 
-        });
+themeButtons.forEach(function(button) {
 
-    }
+    button.addEventListener("click", function() {
+
+        const isLight = document.body.classList.toggle("light-mode");
+
+        // Guardar la preferencia del usuario
+
+        localStorage.setItem(
+            "pp-theme",
+            isLight ? "light" : "dark"
+        );
+
+        // Actualizar ambos botones
+
+        updateThemeButtons();
+
+    });
+
+});
+
 
 
 

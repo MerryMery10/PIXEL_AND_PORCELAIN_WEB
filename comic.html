@@ -39,54 +39,113 @@
 
     <body id="inicio" class="min-h-screen overflow-x-hidden bg-tinta font-sans text-papel antialiased">
 
-        <!-- ================= HEADER ================= -->
+<!-- ================= HEADER ================= -->
 
-        <header class="header sticky top-0 z-[1000] w-full">
+    <header class="header sticky top-0 z-[1000] w-full" id="inicio">
 
-            <div class="header-container mx-auto flex w-[92%] max-w-[1440px] min-h-[76px] items-center justify-between">
+        <div class="header-container relative mx-auto flex w-[92%] max-w-[1440px] min-h-[76px] items-center justify-between">
 
-                <a href="index.html" class="logo">
-                    <img src="media/img/logo pixel and porcelain blanco.png"
-                        alt="Pixel and Porcelain" class="logo-dark">
+            <!-- LOGO -->
 
-                    <img src="media/img/logo pixel and porcelain negro.png"
-                        alt="Pixel and Porcelain" class="logo-light">
+            <a href="index.html" class="logo relative z-20">
+                <img src="media/img/logo pixel and porcelain blanco.png"
+                    alt="Pixel and Porcelain"
+                    class="logo-dark">
+
+                <img src="media/img/logo pixel and porcelain negro.png"
+                    alt="Pixel and Porcelain"
+                    class="logo-light">
+            </a>
+
+
+            <!-- MENÚ HAMBURGUESA -->
+
+            <button
+                class="menu-toggle md:hidden relative z-20 flex flex-col items-center justify-center gap-[5px] w-11 h-11 p-2.5"
+                id="menuToggle"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                aria-controls="navigation">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+
+            <!-- NAVEGACIÓN -->
+
+            <nav
+                class="navigation absolute md:static top-full left-0 right-0 md:flex md:flex-row md:items-center md:gap-[35px] md:p-0"
+                id="navigation"
+                aria-label="Navegación principal">
+
+                <!-- CABECERA DEL MENÚ MÓVIL -->
+
+                <div class="mobile-menu-header md:hidden">
+                    <span>PIXEL AND PORCELAIN</span>
+                    <span class="menu-status">
+                        <span class="status-dot"></span>
+                        SYSTEM ONLINE
+                    </span>
+                </div>
+
+
+                <!-- ENLACES -->
+
+                <a href="superheroes.html" class="nav-link">
+                    <span class="nav-number">01</span>
+                    <span>SUPERHÉROES</span>
+                    <span class="nav-arrow">↗</span>
                 </a>
 
-                <!-- MENÚ MÓVIL -->
+                <a href="comic.html" class="nav-link">
+                    <span class="nav-number">02</span>
+                    <span>CÓMIC</span>
+                    <span class="nav-arrow">↗</span>
+                </a>
 
-                <button
-                    class="menu-toggle md:hidden flex flex-col items-center justify-center gap-[5px] w-11 h-11 p-2.5"
-                    id="menuToggle"
-                    aria-label="Abrir menú"
-                    aria-expanded="false"
-                    aria-controls="navigation">
+                <a href="manga.html" class="nav-link">
+                    <span class="nav-number">03</span>
+                    <span>MANGA</span>
+                    <span class="nav-arrow">↗</span>
+                </a>
 
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                <a href="blog.html" class="nav-link">
+                    <span class="nav-number">04</span>
+                    <span>BLOG</span>
+                    <span class="nav-arrow">↗</span>
+                </a>
 
-                <!-- NAVEGACIÓN -->
 
-                <nav
-                    class="navigation absolute md:static top-full left-0 right-0 flex flex-col md:flex-row items-stretch md:items-center gap-0 md:gap-[35px] px-[5%] md:px-0"
-                    id="navigation">
+                <!-- PIE DEL MENÚ MÓVIL -->
 
-                    <a href="superheroes.html">SUPERHÉROES</a>
-                    <a href="comic.html" aria-current="page">CÓMIC</a>
-                    <a href="manga.html">MANGA</a>
-                    <a href="blog.html">BLOG</a>
+                <div class="mobile-menu-footer md:hidden">
 
-                    <button class="theme-toggle self-start md:self-auto mt-4 md:mt-0"
-                            id="themeToggle">
+                    <span class="menu-footer-label">EXPLORE YOUR UNIVERSE</span>
+
+                    <button class="theme-toggle" id="themeToggle">
                         ◐ MODO OSCURO
                     </button>
 
-                </nav>
+                    <span class="menu-version">P&P — 2026 / V.01</span>
 
-            </div>
-        </header>
+                </div>
+
+
+                <!-- BOTÓN DE TEMA EN ESCRITORIO -->
+
+                <button class="theme-toggle hidden md:block" id="themeToggleDesktop">
+                    ◐ MODO OSCURO
+                </button>
+
+            </nav>
+
+        </div>
+
+    </header>
+
 
 
         <main class="comic-page">
